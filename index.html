@@ -1,1099 +1,542 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="dark scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfolio of Kaliki Jayakrishnaa - AI & ML Engineer, Agentic AI, Full-Stack & Android Developer.">
-  <title>Kaliki Jayakrishnaa | AI & ML Engineer · Agentic AI · Full-Stack & Android Developer</title>
+  <title>Kaliki Jayakrishnaa — AI & ML Engineer</title>
+  <meta name="description" content="Portfolio of Kaliki Jayakrishnaa. AI & ML Engineer specializing in autonomous AI agents, machine learning pipelines, and production Android/web platforms.">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+            mono: ['JetBrains Mono', 'Fira Code', 'Menlo', 'monospace'],
+          },
+          colors: {
+            border: '#27272a',
+            background: '#09090b',
+            foreground: '#fafafa',
+            muted: '#71717a',
+            accent: '#18181b',
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
-    
-    :root {
-      --primary-gradient: linear-gradient(135deg, #06b6d4 0%, #3b82f6 50%, #8b5cf6 100%);
-      --accent-glow: radial-gradient(circle at 50% 50%, rgba(6, 182, 212, 0.15), transparent 70%);
-    }
-
     body {
-      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-      background-color: #080c16;
-      color: #e2e8f0;
-      overflow-x: hidden;
+      background-color: #09090b;
+      color: #fafafa;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
-
-    code, .font-mono {
+    .font-mono {
       font-family: 'JetBrains Mono', monospace;
     }
-
-    .glass-card {
-      background: rgba(15, 23, 42, 0.65);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+    ::selection {
+      background: #27272a;
+      color: #38bdf8;
     }
-
-    .glass-card:hover {
-      border-color: rgba(56, 189, 248, 0.3);
-      box-shadow: 0 12px 30px -10px rgba(6, 182, 212, 0.15);
+    /* 21st.dev / shadcn style subtle grid */
+    .bg-grid {
+      background-size: 32px 32px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
     }
-
-    .gradient-text {
-      background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    /* Subtle border transition */
+    .item-card {
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     }
-
+    .item-card:hover {
+      border-color: #3f3f46;
+      background-color: rgba(24, 24, 27, 0.6);
+    }
+    /* Custom scrollbar */
     ::-webkit-scrollbar {
-      width: 8px;
+      width: 6px;
     }
     ::-webkit-scrollbar-track {
-      background: #080c16;
+      background: #09090b;
     }
     ::-webkit-scrollbar-thumb {
-      background: #1e293b;
-      border-radius: 4px;
+      background: #27272a;
+      border-radius: 3px;
     }
     ::-webkit-scrollbar-thumb:hover {
-      background: #334155;
-    }
-
-    @keyframes pulseGlow {
-      0%, 100% { opacity: 0.4; transform: scale(1); }
-      50% { opacity: 0.7; transform: scale(1.05); }
-    }
-    .animate-pulse-slow {
-      animation: pulseGlow 6s ease-in-out infinite;
+      background: #3f3f46;
     }
   </style>
 </head>
-<body class="selection:bg-cyan-500/20 selection:text-cyan-300">
+<body class="bg-[#09090b] text-[#fafafa] relative min-h-screen">
 
-  <!-- Ambient Background Glows -->
-  <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-    <div class="absolute -top-40 -left-40 w-96 h-96 bg-cyan-500/10 rounded-full blur-[120px] animate-pulse-slow"></div>
-    <div class="absolute top-1/3 -right-40 w-[30rem] h-[30rem] bg-indigo-500/10 rounded-full blur-[140px] animate-pulse-slow" style="animation-delay: 2s;"></div>
-    <div class="absolute -bottom-40 left-1/3 w-[32rem] h-[32rem] bg-blue-600/10 rounded-full blur-[140px] animate-pulse-slow" style="animation-delay: 4s;"></div>
-    <div class="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:32px_32px] opacity-25"></div>
+  <!-- Subtle Ambient Top Radial Glow (21st.dev style) -->
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-5xl h-96 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-zinc-800/20 via-transparent to-transparent pointer-events-none -z-10"></div>
+  <div class="fixed inset-0 bg-grid pointer-events-none opacity-40 -z-20"></div>
+
+  <!-- Floating Minimal Dock Navigation (21st.dev / Magic UI style) -->
+  <div class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50">
+    <nav class="flex items-center gap-1 p-1.5 rounded-full border border-zinc-800/80 bg-zinc-950/80 backdrop-blur-md shadow-2xl shadow-black/80">
+      <a href="#about" class="px-3 py-1.5 rounded-full text-xs font-medium text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800/70 transition-all">About</a>
+      <a href="#experience" class="px-3 py-1.5 rounded-full text-xs font-medium text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800/70 transition-all">Work</a>
+      <a href="#projects" class="px-3 py-1.5 rounded-full text-xs font-medium text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800/70 transition-all">Projects</a>
+      <a href="#skills" class="px-3 py-1.5 rounded-full text-xs font-medium text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800/70 transition-all">Skills</a>
+      <a href="#education" class="px-3 py-1.5 rounded-full text-xs font-medium text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800/70 transition-all">Education</a>
+      <div class="h-3 w-[1px] bg-zinc-800 mx-1"></div>
+      <a href="#contact" class="px-3.5 py-1.5 rounded-full text-xs font-medium bg-zinc-100 text-zinc-950 hover:bg-zinc-200 transition-all">Contact</a>
+    </nav>
   </div>
 
-  <!-- Navigation Bar -->
-  <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 glass-card border-b border-slate-800/80 bg-slate-950/80">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-      <a href="#hero" class="flex items-center gap-3 group">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-indigo-600 flex items-center justify-center font-bold text-white shadow-lg shadow-cyan-500/25 group-hover:scale-105 transition-transform">
-          JK
-        </div>
-        <div class="flex flex-col">
-          <span class="font-bold text-slate-100 tracking-tight text-sm sm:text-base group-hover:text-cyan-400 transition-colors">Kaliki Jayakrishnaa</span>
-          <span class="text-[11px] text-cyan-400/90 font-mono tracking-wider">AI/ML &middot; SOFTWARE ENG</span>
-        </div>
-      </a>
-
-      <!-- Desktop Nav Links -->
-      <nav class="hidden md:flex items-center gap-1 font-medium text-sm text-slate-300">
-        <a href="#about" class="px-3 py-1.5 rounded-lg hover:text-cyan-400 hover:bg-slate-800/50 transition-all">About</a>
-        <a href="#experience" class="px-3 py-1.5 rounded-lg hover:text-cyan-400 hover:bg-slate-800/50 transition-all">Experience</a>
-        <a href="#projects" class="px-3 py-1.5 rounded-lg hover:text-cyan-400 hover:bg-slate-800/50 transition-all">Projects</a>
-        <a href="#skills" class="px-3 py-1.5 rounded-lg hover:text-cyan-400 hover:bg-slate-800/50 transition-all">Skills</a>
-        <a href="#education" class="px-3 py-1.5 rounded-lg hover:text-cyan-400 hover:bg-slate-800/50 transition-all">Education</a>
-      </nav>
-
-      <!-- Action Buttons -->
-      <div class="flex items-center gap-3">
-        <a href="#contact" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white shadow-md shadow-cyan-500/20 hover:shadow-cyan-500/40 transition-all">
-          <span>Let's Connect</span>
-          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-          </svg>
-        </a>
-        <button id="mobileMenuBtn" class="md:hidden p-2 text-slate-400 hover:text-white" aria-label="Toggle Menu">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
-          </svg>
-        </button>
-      </div>
-    </div>
-
-    <!-- Mobile Dropdown Menu -->
-    <div id="mobileMenu" class="hidden md:hidden px-4 pt-2 pb-4 border-t border-slate-800 bg-slate-950/95 space-y-1 text-sm font-medium text-slate-300">
-      <a href="#about" class="block px-3 py-2 rounded-md hover:bg-slate-800 text-slate-200">About</a>
-      <a href="#experience" class="block px-3 py-2 rounded-md hover:bg-slate-800 text-slate-200">Experience</a>
-      <a href="#projects" class="block px-3 py-2 rounded-md hover:bg-slate-800 text-slate-200">Projects</a>
-      <a href="#skills" class="block px-3 py-2 rounded-md hover:bg-slate-800 text-slate-200">Skills</a>
-      <a href="#education" class="block px-3 py-2 rounded-md hover:bg-slate-800 text-slate-200">Education</a>
-      <a href="#contact" class="block px-3 py-2 rounded-md bg-cyan-600/20 text-cyan-300 font-semibold mt-2">Get In Touch</a>
-    </div>
-  </header>
-
-  <main class="relative z-10 pt-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24">
+  <!-- Page Container (Single Column Focused Layout) -->
+  <main class="max-w-2xl mx-auto px-6 pt-16 pb-32 space-y-16">
 
     <!-- HERO SECTION -->
-    <section id="hero" class="pt-10 pb-8 sm:pt-16 sm:pb-14 flex flex-col items-center text-center">
+    <section id="about" class="space-y-6">
       
-      <!-- Honors Banner Pill -->
-      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-amber-500/30 bg-amber-500/10 text-amber-300 text-xs font-semibold mb-6 animate-fade-in backdrop-blur-sm shadow-sm">
-        <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-        </svg>
-        <span>100% Scholarship Awardee &middot; B.Tech CSE (AIML) at GITAM</span>
-      </div>
-
-      <!-- Main Heading -->
-      <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6 max-w-5xl">
-        Engineering Intelligent <br class="hidden sm:inline" />
-        <span class="gradient-text">AI Agents & Scalable Systems</span>
-      </h1>
-
-      <!-- Bio subtext -->
-      <p class="text-slate-400 text-base sm:text-xl max-w-3xl leading-relaxed mb-8">
-        Hi, I'm <span class="text-slate-100 font-semibold">Kaliki Jayakrishnaa</span>. I design autonomous AI agents, deploy high-accuracy ML architectures (BERT, RAG, Computer Vision), and ship end-to-end production web & Android platforms.
-      </p>
-
-      <!-- Key Impact Metrics Bar -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 w-full max-w-4xl mb-10">
-        <div class="glass-card rounded-2xl p-4 sm:p-5 flex flex-col items-center justify-center">
-          <span class="text-2xl sm:text-3xl font-extrabold text-cyan-400 font-mono">70%</span>
-          <span class="text-xs text-slate-400 mt-1 text-center font-medium">Auto-Resolution with AI Agents at Amazon</span>
+      <div class="flex items-start justify-between gap-4">
+        <div class="space-y-1.5">
+          <h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-100">
+            Kaliki Jayakrishnaa
+          </h1>
+          <p class="text-sm font-medium text-zinc-400 font-mono">
+            AI &amp; Machine Learning Engineer &middot; Software Systems
+          </p>
         </div>
-        <div class="glass-card rounded-2xl p-4 sm:p-5 flex flex-col items-center justify-center">
-          <span class="text-2xl sm:text-3xl font-extrabold text-emerald-400 font-mono">99%+</span>
-          <span class="text-xs text-slate-400 mt-1 text-center font-medium">Investigation Accuracy & Operational QA</span>
-        </div>
-        <div class="glass-card rounded-2xl p-4 sm:p-5 flex flex-col items-center justify-center">
-          <span class="text-2xl sm:text-3xl font-extrabold text-indigo-400 font-mono">94%</span>
-          <span class="text-xs text-slate-400 mt-1 text-center font-medium">BERT Deceptive Review Precision (ReviewGuard)</span>
-        </div>
-        <div class="glass-card rounded-2xl p-4 sm:p-5 flex flex-col items-center justify-center">
-          <span class="text-2xl sm:text-3xl font-extrabold text-amber-400 font-mono">100%</span>
-          <span class="text-xs text-slate-400 mt-1 text-center font-medium">Academic Scholarship at GITAM University</span>
+
+        <!-- Minimal Monogram Avatar -->
+        <div class="w-14 h-14 rounded-2xl bg-zinc-900 border border-zinc-800 flex items-center justify-center shrink-0 shadow-inner group">
+          <span class="font-mono font-semibold text-lg text-zinc-300 group-hover:text-white transition-colors">JK</span>
         </div>
       </div>
 
-      <!-- Quick Action CTAs & Social Links -->
-      <div class="flex flex-wrap items-center justify-center gap-4">
-        <a href="#projects" class="px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-semibold text-sm shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 transition-all flex items-center gap-2">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
-          </svg>
-          Explore Projects
+      <!-- Live Status Pill -->
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-emerald-500/20 bg-emerald-500/10 text-emerald-400 text-xs font-medium">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+        </span>
+        <span>Available for new engineering roles &middot; Hyderabad, IN / Remote</span>
+      </div>
+
+      <!-- Narrative Bio -->
+      <div class="text-sm text-zinc-300 leading-relaxed space-y-3">
+        <p>
+          I am a software and machine learning engineer focused on autonomous <strong class="text-zinc-100 font-semibold">AI agent architectures</strong>, process automation, and production-grade full-stack and Android platforms.
+        </p>
+        <p>
+          At <strong class="text-zinc-100 font-semibold">Amazon Development Center</strong>, I contributed to the architecture of an internal AI agent that automated investigation workflows for high-volume transactions—resolving 70% of inquiries autonomously with 99%+ operational accuracy. Through <strong class="text-zinc-100 font-semibold">Kaliki Labs</strong>, I develop and deploy production applications across Android (Kotlin, Google Play) and modern web architectures.
+        </p>
+      </div>
+
+      <!-- Social & Quick Action Buttons (21st.dev button group) -->
+      <div class="flex flex-wrap items-center gap-2 pt-1">
+        <a href="https://github.com/jayakrishnaa18" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-zinc-800 bg-zinc-900/60 hover:bg-zinc-800/80 hover:border-zinc-700 text-zinc-300 hover:text-white text-xs font-medium transition-colors">
+          <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          <span>GitHub</span>
         </a>
 
-        <a href="https://github.com/Jayakrishnaa" target="_blank" rel="noopener noreferrer" class="px-5 py-3 rounded-xl glass-card text-slate-200 hover:text-white hover:border-slate-600 font-semibold text-sm transition-all flex items-center gap-2">
-          <!-- GitHub SVG -->
-          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
-          </svg>
-          GitHub
+        <a href="https://linkedin.com/in/JayakrishnaaKaliki" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-zinc-800 bg-zinc-900/60 hover:bg-zinc-800/80 hover:border-zinc-700 text-zinc-300 hover:text-white text-xs font-medium transition-colors">
+          <svg class="w-3.5 h-3.5 fill-current text-[#0a66c2]" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9h2.8v8.37h-2.8V10.9M7.86 6.5a1.63 1.63 0 0 0-1.63 1.62c0 .9.73 1.63 1.63 1.63.9 0 1.63-.73 1.63-1.63 0-.9-.73-1.62-1.63-1.62Z"/></svg>
+          <span>LinkedIn</span>
         </a>
 
-        <a href="https://linkedin.com/in/JayakrishnaaKaliki" target="_blank" rel="noopener noreferrer" class="px-5 py-3 rounded-xl glass-card text-slate-200 hover:text-white hover:border-slate-600 font-semibold text-sm transition-all flex items-center gap-2">
-          <!-- LinkedIn SVG -->
-          <svg class="w-4 h-4 fill-current text-[#0077b5]" viewBox="0 0 24 24">
-            <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9h2.8v8.37h-2.8V10.9M7.86 6.5a1.63 1.63 0 0 0-1.63 1.62c0 .9.73 1.63 1.63 1.63.9 0 1.63-.73 1.63-1.63 0-.9-.73-1.62-1.63-1.62Z"/>
-          </svg>
-          LinkedIn
+        <a href="mailto:jayakrishnaakaliki@gmail.com" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-zinc-800 bg-zinc-900/60 hover:bg-zinc-800/80 hover:border-zinc-700 text-zinc-300 hover:text-white text-xs font-medium transition-colors">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          <span>Email</span>
         </a>
 
-        <a href="mailto:jayakrishnaakaliki@gmail.com" class="px-5 py-3 rounded-xl glass-card text-slate-200 hover:text-white hover:border-slate-600 font-semibold text-sm transition-all flex items-center gap-2">
-          <svg class="w-4 h-4 text-rose-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-          </svg>
-          Email Me
-        </a>
+        <button onclick="copyContact('email')" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-zinc-800 bg-zinc-900/60 hover:bg-zinc-800/80 hover:border-zinc-700 text-zinc-400 hover:text-zinc-200 text-xs font-mono transition-colors" title="Copy email">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+          <span>copy email</span>
+        </button>
       </div>
 
     </section>
 
-    <!-- ABOUT SECTION -->
-    <section id="about" class="scroll-mt-24">
-      <div class="flex items-center gap-3 mb-8">
-        <div class="w-8 h-8 rounded-lg bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 font-mono font-bold text-sm">
-          01
-        </div>
-        <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">About & Background</h2>
-        <div class="h-[1px] flex-1 bg-gradient-to-r from-slate-800 to-transparent ml-4"></div>
+    <!-- WORK EXPERIENCE -->
+    <section id="experience" class="space-y-6">
+      <div class="flex items-center justify-between border-b border-zinc-800/80 pb-3">
+        <h2 class="text-sm font-semibold uppercase tracking-wider text-zinc-400 font-mono">Work Experience</h2>
+        <span class="text-xs text-zinc-500 font-mono">2023 — Present</span>
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        <div class="lg:col-span-7 space-y-5 text-slate-300 leading-relaxed text-base">
-          <p>
-            I am a machine learning and software engineer specializing in <strong class="text-white">Agentic AI architectures</strong>, high-volume process automation, and full-stack software development. With a strong foundation in Computer Science & AIML (graduating with a 100% merit scholarship) and ongoing advanced studies in Data Science & Analytics, I operate at the intersection of mathematical ML modeling and resilient systems engineering.
-          </p>
-          <p>
-            At <strong class="text-cyan-400">Amazon Development Center</strong>, I contributed directly to the architecture and deployment of an autonomous AI agent capable of resolving 70% of transactional workflow inquiries independently while maintaining over 99% investigation accuracy across high-volume queues.
-          </p>
-          <p>
-            Beyond enterprise automation, as founder/engineer at <strong class="text-indigo-400">Kaliki Labs</strong>, I design, ship, and support production mobile and web platforms like the <span class="text-slate-100 font-medium">Krihaa News</span> bilingual ecosystem and native Android media engines on Google Play.
-          </p>
+      <div class="space-y-6">
 
-          <div class="pt-3 grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
-            <div class="flex items-center gap-2.5 p-3 rounded-xl bg-slate-900/60 border border-slate-800">
-              <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
-              <span class="text-slate-400">Location:</span>
-              <span class="text-slate-200 font-medium">Hyderabad / AP, India</span>
-            </div>
-            <div class="flex items-center gap-2.5 p-3 rounded-xl bg-slate-900/60 border border-slate-800">
-              <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-              <span class="text-slate-400">Status:</span>
-              <span class="text-emerald-300 font-medium">Available for Opportunities</span>
-            </div>
-            <div class="flex items-center gap-2.5 p-3 rounded-xl bg-slate-900/60 border border-slate-800">
-              <span class="w-2 h-2 rounded-full bg-indigo-400"></span>
-              <span class="text-slate-400">Core Focus:</span>
-              <span class="text-slate-200 font-medium">AI Agents, LLMs & ML Ops</span>
-            </div>
-            <div class="flex items-center gap-2.5 p-3 rounded-xl bg-slate-900/60 border border-slate-800">
-              <span class="w-2 h-2 rounded-full bg-amber-400"></span>
-              <span class="text-slate-400">Education:</span>
-              <span class="text-slate-200 font-medium">B.Tech CSE (AIML) + MBA</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Right Quick Info Card -->
-        <div class="lg:col-span-5 glass-card rounded-2xl p-6 border border-slate-800 space-y-6">
-          <div class="flex items-center justify-between pb-4 border-b border-slate-800">
-            <span class="text-xs font-mono text-cyan-400 tracking-wider uppercase font-semibold">Contact Quick Card</span>
-            <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-cyan-950 text-cyan-300 border border-cyan-800">VERIFIED</span>
-          </div>
-
-          <div class="space-y-4 text-sm">
+        <!-- Experience 1: Amazon -->
+        <div class="group relative rounded-xl border border-zinc-800/70 p-5 item-card bg-zinc-900/30">
+          <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-2">
             <div>
-              <span class="text-xs text-slate-400 block mb-1">Email Address</span>
-              <div class="flex items-center justify-between p-2.5 rounded-lg bg-slate-900/80 border border-slate-800">
-                <span class="font-mono text-slate-200 select-all text-xs sm:text-sm">jayakrishnaakaliki@gmail.com</span>
-                <button onclick="copyToClipboard('jayakrishnaakaliki@gmail.com', 'emailToast')" class="text-xs text-cyan-400 hover:text-cyan-300 p-1 font-semibold flex items-center gap-1" title="Copy email">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
-                </button>
-              </div>
+              <h3 class="text-base font-semibold text-zinc-100 flex items-center gap-2">
+                <span>ML Data Associate</span>
+                <span class="text-xs px-2 py-0.5 rounded border border-zinc-700/60 bg-zinc-800/50 text-zinc-300 font-normal">Amazon Development Center</span>
+              </h3>
+              <p class="text-xs text-zinc-400 font-mono mt-0.5">AI Agent Development &middot; ML &amp; Process Automation</p>
             </div>
-
-            <div>
-              <span class="text-xs text-slate-400 block mb-1">Phone / WhatsApp</span>
-              <div class="flex items-center justify-between p-2.5 rounded-lg bg-slate-900/80 border border-slate-800">
-                <span class="font-mono text-slate-200 select-all text-xs sm:text-sm">+91-8374210497</span>
-                <button onclick="copyToClipboard('+918374210497', 'phoneToast')" class="text-xs text-cyan-400 hover:text-cyan-300 p-1 font-semibold flex items-center gap-1" title="Copy phone">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
-                </button>
-              </div>
-            </div>
-
-            <div class="pt-2 flex items-center gap-3">
-              <a href="https://github.com/Jayakrishnaa" target="_blank" class="flex-1 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-center font-medium text-xs text-white transition-colors flex items-center justify-center gap-1.5">
-                <span>GitHub Profile</span>
-                <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-              </a>
-              <a href="https://linkedin.com/in/JayakrishnaaKaliki" target="_blank" class="flex-1 py-2 rounded-lg bg-[#0077b5]/20 hover:bg-[#0077b5]/30 text-[#38bdf8] border border-[#0077b5]/40 text-center font-medium text-xs transition-colors flex items-center justify-center gap-1.5">
-                <span>LinkedIn Connect</span>
-                <svg class="w-3.5 h-3.5 text-[#38bdf8]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- EXPERIENCE SECTION -->
-    <section id="experience" class="scroll-mt-24">
-      <div class="flex items-center gap-3 mb-8">
-        <div class="w-8 h-8 rounded-lg bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 font-mono font-bold text-sm">
-          02
-        </div>
-        <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">Work Experience</h2>
-        <div class="h-[1px] flex-1 bg-gradient-to-r from-slate-800 to-transparent ml-4"></div>
-      </div>
-
-      <div class="space-y-8 relative before:absolute before:inset-0 before:left-3.5 md:before:left-6 before:w-0.5 before:bg-slate-800">
-        
-        <!-- Experience 1: Amazon Development Center -->
-        <div class="relative pl-10 md:pl-16 group">
-          <div class="absolute left-0 top-1.5 w-7 h-7 md:w-12 md:h-12 rounded-xl bg-slate-900 border-2 border-cyan-400/80 group-hover:border-cyan-300 flex items-center justify-center shadow-lg shadow-cyan-500/20 group-hover:scale-105 transition-all">
-            <svg class="w-4 h-4 md:w-6 md:h-6 text-amber-400 fill-current" viewBox="0 0 24 24">
-              <path d="M15.93 17.09c-2.83 2.08-6.95 3.2-10.53 1.94-.5-.18-.95.27-.6.7 2.45 2.97 7.02 4.19 11.08 2.05.51-.27.42-1.02-.15-1.19-.07-.02-.15-.02-.2-.02l.4.52zM19.8 15.65c-.26-.35-1.74-.2-2.4-.11-.2.03-.23-.15-.05-.28 1.18-.84 3.12-.6 3.35-.31.23.29-.07 2.25-1.19 3.19-.18.15-.34.07-.26-.13.26-.64.81-2.01.55-2.36zM13.82 4.88c.83 0 1.54.43 1.83 1.09l.06.18h.07c.22-.67.92-1.27 1.84-1.27 1.45 0 2.38 1.04 2.38 2.76v5.82h-2.12V8.04c0-.98-.44-1.55-1.22-1.55-.8 0-1.32.59-1.32 1.63v5.34H13.2V8.04c0-.98-.43-1.55-1.21-1.55-.83 0-1.35.61-1.35 1.63v5.34H8.53V4.97h2.09v.99h.06c.38-.68 1.1-1.08 2.14-1.08h1z"/>
-            </svg>
+            <span class="text-xs text-zinc-500 font-mono shrink-0">Mar 2025 &mdash; Jun 2026 &middot; Hyderabad</span>
           </div>
 
-          <div class="glass-card rounded-2xl p-6 sm:p-7 border border-slate-800">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
-              <div>
-                <h3 class="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors">
-                  ML Data Associate
-                </h3>
-                <div class="flex flex-wrap items-center gap-2 mt-1">
-                  <span class="text-amber-400 font-semibold text-sm">Amazon Development Center</span>
-                  <span class="text-slate-500">&middot;</span>
-                  <span class="text-xs text-slate-400">Hyderabad, India</span>
-                  <span class="text-slate-500">&middot;</span>
-                  <span class="text-xs px-2 py-0.5 rounded-full bg-cyan-950/80 text-cyan-300 border border-cyan-800/80 font-mono">
-                    AI Agent Development / ML & Process Automation
-                  </span>
-                </div>
-              </div>
-              <div class="inline-flex items-center gap-1.5 text-xs font-mono text-cyan-300/90 bg-slate-900/90 px-3 py-1.5 rounded-lg border border-slate-700/60 w-fit">
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                Mar 2025 – Jun 2026
-              </div>
-            </div>
+          <ul class="space-y-2 text-xs text-zinc-300 leading-relaxed mt-3.5">
+            <li class="flex items-start gap-2">
+              <span class="text-zinc-500 mt-1 select-none">&bull;</span>
+              <span>Contributed to the design and implementation of an <strong class="text-zinc-100 font-medium">autonomous AI agent</strong> for transaction investigation workflows, enabling <strong class="text-zinc-100 font-medium">70% of operational queries to be resolved independently</strong>.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-zinc-500 mt-1 select-none">&bull;</span>
+              <span>Engineered custom <strong class="text-zinc-100 font-medium">Tampermonkey process automation scripts</strong> integrated with internal operational consoles, eliminating repetitive manual steps and cutting ticket turnaround time.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-zinc-500 mt-1 select-none">&bull;</span>
+              <span>Maintained <strong class="text-zinc-100 font-medium">99%+ investigation accuracy</strong> across high-volume queues, utilizing root-cause analysis (RCA) and data-driven debugging to resolve system vulnerabilities.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-zinc-500 mt-1 select-none">&bull;</span>
+              <span>Served as operational <strong class="text-zinc-100 font-medium">Point of Contact (POC) for two core workflows</strong>, bridging technical tooling improvements with cross-functional stakeholders.</span>
+            </li>
+          </ul>
 
-            <ul class="mt-4 space-y-3 text-slate-300 text-sm leading-relaxed">
-              <li class="flex items-start gap-2.5">
-                <svg class="w-4 h-4 text-cyan-400 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                <span>Contributed to the design and development of an <strong class="text-white">autonomous AI agent</strong> that streamlined investigation workflows on a high-volume transaction platform, enabling <strong class="text-cyan-300">70% of queries to be resolved independently</strong> and dramatically improving operational efficiency at scale.</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <svg class="w-4 h-4 text-cyan-400 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                <span>Built robust <strong class="text-white">process automation scripts (Tampermonkey / JavaScript)</strong> to deeply integrate with internal tooling and accelerate repetitive investigation steps, significantly cutting manual turnaround time.</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <svg class="w-4 h-4 text-cyan-400 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                <span>Investigated and resolved high-volume transaction cases with <strong class="text-emerald-400">99%+ accuracy</strong>, applying root-cause analysis (RCA) and data-driven debugging to close process vulnerabilities and ensure strict compliance.</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <svg class="w-4 h-4 text-cyan-400 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                <span>Served as operational <strong class="text-white">Point of Contact (POC) for two critical workflows</strong>, translating complex business requirements into tangible tool and workflow upgrades while collaborating with cross-functional engineering and operations stakeholders.</span>
-              </li>
-            </ul>
-
-            <div class="mt-5 pt-4 border-t border-slate-800/80 flex flex-wrap gap-2">
-              <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800 text-slate-300">AI Agents</span>
-              <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800 text-slate-300">Tampermonkey</span>
-              <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800 text-slate-300">Root Cause Analysis</span>
-              <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800 text-slate-300">Workflow Automation</span>
-              <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800 text-slate-300">High-Volume QA</span>
-            </div>
+          <div class="flex flex-wrap gap-1.5 mt-4 pt-3 border-t border-zinc-800/60">
+            <span class="px-2 py-0.5 text-[11px] font-mono text-zinc-400 bg-zinc-800/50 rounded">AI Agents</span>
+            <span class="px-2 py-0.5 text-[11px] font-mono text-zinc-400 bg-zinc-800/50 rounded">Tool Calling</span>
+            <span class="px-2 py-0.5 text-[11px] font-mono text-zinc-400 bg-zinc-800/50 rounded">Tampermonkey</span>
+            <span class="px-2 py-0.5 text-[11px] font-mono text-zinc-400 bg-zinc-800/50 rounded">Root Cause Analysis</span>
+            <span class="px-2 py-0.5 text-[11px] font-mono text-zinc-400 bg-zinc-800/50 rounded">JavaScript</span>
           </div>
         </div>
 
         <!-- Experience 2: Kaliki Labs -->
-        <div class="relative pl-10 md:pl-16 group">
-          <div class="absolute left-0 top-1.5 w-7 h-7 md:w-12 md:h-12 rounded-xl bg-slate-900 border-2 border-indigo-400/80 group-hover:border-indigo-300 flex items-center justify-center shadow-lg shadow-indigo-500/20 group-hover:scale-105 transition-all">
-            <svg class="w-4 h-4 md:w-6 md:h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
-            </svg>
+        <div class="group relative rounded-xl border border-zinc-800/70 p-5 item-card bg-zinc-900/30">
+          <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-2">
+            <div>
+              <h3 class="text-base font-semibold text-zinc-100 flex items-center gap-2">
+                <span>Freelance Software Engineer</span>
+                <span class="text-xs px-2 py-0.5 rounded border border-zinc-700/60 bg-zinc-800/50 text-zinc-300 font-normal">Kaliki Labs</span>
+              </h3>
+              <p class="text-xs text-zinc-400 font-mono mt-0.5">Application &amp; Platform Development</p>
+            </div>
+            <span class="text-xs text-zinc-500 font-mono shrink-0">Jan 2025 &mdash; Present &middot; Remote</span>
           </div>
 
-          <div class="glass-card rounded-2xl p-6 sm:p-7 border border-slate-800">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
-              <div>
-                <h3 class="text-xl font-bold text-white group-hover:text-indigo-400 transition-colors">
-                  Freelance Software Engineer
-                </h3>
-                <div class="flex flex-wrap items-center gap-2 mt-1">
-                  <span class="text-indigo-400 font-semibold text-sm">Kaliki Labs</span>
-                  <span class="text-slate-500">&middot;</span>
-                  <span class="text-xs text-slate-400">Remote</span>
-                  <span class="text-slate-500">&middot;</span>
-                  <span class="text-xs px-2 py-0.5 rounded-full bg-indigo-950/80 text-indigo-300 border border-indigo-800/80 font-mono">
-                    Software Engineering – Application & Platform Development
-                  </span>
-                </div>
-              </div>
-              <div class="inline-flex items-center gap-1.5 text-xs font-mono text-indigo-300/90 bg-slate-900/90 px-3 py-1.5 rounded-lg border border-slate-700/60 w-fit">
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                Jan 2025 – Present
-              </div>
-            </div>
+          <ul class="space-y-2 text-xs text-zinc-300 leading-relaxed mt-3.5">
+            <li class="flex items-start gap-2">
+              <span class="text-zinc-500 mt-1 select-none">&bull;</span>
+              <span>Architected and deployed full-lifecycle software across <strong class="text-zinc-100 font-medium">native Android and web platforms</strong>, including test automation, performance profiling, and release pipelines.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-zinc-500 mt-1 select-none">&bull;</span>
+              <span>Engineered <strong class="text-zinc-100 font-medium">Krihaa News</strong>, an optimized bilingual English/Telugu digital platform with programmatic SEO, backend content structuring, and search indexing.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-zinc-500 mt-1 select-none">&bull;</span>
+              <span>Shipped and maintained native Android applications using <strong class="text-zinc-100 font-medium">Kotlin</strong>, managing Google Play Console deployment, build signing, and version rollouts.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-zinc-500 mt-1 select-none">&bull;</span>
+              <span>Engineered performance improvements for media streaming applications including <strong class="text-zinc-100 font-medium">Kaliki Player</strong>, optimizing hardware decoding pipelines.</span>
+            </li>
+          </ul>
 
-            <ul class="mt-4 space-y-3 text-slate-300 text-sm leading-relaxed">
-              <li class="flex items-start gap-2.5">
-                <svg class="w-4 h-4 text-indigo-400 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                <span>Architected, engineered, and maintained production software solutions end-to-end across <strong class="text-white">Android and web platforms</strong>: lifecycle development, proactive debugging, latency optimization, unit testing, and continuous deployment.</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <svg class="w-4 h-4 text-indigo-400 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                <span>Built and maintained <strong class="text-white">Krihaa News</strong>, an optimized bilingual English/Telugu news platform, architecting backend content structure, search indexing, programmatic SEO, and platform reliability.</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <svg class="w-4 h-4 text-indigo-400 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                <span>Shipped and maintained native <strong class="text-white">Android applications using Kotlin</strong>, owning beta testing rings, release preparation, APK/AAB bundle signing, and Google Play Console release cycles.</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <svg class="w-4 h-4 text-indigo-400 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                <span>Delivered user-centric features and performance upgrades for applications including <strong class="text-white">Kaliki Player</strong>, optimizing decoding pipelines and fluid UI rendering.</span>
-              </li>
-            </ul>
-
-            <div class="mt-5 pt-4 border-t border-slate-800/80 flex flex-wrap gap-2">
-              <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800 text-slate-300">Android (Kotlin)</span>
-              <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800 text-slate-300">Web Development</span>
-              <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800 text-slate-300">Google Play Console</span>
-              <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800 text-slate-300">SEO & Indexing</span>
-              <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800 text-slate-300">Firebase</span>
-            </div>
+          <div class="flex flex-wrap gap-1.5 mt-4 pt-3 border-t border-zinc-800/60">
+            <span class="px-2 py-0.5 text-[11px] font-mono text-zinc-400 bg-zinc-800/50 rounded">Kotlin</span>
+            <span class="px-2 py-0.5 text-[11px] font-mono text-zinc-400 bg-zinc-800/50 rounded">Android SDK</span>
+            <span class="px-2 py-0.5 text-[11px] font-mono text-zinc-400 bg-zinc-800/50 rounded">Google Play Console</span>
+            <span class="px-2 py-0.5 text-[11px] font-mono text-zinc-400 bg-zinc-800/50 rounded">React</span>
+            <span class="px-2 py-0.5 text-[11px] font-mono text-zinc-400 bg-zinc-800/50 rounded">SEO</span>
           </div>
         </div>
 
         <!-- Experience 3: IBM AICTE -->
-        <div class="relative pl-10 md:pl-16 group">
-          <div class="absolute left-0 top-1.5 w-7 h-7 md:w-12 md:h-12 rounded-xl bg-slate-900 border-2 border-blue-400/80 group-hover:border-blue-300 flex items-center justify-center shadow-lg shadow-blue-500/20 group-hover:scale-105 transition-all">
-            <svg class="w-4 h-4 md:w-6 md:h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-            </svg>
+        <div class="group relative rounded-xl border border-zinc-800/70 p-5 item-card bg-zinc-900/30">
+          <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-2">
+            <div>
+              <h3 class="text-base font-semibold text-zinc-100 flex items-center gap-2">
+                <span>Machine Learning Intern</span>
+                <span class="text-xs px-2 py-0.5 rounded border border-zinc-700/60 bg-zinc-800/50 text-zinc-300 font-normal">IBM AICTE</span>
+              </h3>
+              <p class="text-xs text-zinc-400 font-mono mt-0.5">Computer Vision &middot; Deep Learning</p>
+            </div>
+            <span class="text-xs text-zinc-500 font-mono shrink-0">Sep 2023 &mdash; Nov 2023 &middot; Remote</span>
           </div>
 
-          <div class="glass-card rounded-2xl p-6 sm:p-7 border border-slate-800">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
-              <div>
-                <h3 class="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">
-                  AI Sign Language Recognition Intern
-                </h3>
-                <div class="flex flex-wrap items-center gap-2 mt-1">
-                  <span class="text-blue-400 font-semibold text-sm">IBM AICTE</span>
-                  <span class="text-slate-500">&middot;</span>
-                  <span class="text-xs text-slate-400">Remote</span>
-                  <span class="text-slate-500">&middot;</span>
-                  <span class="text-xs px-2 py-0.5 rounded-full bg-blue-950/80 text-blue-300 border border-blue-800/80 font-mono">
-                    Machine Learning / Deep Learning
-                  </span>
-                </div>
-              </div>
-              <div class="inline-flex items-center gap-1.5 text-xs font-mono text-blue-300/90 bg-slate-900/90 px-3 py-1.5 rounded-lg border border-slate-700/60 w-fit">
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                Sep 2023 – Nov 2023
-              </div>
-            </div>
+          <ul class="space-y-2 text-xs text-zinc-300 leading-relaxed mt-3.5">
+            <li class="flex items-start gap-2">
+              <span class="text-zinc-500 mt-1 select-none">&bull;</span>
+              <span>Trained a real-time computer vision gesture-recognition system achieving <strong class="text-zinc-100 font-medium">85% classification accuracy</strong> on alphanumeric Sign Language.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-zinc-500 mt-1 select-none">&bull;</span>
+              <span>Built data collection, image augmentation, preprocessing, and test validation pipelines for hand landmark features.</span>
+            </li>
+          </ul>
 
-            <ul class="mt-4 space-y-3 text-slate-300 text-sm leading-relaxed">
-              <li class="flex items-start gap-2.5">
-                <svg class="w-4 h-4 text-blue-400 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                <span>Engineered a <strong class="text-white">real-time vision gesture-recognition system</strong> achieving <strong class="text-cyan-300">85% accuracy</strong> on alphanumeric Sign Language classification using state-of-the-art ML/DL computer vision techniques.</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <svg class="w-4 h-4 text-blue-400 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                <span>Designed and trained deep neural networks for discriminating nuanced hand gestures from camera-based feeds.</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <svg class="w-4 h-4 text-blue-400 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                <span>Owned data collection, image augmentation, pipeline preprocessing, feature normalization, and iterative test-set evaluation.</span>
-              </li>
-            </ul>
-
-            <div class="mt-5 pt-4 border-t border-slate-800/80 flex flex-wrap gap-2">
-              <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800 text-slate-300">Computer Vision</span>
-              <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800 text-slate-300">Deep Learning</span>
-              <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800 text-slate-300">Python</span>
-              <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800 text-slate-300">OpenCV</span>
-            </div>
+          <div class="flex flex-wrap gap-1.5 mt-4 pt-3 border-t border-zinc-800/60">
+            <span class="px-2 py-0.5 text-[11px] font-mono text-zinc-400 bg-zinc-800/50 rounded">Python</span>
+            <span class="px-2 py-0.5 text-[11px] font-mono text-zinc-400 bg-zinc-800/50 rounded">OpenCV</span>
+            <span class="px-2 py-0.5 text-[11px] font-mono text-zinc-400 bg-zinc-800/50 rounded">CNN</span>
+            <span class="px-2 py-0.5 text-[11px] font-mono text-zinc-400 bg-zinc-800/50 rounded">Deep Learning</span>
           </div>
         </div>
 
       </div>
     </section>
 
-    <!-- FEATURED PROJECTS -->
-    <section id="projects" class="scroll-mt-24">
-      <div class="flex items-center gap-3 mb-8">
-        <div class="w-8 h-8 rounded-lg bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 font-mono font-bold text-sm">
-          03
-        </div>
-        <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">Featured Projects & Systems</h2>
-        <div class="h-[1px] flex-1 bg-gradient-to-r from-slate-800 to-transparent ml-4"></div>
+    <!-- SELECTED PROJECTS -->
+    <section id="projects" class="space-y-6">
+      <div class="flex items-center justify-between border-b border-zinc-800/80 pb-3">
+        <h2 class="text-sm font-semibold uppercase tracking-wider text-zinc-400 font-mono">Featured Projects</h2>
+        <a href="https://github.com/jayakrishnaa18" target="_blank" class="text-xs text-zinc-400 hover:text-zinc-200 font-mono flex items-center gap-1 transition-colors">
+          <span>github.com/jayakrishnaa18</span>
+          <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </a>
       </div>
 
-      <!-- Project Filter Buttons -->
-      <div class="flex flex-wrap gap-2 mb-8">
-        <button onclick="filterProjects('all')" id="btn-all" class="project-filter-btn px-4 py-1.5 rounded-lg text-xs font-semibold bg-cyan-500 text-white">All Projects</button>
-        <button onclick="filterProjects('ai')" id="btn-ai" class="project-filter-btn px-4 py-1.5 rounded-lg text-xs font-semibold bg-slate-800/80 text-slate-300 hover:text-white">AI & Machine Learning</button>
-        <button onclick="filterProjects('software')" id="btn-software" class="project-filter-btn px-4 py-1.5 rounded-lg text-xs font-semibold bg-slate-800/80 text-slate-300 hover:text-white">Apps & Platforms</button>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
 
         <!-- Project 1: ReviewGuard (BERT) -->
-        <div class="project-card glass-card rounded-2xl p-6 border border-slate-800 flex flex-col justify-between" data-category="ai">
+        <div class="rounded-xl border border-zinc-800/80 p-5 item-card bg-zinc-900/30 flex flex-col justify-between">
           <div>
-            <div class="flex items-center justify-between mb-4">
-              <span class="px-2.5 py-1 rounded-md text-[11px] font-mono font-semibold bg-purple-950 text-purple-300 border border-purple-800/60">
-                NLP / BERT
-              </span>
-              <span class="text-xs font-mono font-bold text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800/60">
-                92% Acc &middot; 94% Prec
-              </span>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[11px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20 font-medium">92% Acc &middot; 94% Prec</span>
+              <a href="https://github.com/jayakrishnaa18" target="_blank" class="text-zinc-500 hover:text-zinc-200 transition-colors">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              </a>
             </div>
-
-            <h3 class="text-lg font-bold text-white mb-2">ReviewGuard: BERT-Based Integrity Assurance</h3>
-            <p class="text-slate-400 text-sm leading-relaxed mb-4">
-              Led development of an enterprise fake-review detection system utilizing fine-tuned BERT transformer representations. Created end-to-end NLP pipelines discriminating genuine user experiences from deceptive manipulations.
+            <h3 class="text-sm font-semibold text-zinc-100 mb-1.5">ReviewGuard: BERT-Based Integrity Assurance</h3>
+            <p class="text-xs text-zinc-400 leading-relaxed mb-4">
+              NLP-based deceptive review classification system fine-tuned on BERT representations. Distinguishes authentic user feedback from synthetic manipulations with high confidence thresholds.
             </p>
-
-            <ul class="space-y-1.5 text-xs text-slate-300 mb-5">
-              <li class="flex items-center gap-1.5">
-                <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
-                <span>Reached 92% classification accuracy & 94% precision</span>
-              </li>
-              <li class="flex items-center gap-1.5">
-                <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
-                <span>Production-ready text embeddings & inference latency checks</span>
-              </li>
-            </ul>
           </div>
-
-          <div>
-            <div class="flex flex-wrap gap-1.5 mb-4">
-              <span class="px-2 py-0.5 rounded bg-slate-800/80 text-[11px] font-mono text-slate-300">Python</span>
-              <span class="px-2 py-0.5 rounded bg-slate-800/80 text-[11px] font-mono text-slate-300">PyTorch</span>
-              <span class="px-2 py-0.5 rounded bg-slate-800/80 text-[11px] font-mono text-slate-300">BERT</span>
-              <span class="px-2 py-0.5 rounded bg-slate-800/80 text-[11px] font-mono text-slate-300">Scikit-learn</span>
-            </div>
-            <a href="https://github.com/Jayakrishnaa" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-semibold text-cyan-400 hover:text-cyan-300">
-              <span>View Repository</span>
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-            </a>
+          <div class="flex flex-wrap gap-1.5 pt-2 border-t border-zinc-800/50">
+            <span class="px-2 py-0.5 text-[10px] font-mono text-zinc-400 bg-zinc-800/60 rounded">BERT</span>
+            <span class="px-2 py-0.5 text-[10px] font-mono text-zinc-400 bg-zinc-800/60 rounded">PyTorch</span>
+            <span class="px-2 py-0.5 text-[10px] font-mono text-zinc-400 bg-zinc-800/60 rounded">NLP</span>
+            <span class="px-2 py-0.5 text-[10px] font-mono text-zinc-400 bg-zinc-800/60 rounded">Scikit-learn</span>
           </div>
         </div>
 
-        <!-- Project 2: Amazon Autonomous AI Investigation Agent -->
-        <div class="project-card glass-card rounded-2xl p-6 border border-slate-800 flex flex-col justify-between" data-category="ai">
+        <!-- Project 2: Enterprise AI Investigation Agent -->
+        <div class="rounded-xl border border-zinc-800/80 p-5 item-card bg-zinc-900/30 flex flex-col justify-between">
           <div>
-            <div class="flex items-center justify-between mb-4">
-              <span class="px-2.5 py-1 rounded-md text-[11px] font-mono font-semibold bg-cyan-950 text-cyan-300 border border-cyan-800/60">
-                Agentic AI / Automation
-              </span>
-              <span class="text-xs font-mono font-bold text-cyan-400 bg-cyan-950/60 px-2 py-0.5 rounded border border-cyan-800/60">
-                70% Autonomy
-              </span>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[11px] font-mono text-sky-400 bg-sky-500/10 px-2 py-0.5 rounded border border-sky-500/20 font-medium">70% Auto-Resolution</span>
+              <span class="text-[10px] font-mono text-zinc-500">Enterprise</span>
             </div>
-
-            <h3 class="text-lg font-bold text-white mb-2">Autonomous Workflow Investigation Agent</h3>
-            <p class="text-slate-400 text-sm leading-relaxed mb-4">
-              Designed multi-step reasoning and tool-calling agent logic for Amazon's high-volume transactional queue, synthesizing operational context, verifying SOP checks, and self-resolving the majority of tickets.
+            <h3 class="text-sm font-semibold text-zinc-100 mb-1.5">Autonomous Investigation Agent</h3>
+            <p class="text-xs text-zinc-400 leading-relaxed mb-4">
+              Multi-step reasoning and tool-calling agent deployed on internal transactional platforms to evaluate compliance, cross-reference SOP conditions, and resolve queues autonomously.
             </p>
-
-            <ul class="space-y-1.5 text-xs text-slate-300 mb-5">
-              <li class="flex items-center gap-1.5">
-                <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
-                <span>Multi-step reasoning with custom tool-calling hooks</span>
-              </li>
-              <li class="flex items-center gap-1.5">
-                <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
-                <span>Tampermonkey scripting for browser internal tooling integration</span>
-              </li>
-            </ul>
           </div>
-
-          <div>
-            <div class="flex flex-wrap gap-1.5 mb-4">
-              <span class="px-2 py-0.5 rounded bg-slate-800/80 text-[11px] font-mono text-slate-300">Tool Calling</span>
-              <span class="px-2 py-0.5 rounded bg-slate-800/80 text-[11px] font-mono text-slate-300">LangChain</span>
-              <span class="px-2 py-0.5 rounded bg-slate-800/80 text-[11px] font-mono text-slate-300">Prompt Eng</span>
-              <span class="px-2 py-0.5 rounded bg-slate-800/80 text-[11px] font-mono text-slate-300">JavaScript</span>
-            </div>
-            <span class="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-400">
-              <span>Enterprise Production Deployment</span>
-            </span>
+          <div class="flex flex-wrap gap-1.5 pt-2 border-t border-zinc-800/50">
+            <span class="px-2 py-0.5 text-[10px] font-mono text-zinc-400 bg-zinc-800/60 rounded">LangChain</span>
+            <span class="px-2 py-0.5 text-[10px] font-mono text-zinc-400 bg-zinc-800/60 rounded">Tool Calling</span>
+            <span class="px-2 py-0.5 text-[10px] font-mono text-zinc-400 bg-zinc-800/60 rounded">Automation</span>
           </div>
         </div>
 
         <!-- Project 3: Krihaa News Platform -->
-        <div class="project-card glass-card rounded-2xl p-6 border border-slate-800 flex flex-col justify-between" data-category="software">
+        <div class="rounded-xl border border-zinc-800/80 p-5 item-card bg-zinc-900/30 flex flex-col justify-between">
           <div>
-            <div class="flex items-center justify-between mb-4">
-              <span class="px-2.5 py-1 rounded-md text-[11px] font-mono font-semibold bg-blue-950 text-blue-300 border border-blue-800/60">
-                Full-Stack Web & SEO
-              </span>
-              <span class="text-xs font-mono font-bold text-amber-400 bg-amber-950/60 px-2 py-0.5 rounded border border-amber-800/60">
-                Live Platform
-              </span>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[11px] font-mono text-zinc-300 bg-zinc-800 px-2 py-0.5 rounded border border-zinc-700/60 font-medium">Live Platform</span>
+              <a href="https://github.com/jayakrishnaa18" target="_blank" class="text-zinc-500 hover:text-zinc-200 transition-colors">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              </a>
             </div>
-
-            <h3 class="text-lg font-bold text-white mb-2">Krihaa News: Bilingual Publishing Engine</h3>
-            <p class="text-slate-400 text-sm leading-relaxed mb-4">
-              End-to-end bilingual English & Telugu digital news platform engineered for rapid publishing, dynamic indexing, fast rendering, and advanced programmatic SEO targeting high search visibility.
+            <h3 class="text-sm font-semibold text-zinc-100 mb-1.5">Krihaa News: Bilingual Publishing Engine</h3>
+            <p class="text-xs text-zinc-400 leading-relaxed mb-4">
+              Bilingual English/Telugu digital publication system engineered for rapid schema indexing, high-performance SEO visibility, and dynamic content taxonomy.
             </p>
-
-            <ul class="space-y-1.5 text-xs text-slate-300 mb-5">
-              <li class="flex items-center gap-1.5">
-                <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
-                <span>Optimized bilingual content ingestion and indexing</span>
-              </li>
-              <li class="flex items-center gap-1.5">
-                <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
-                <span>High performance lighthouse scores & structured schema data</span>
-              </li>
-            </ul>
           </div>
-
-          <div>
-            <div class="flex flex-wrap gap-1.5 mb-4">
-              <span class="px-2 py-0.5 rounded bg-slate-800/80 text-[11px] font-mono text-slate-300">React</span>
-              <span class="px-2 py-0.5 rounded bg-slate-800/80 text-[11px] font-mono text-slate-300">JavaScript</span>
-              <span class="px-2 py-0.5 rounded bg-slate-800/80 text-[11px] font-mono text-slate-300">SEO</span>
-              <span class="px-2 py-0.5 rounded bg-slate-800/80 text-[11px] font-mono text-slate-300">Firebase</span>
-            </div>
-            <a href="https://github.com/Jayakrishnaa" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-semibold text-cyan-400 hover:text-cyan-300">
-              <span>View Platform Details</span>
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-            </a>
+          <div class="flex flex-wrap gap-1.5 pt-2 border-t border-zinc-800/50">
+            <span class="px-2 py-0.5 text-[10px] font-mono text-zinc-400 bg-zinc-800/60 rounded">React</span>
+            <span class="px-2 py-0.5 text-[10px] font-mono text-zinc-400 bg-zinc-800/60 rounded">SEO</span>
+            <span class="px-2 py-0.5 text-[10px] font-mono text-zinc-400 bg-zinc-800/60 rounded">Firebase</span>
           </div>
         </div>
 
         <!-- Project 4: Kaliki Player (Android) -->
-        <div class="project-card glass-card rounded-2xl p-6 border border-slate-800 flex flex-col justify-between" data-category="software">
-          <div>
-            <div class="flex items-center justify-between mb-4">
-              <span class="px-2.5 py-1 rounded-md text-[11px] font-mono font-semibold bg-emerald-950 text-emerald-300 border border-emerald-800/60">
-                Android / Mobile
-              </span>
-              <span class="text-xs font-mono font-bold text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800/60">
-                Google Play Store
-              </span>
-            </div>
-
-            <h3 class="text-lg font-bold text-white mb-2">Kaliki Player: Native Media Engine</h3>
-            <p class="text-slate-400 text-sm leading-relaxed mb-4">
-              High-performance Android media playback application built natively with Kotlin. Engineered for hardware decoding acceleration, smooth UI controls, and battery efficiency across varied device tiers.
-            </p>
-
-            <ul class="space-y-1.5 text-xs text-slate-300 mb-5">
-              <li class="flex items-center gap-1.5">
-                <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
-                <span>Shipped and maintained on Google Play Console</span>
-              </li>
-              <li class="flex items-center gap-1.5">
-                <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
-                <span>Optimized memory footprint and asynchronous audio/video pipelines</span>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <div class="flex flex-wrap gap-1.5 mb-4">
-              <span class="px-2 py-0.5 rounded bg-slate-800/80 text-[11px] font-mono text-slate-300">Kotlin</span>
-              <span class="px-2 py-0.5 rounded bg-slate-800/80 text-[11px] font-mono text-slate-300">Android SDK</span>
-              <span class="px-2 py-0.5 rounded bg-slate-800/80 text-[11px] font-mono text-slate-300">ExoPlayer</span>
-              <span class="px-2 py-0.5 rounded bg-slate-800/80 text-[11px] font-mono text-slate-300">Play Console</span>
-            </div>
-            <a href="https://github.com/Jayakrishnaa" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-semibold text-cyan-400 hover:text-cyan-300">
-              <span>View App Specs</span>
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-            </a>
-          </div>
-        </div>
-
-        <!-- Project 5: AI Sign Language Gesture Recognition -->
-        <div class="project-card glass-card rounded-2xl p-6 border border-slate-800 flex flex-col justify-between" data-category="ai">
-          <div>
-            <div class="flex items-center justify-between mb-4">
-              <span class="px-2.5 py-1 rounded-md text-[11px] font-mono font-semibold bg-rose-950 text-rose-300 border border-rose-800/60">
-                Computer Vision
-              </span>
-              <span class="text-xs font-mono font-bold text-rose-400 bg-rose-950/60 px-2 py-0.5 rounded border border-rose-800/60">
-                85% Accuracy
-              </span>
-            </div>
-
-            <h3 class="text-lg font-bold text-white mb-2">Real-Time Sign Language Recognition</h3>
-            <p class="text-slate-400 text-sm leading-relaxed mb-4">
-              Deep learning model trained to classify alphanumeric hand gestures in real-time from webcam feed with high frame-rate responsiveness, developed during the IBM AICTE initiative.
-            </p>
-
-            <ul class="space-y-1.5 text-xs text-slate-300 mb-5">
-              <li class="flex items-center gap-1.5">
-                <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
-                <span>85% classification accuracy across alphanumeric alphabet</span>
-              </li>
-              <li class="flex items-center gap-1.5">
-                <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
-                <span>Custom image augmentation pipeline for varying lighting conditions</span>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <div class="flex flex-wrap gap-1.5 mb-4">
-              <span class="px-2 py-0.5 rounded bg-slate-800/80 text-[11px] font-mono text-slate-300">OpenCV</span>
-              <span class="px-2 py-0.5 rounded bg-slate-800/80 text-[11px] font-mono text-slate-300">TensorFlow</span>
-              <span class="px-2 py-0.5 rounded bg-slate-800/80 text-[11px] font-mono text-slate-300">CNN</span>
-              <span class="px-2 py-0.5 rounded bg-slate-800/80 text-[11px] font-mono text-slate-300">NumPy</span>
-            </div>
-            <a href="https://github.com/Jayakrishnaa" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-semibold text-cyan-400 hover:text-cyan-300">
-              <span>View Project</span>
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-            </a>
-          </div>
-        </div>
-
-        <!-- Project 6: RAG & Agentic Tooling Experiments -->
-        <div class="project-card glass-card rounded-2xl p-6 border border-slate-800 flex flex-col justify-between" data-category="ai">
-          <div>
-            <div class="flex items-center justify-between mb-4">
-              <span class="px-2.5 py-1 rounded-md text-[11px] font-mono font-semibold bg-teal-950 text-teal-300 border border-teal-800/60">
-                Agentic Reasoning
-              </span>
-              <span class="text-xs font-mono font-bold text-teal-400 bg-teal-950/60 px-2 py-0.5 rounded border border-teal-800/60">
-                LangGraph
-              </span>
-            </div>
-
-            <h3 class="text-lg font-bold text-white mb-2">Cognitive Agent State Machine</h3>
-            <p class="text-slate-400 text-sm leading-relaxed mb-4">
-              Explorations in autonomous multi-agent collaboration with state persistence, memory management, dynamic tool execution, and guardrailed output formatting.
-            </p>
-
-            <ul class="space-y-1.5 text-xs text-slate-300 mb-5">
-              <li class="flex items-center gap-1.5">
-                <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
-                <span>LangChain & LangGraph state graphs</span>
-              </li>
-              <li class="flex items-center gap-1.5">
-                <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
-                <span>Vector embeddings + RAG retrieval evaluation</span>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <div class="flex flex-wrap gap-1.5 mb-4">
-              <span class="px-2 py-0.5 rounded bg-slate-800/80 text-[11px] font-mono text-slate-300">LangGraph</span>
-              <span class="px-2 py-0.5 rounded bg-slate-800/80 text-[11px] font-mono text-slate-300">Claude Code</span>
-              <span class="px-2 py-0.5 rounded bg-slate-800/80 text-[11px] font-mono text-slate-300">Vector DB</span>
-              <span class="px-2 py-0.5 rounded bg-slate-800/80 text-[11px] font-mono text-slate-300">Python</span>
-            </div>
-            <a href="https://github.com/Jayakrishnaa" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-semibold text-cyan-400 hover:text-cyan-300">
-              <span>Explore Research</span>
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-            </a>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- TECHNICAL SKILLS ARSENAL -->
-    <section id="skills" class="scroll-mt-24">
-      <div class="flex items-center gap-3 mb-8">
-        <div class="w-8 h-8 rounded-lg bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 font-mono font-bold text-sm">
-          04
-        </div>
-        <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">Technical Arsenal & Competencies</h2>
-        <div class="h-[1px] flex-1 bg-gradient-to-r from-slate-800 to-transparent ml-4"></div>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-        <!-- Category 1: Agentic AI & LLMs -->
-        <div class="glass-card rounded-2xl p-6 border border-slate-800 hover:border-cyan-500/40 transition-all">
-          <div class="flex items-center gap-3 mb-4">
-            <div class="w-10 h-10 rounded-xl bg-cyan-950/80 border border-cyan-700/60 flex items-center justify-center text-cyan-400">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-            </div>
-            <div>
-              <h3 class="font-bold text-white text-base">Agentic AI & Systems</h3>
-              <p class="text-xs text-slate-400 font-mono">Autonomous Workflows</p>
-            </div>
-          </div>
-          <div class="flex flex-wrap gap-2">
-            <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800/80 text-cyan-300 border border-cyan-900/40">Tool Calling</span>
-            <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800/80 text-cyan-300 border border-cyan-900/40">Multi-step Reasoning</span>
-            <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800/80 text-cyan-300 border border-cyan-900/40">LangChain & LangGraph</span>
-            <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800/80 text-cyan-300 border border-cyan-900/40">Memory Management</span>
-            <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800/80 text-cyan-300 border border-cyan-900/40">Prompt Engineering</span>
-            <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800/80 text-cyan-300 border border-cyan-900/40">RAG</span>
-          </div>
-        </div>
-
-        <!-- Category 2: Machine Learning & Deep Learning -->
-        <div class="glass-card rounded-2xl p-6 border border-slate-800 hover:border-purple-500/40 transition-all">
-          <div class="flex items-center gap-3 mb-4">
-            <div class="w-10 h-10 rounded-xl bg-purple-950/80 border border-purple-700/60 flex items-center justify-center text-purple-400">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
-            </div>
-            <div>
-              <h3 class="font-bold text-white text-base">AI & Machine Learning</h3>
-              <p class="text-xs text-slate-400 font-mono">Models & Vision</p>
-            </div>
-          </div>
-          <div class="flex flex-wrap gap-2">
-            <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800/80 text-purple-300 border border-purple-900/40">BERT / Transformers</span>
-            <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800/80 text-purple-300 border border-purple-900/40">Natural Language Processing</span>
-            <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800/80 text-purple-300 border border-purple-900/40">Deep Learning</span>
-            <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800/80 text-purple-300 border border-purple-900/40">Computer Vision / CNN</span>
-            <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800/80 text-purple-300 border border-purple-900/40">Text Classification</span>
-          </div>
-        </div>
-
-        <!-- Category 3: Programming Languages -->
-        <div class="glass-card rounded-2xl p-6 border border-slate-800 hover:border-emerald-500/40 transition-all">
-          <div class="flex items-center gap-3 mb-4">
-            <div class="w-10 h-10 rounded-xl bg-emerald-950/80 border border-emerald-700/60 flex items-center justify-center text-emerald-400">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
-            </div>
-            <div>
-              <h3 class="font-bold text-white text-base">Core Languages</h3>
-              <p class="text-xs text-slate-400 font-mono">Polyglot Development</p>
-            </div>
-          </div>
-          <div class="flex flex-wrap gap-2">
-            <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800/80 text-emerald-300 border border-emerald-900/40">Python (NumPy, PyTorch, Pandas)</span>
-            <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800/80 text-emerald-300 border border-emerald-900/40">Kotlin (Android)</span>
-            <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800/80 text-emerald-300 border border-emerald-900/40">JavaScript / TypeScript</span>
-            <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800/80 text-emerald-300 border border-emerald-900/40">SQL & Relational DBs</span>
-            <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800/80 text-emerald-300 border border-emerald-900/40">HTML5 / Modern CSS</span>
-          </div>
-        </div>
-
-        <!-- Category 4: Platform & Development Tools -->
-        <div class="glass-card rounded-2xl p-6 border border-slate-800 hover:border-blue-500/40 transition-all">
-          <div class="flex items-center gap-3 mb-4">
-            <div class="w-10 h-10 rounded-xl bg-blue-950/80 border border-blue-700/60 flex items-center justify-center text-blue-400">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
-            </div>
-            <div>
-              <h3 class="font-bold text-white text-base">Development & Platforms</h3>
-              <p class="text-xs text-slate-400 font-mono">Modern Toolchain</p>
-            </div>
-          </div>
-          <div class="flex flex-wrap gap-2">
-            <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800/80 text-blue-300 border border-blue-900/40">Claude Code</span>
-            <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800/80 text-blue-300 border border-blue-900/40">Git & GitHub</span>
-            <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800/80 text-blue-300 border border-blue-900/40">React</span>
-            <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800/80 text-blue-300 border border-blue-900/40">Firebase & Firestore</span>
-            <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800/80 text-blue-300 border border-blue-900/40">Android Studio</span>
-            <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800/80 text-blue-300 border border-blue-900/40">Google Play Console</span>
-          </div>
-        </div>
-
-        <!-- Category 5: Operations, Reliability & QA -->
-        <div class="glass-card rounded-2xl p-6 border border-slate-800 hover:border-amber-500/40 transition-all">
-          <div class="flex items-center gap-3 mb-4">
-            <div class="w-10 h-10 rounded-xl bg-amber-950/80 border border-amber-700/60 flex items-center justify-center text-amber-400">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-            </div>
-            <div>
-              <h3 class="font-bold text-white text-base">Operations & Quality</h3>
-              <p class="text-xs text-slate-400 font-mono">Process Excellence</p>
-            </div>
-          </div>
-          <div class="flex flex-wrap gap-2">
-            <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800/80 text-amber-300 border border-amber-900/40">Process Automation</span>
-            <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800/80 text-amber-300 border border-amber-900/40">Root Cause Analysis (RCA)</span>
-            <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800/80 text-amber-300 border border-amber-900/40">SOP Compliance</span>
-            <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800/80 text-amber-300 border border-amber-900/40">Tampermonkey Scripting</span>
-            <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800/80 text-amber-300 border border-amber-900/40">Cross-Team Coordination</span>
-            <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800/80 text-amber-300 border border-amber-900/40">POC Leadership</span>
-          </div>
-        </div>
-
-        <!-- Category 6: Cloud & Certifications -->
-        <div class="glass-card rounded-2xl p-6 border border-slate-800 hover:border-cyan-500/40 transition-all">
-          <div class="flex items-center gap-3 mb-4">
-            <div class="w-10 h-10 rounded-xl bg-slate-900 border border-slate-700 flex items-center justify-center text-cyan-400">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 00-9.78 2.096A4.001 4.001 0 003 15z"/></svg>
-            </div>
-            <div>
-              <h3 class="font-bold text-white text-base">Cloud & Certifications</h3>
-              <p class="text-xs text-slate-400 font-mono">Industry Credentials</p>
-            </div>
-          </div>
-          <div class="space-y-2.5 text-xs">
-            <div class="p-2.5 rounded-lg bg-slate-900/80 border border-slate-800 flex items-center justify-between">
-              <span class="text-slate-200 font-medium">AWS Academy Machine Learning</span>
-              <span class="font-mono text-cyan-400">Aug 2025</span>
-            </div>
-            <div class="p-2.5 rounded-lg bg-slate-900/80 border border-slate-800 flex items-center justify-between">
-              <span class="text-slate-200 font-medium">Machine Learning With Python (Coursera)</span>
-              <span class="font-mono text-cyan-400">Jun 2024</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- EDUCATION & ACADEMIC ACHIEVEMENTS -->
-    <section id="education" class="scroll-mt-24">
-      <div class="flex items-center gap-3 mb-8">
-        <div class="w-8 h-8 rounded-lg bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 font-mono font-bold text-sm">
-          05
-        </div>
-        <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">Education & Honors</h2>
-        <div class="h-[1px] flex-1 bg-gradient-to-r from-slate-800 to-transparent ml-4"></div>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-        <!-- Education 1: MBA -->
-        <div class="glass-card rounded-2xl p-6 border border-slate-800 flex flex-col justify-between">
+        <div class="rounded-xl border border-zinc-800/80 p-5 item-card bg-zinc-900/30 flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between mb-3">
-              <span class="text-xs font-mono text-cyan-400 bg-cyan-950/60 px-2.5 py-1 rounded border border-cyan-800/60">
-                Postgraduate
-              </span>
-              <span class="text-xs font-mono text-slate-400">Jul 2026 – Present</span>
-            </div>
-            <h3 class="text-lg font-bold text-white">MBA in Data Science and Analytics</h3>
-            <p class="text-slate-400 text-sm mt-1">Andhra University</p>
-            <p class="text-xs text-slate-400 mt-3 leading-relaxed">
-              Focusing on big data infrastructure, executive predictive decision systems, statistical modeling, and data-driven organizational strategy.
-            </p>
-          </div>
-        </div>
-
-        <!-- Education 2: B.Tech (Scholarship) -->
-        <div class="glass-card rounded-2xl p-6 border border-amber-500/30 bg-amber-950/10 flex flex-col justify-between relative overflow-hidden">
-          <div class="absolute -right-10 -bottom-10 w-32 h-32 bg-amber-500/10 rounded-full blur-2xl pointer-events-none"></div>
-          <div>
-            <div class="flex items-center justify-between mb-3">
-              <span class="text-xs font-semibold text-amber-300 bg-amber-500/20 px-2.5 py-1 rounded-full border border-amber-500/40 inline-flex items-center gap-1.5">
-                <svg class="w-3.5 h-3.5 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                100% Merit Scholarship Holder
-              </span>
-              <span class="text-xs font-mono text-slate-400">2020 – 2024</span>
-            </div>
-            <h3 class="text-lg font-bold text-white">B.Tech in Computer Science and Engineering (AIML)</h3>
-            <p class="text-slate-300 text-sm mt-1">Gandhi Institute of Technology and Management (GITAM), Visakhapatnam</p>
-            <div class="mt-4 flex items-center justify-between pt-3 border-t border-slate-800">
-              <span class="text-xs text-slate-400">Graduation Cumulative GPA:</span>
-              <span class="font-mono text-emerald-400 font-bold text-sm bg-emerald-950/60 px-2.5 py-0.5 rounded border border-emerald-800/60">CGPA: 8.18 / 10.0</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Education 3: Senior Secondary -->
-        <div class="glass-card rounded-2xl p-6 border border-slate-800 flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between mb-3">
-              <span class="text-xs font-mono text-slate-400 bg-slate-900 px-2.5 py-1 rounded">
-                Senior Secondary (10+2)
-              </span>
-              <span class="text-xs font-mono text-slate-400">2018 – 2020</span>
-            </div>
-            <h3 class="text-lg font-bold text-white">Narayana Institute – Senior Secondary</h3>
-            <p class="text-slate-400 text-sm mt-1">Board of Intermediate Education, Andhra Pradesh</p>
-            <div class="mt-4 flex items-center justify-between pt-3 border-t border-slate-800">
-              <span class="text-xs text-slate-400">Score Performance:</span>
-              <span class="font-mono text-cyan-400 font-bold text-sm bg-cyan-950/60 px-2.5 py-0.5 rounded border border-cyan-800/60">CGPA: 9.15 / 10.0</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Education 4: Secondary School -->
-        <div class="glass-card rounded-2xl p-6 border border-slate-800 flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between mb-3">
-              <span class="text-xs font-mono text-slate-400 bg-slate-900 px-2.5 py-1 rounded">
-                Secondary School (10th)
-              </span>
-              <span class="text-xs font-mono text-slate-400">2017 – 2018</span>
-            </div>
-            <h3 class="text-lg font-bold text-white">Narayana EM School</h3>
-            <p class="text-slate-400 text-sm mt-1">Board of Secondary Education, Andhra Pradesh</p>
-            <div class="mt-4 flex items-center justify-between pt-3 border-t border-slate-800">
-              <span class="text-xs text-slate-400">Score Performance:</span>
-              <span class="font-mono text-cyan-400 font-bold text-sm bg-cyan-950/60 px-2.5 py-0.5 rounded border border-cyan-800/60">CGPA: 9.50 / 10.0</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- CONTACT & FOOTER -->
-    <section id="contact" class="scroll-mt-24 pb-16">
-      <div class="glass-card rounded-3xl p-8 sm:p-12 border border-slate-800 relative overflow-hidden">
-        <div class="absolute -top-24 -right-24 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          <div class="lg:col-span-7 space-y-4">
-            <span class="text-xs font-mono font-bold text-cyan-400 uppercase tracking-widest">Get In Touch</span>
-            <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-              Let's Build Intelligent Systems Together
-            </h2>
-            <p class="text-slate-400 text-base leading-relaxed max-w-xl">
-              Whether you are looking to integrate autonomous AI agents into your workflows, fine-tune custom NLP/vision models, or build production-grade Android & web platforms, I'd love to talk.
-            </p>
-
-            <div class="pt-4 flex flex-wrap gap-4 text-sm font-medium">
-              <a href="mailto:jayakrishnaakaliki@gmail.com" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold transition-all shadow-lg shadow-cyan-500/25">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                Send Direct Email
-              </a>
-              <a href="tel:+918374210497" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl glass-card text-white hover:border-slate-700 transition-all font-semibold">
-                <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-                Call: +91 8374210497
+              <span class="text-[11px] font-mono text-zinc-300 bg-zinc-800 px-2 py-0.5 rounded border border-zinc-700/60 font-medium">Google Play Console</span>
+              <a href="https://github.com/jayakrishnaa18" target="_blank" class="text-zinc-500 hover:text-zinc-200 transition-colors">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
               </a>
             </div>
+            <h3 class="text-sm font-semibold text-zinc-100 mb-1.5">Kaliki Player: Native Media Engine</h3>
+            <p class="text-xs text-zinc-400 leading-relaxed mb-4">
+              Android media player built with Kotlin, focusing on efficient hardware codec pipelines, smooth asynchronous rendering, and clean playback state persistence.
+            </p>
           </div>
-
-          <!-- Quick interactive contact form -->
-          <div class="lg:col-span-5 bg-slate-900/90 border border-slate-800 rounded-2xl p-6 shadow-xl">
-            <h4 class="text-white font-bold text-sm mb-4 flex items-center justify-between">
-              <span>Quick Message Form</span>
-              <span class="text-xs text-slate-500 font-mono">Instant Dispatch</span>
-            </h4>
-            <form onsubmit="handleFormSubmit(event)" class="space-y-3.5 text-xs">
-              <div>
-                <label class="block text-slate-400 mb-1">Your Name / Organization</label>
-                <input type="text" id="senderName" required placeholder="e.g. Hiring Manager / Founder" class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-slate-800 text-slate-200 focus:outline-none focus:border-cyan-500">
-              </div>
-              <div>
-                <label class="block text-slate-400 mb-1">Your Email</label>
-                <input type="email" id="senderEmail" required placeholder="name@company.com" class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-slate-800 text-slate-200 focus:outline-none focus:border-cyan-500">
-              </div>
-              <div>
-                <label class="block text-slate-400 mb-1">Project or Role Details</label>
-                <textarea id="senderMsg" rows="3" required placeholder="Let's discuss an AI Agent opportunity or project..." class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-slate-800 text-slate-200 focus:outline-none focus:border-cyan-500 resize-none"></textarea>
-              </div>
-              <button type="submit" id="submitBtn" class="w-full py-2.5 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-semibold transition-all shadow-md">
-                Send Message
-              </button>
-              <p id="formStatus" class="hidden text-center text-xs font-medium text-emerald-400 pt-1">
-                Thank you! Opening your email client to send...
-              </p>
-            </form>
+          <div class="flex flex-wrap gap-1.5 pt-2 border-t border-zinc-800/50">
+            <span class="px-2 py-0.5 text-[10px] font-mono text-zinc-400 bg-zinc-800/60 rounded">Kotlin</span>
+            <span class="px-2 py-0.5 text-[10px] font-mono text-zinc-400 bg-zinc-800/60 rounded">Android SDK</span>
+            <span class="px-2 py-0.5 text-[10px] font-mono text-zinc-400 bg-zinc-800/60 rounded">Google Play</span>
           </div>
         </div>
 
-        <div class="mt-12 pt-6 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
-          <p>&copy; 2026 Kaliki Jayakrishnaa. Crafted for high-impact AI & Software Engineering.</p>
-          <a href="#hero" class="hover:text-cyan-400 flex items-center gap-1 transition-colors">
-            <span>Back to top</span>
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/></svg>
+      </div>
+    </section>
+
+    <!-- TECHNICAL ARSENAL -->
+    <section id="skills" class="space-y-6">
+      <div class="flex items-center justify-between border-b border-zinc-800/80 pb-3">
+        <h2 class="text-sm font-semibold uppercase tracking-wider text-zinc-400 font-mono">Skills &amp; Technologies</h2>
+      </div>
+
+      <div class="space-y-4 text-xs">
+        <div>
+          <span class="text-zinc-400 font-mono block mb-2 text-[11px]">AGENTIC AI &amp; LLMS</span>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="px-2.5 py-1 rounded border border-zinc-800 bg-zinc-900/60 text-zinc-200">Autonomous Agents</span>
+            <span class="px-2.5 py-1 rounded border border-zinc-800 bg-zinc-900/60 text-zinc-200">Tool Calling</span>
+            <span class="px-2.5 py-1 rounded border border-zinc-800 bg-zinc-900/60 text-zinc-200">Multi-step Reasoning</span>
+            <span class="px-2.5 py-1 rounded border border-zinc-800 bg-zinc-900/60 text-zinc-200">LangChain &amp; LangGraph</span>
+            <span class="px-2.5 py-1 rounded border border-zinc-800 bg-zinc-900/60 text-zinc-200">RAG Architectures</span>
+            <span class="px-2.5 py-1 rounded border border-zinc-800 bg-zinc-900/60 text-zinc-200">Prompt Engineering</span>
+          </div>
+        </div>
+
+        <div>
+          <span class="text-zinc-400 font-mono block mb-2 text-[11px]">MACHINE LEARNING &amp; DATA</span>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="px-2.5 py-1 rounded border border-zinc-800 bg-zinc-900/60 text-zinc-200">BERT / Transformers</span>
+            <span class="px-2.5 py-1 rounded border border-zinc-800 bg-zinc-900/60 text-zinc-200">NLP &amp; Text Classification</span>
+            <span class="px-2.5 py-1 rounded border border-zinc-800 bg-zinc-900/60 text-zinc-200">Computer Vision / CNN</span>
+            <span class="px-2.5 py-1 rounded border border-zinc-800 bg-zinc-900/60 text-zinc-200">PyTorch</span>
+            <span class="px-2.5 py-1 rounded border border-zinc-800 bg-zinc-900/60 text-zinc-200">Scikit-learn</span>
+            <span class="px-2.5 py-1 rounded border border-zinc-800 bg-zinc-900/60 text-zinc-200">OpenCV</span>
+            <span class="px-2.5 py-1 rounded border border-zinc-800 bg-zinc-900/60 text-zinc-200">NumPy &amp; Pandas</span>
+          </div>
+        </div>
+
+        <div>
+          <span class="text-zinc-400 font-mono block mb-2 text-[11px]">LANGUAGES &amp; PLATFORMS</span>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="px-2.5 py-1 rounded border border-zinc-800 bg-zinc-900/60 text-zinc-200">Python</span>
+            <span class="px-2.5 py-1 rounded border border-zinc-800 bg-zinc-900/60 text-zinc-200">Kotlin (Android)</span>
+            <span class="px-2.5 py-1 rounded border border-zinc-800 bg-zinc-900/60 text-zinc-200">TypeScript / JavaScript</span>
+            <span class="px-2.5 py-1 rounded border border-zinc-800 bg-zinc-900/60 text-zinc-200">SQL</span>
+            <span class="px-2.5 py-1 rounded border border-zinc-800 bg-zinc-900/60 text-zinc-200">React</span>
+            <span class="px-2.5 py-1 rounded border border-zinc-800 bg-zinc-900/60 text-zinc-200">Android Studio</span>
+            <span class="px-2.5 py-1 rounded border border-zinc-800 bg-zinc-900/60 text-zinc-200">Google Play Console</span>
+            <span class="px-2.5 py-1 rounded border border-zinc-800 bg-zinc-900/60 text-zinc-200">Git &amp; GitHub</span>
+          </div>
+        </div>
+
+        <div>
+          <span class="text-zinc-400 font-mono block mb-2 text-[11px]">CERTIFICATIONS</span>
+          <div class="flex flex-wrap gap-2 text-zinc-300">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded border border-zinc-800 bg-zinc-900/40">
+              <span class="text-zinc-100 font-medium">AWS Academy Machine Learning</span>
+              <span class="text-zinc-500 font-mono">&middot; Aug 2025</span>
+            </span>
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded border border-zinc-800 bg-zinc-900/40">
+              <span class="text-zinc-100 font-medium">Machine Learning With Python (Coursera)</span>
+              <span class="text-zinc-500 font-mono">&middot; Jun 2024</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" class="space-y-6">
+      <div class="flex items-center justify-between border-b border-zinc-800/80 pb-3">
+        <h2 class="text-sm font-semibold uppercase tracking-wider text-zinc-400 font-mono">Education</h2>
+      </div>
+
+      <div class="space-y-5 text-xs">
+
+        <!-- Andhra University -->
+        <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+          <div>
+            <h3 class="text-sm font-semibold text-zinc-200">Andhra University</h3>
+            <p class="text-zinc-400">MBA in Data Science and Analytics</p>
+          </div>
+          <span class="font-mono text-zinc-500 shrink-0">Jul 2026 &mdash; Present</span>
+        </div>
+
+        <!-- GITAM -->
+        <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+          <div>
+            <div class="flex items-center gap-2">
+              <h3 class="text-sm font-semibold text-zinc-200">GITAM (Deemed to be University), Visakhapatnam</h3>
+              <span class="px-1.5 py-0.5 rounded text-[10px] font-mono bg-amber-500/10 text-amber-400 border border-amber-500/20 font-medium">100% Scholarship</span>
+            </div>
+            <p class="text-zinc-400">B.Tech in Computer Science and Engineering &mdash; AIML</p>
+            <p class="text-zinc-500 font-mono mt-0.5">CGPA: 8.18 / 10.0</p>
+          </div>
+          <span class="font-mono text-zinc-500 shrink-0">2020 &mdash; 2024</span>
+        </div>
+
+        <!-- Narayana Senior Secondary -->
+        <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+          <div>
+            <h3 class="text-sm font-semibold text-zinc-200">Narayana Institute &mdash; Senior Secondary</h3>
+            <p class="text-zinc-400">Board of Intermediate Education, Andhra Pradesh</p>
+            <p class="text-zinc-500 font-mono mt-0.5">CGPA: 9.15 / 10.0</p>
+          </div>
+          <span class="font-mono text-zinc-500 shrink-0">2018 &mdash; 2020</span>
+        </div>
+
+        <!-- Narayana EM School -->
+        <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+          <div>
+            <h3 class="text-sm font-semibold text-zinc-200">Narayana EM School</h3>
+            <p class="text-zinc-400">Board of Secondary Education, Andhra Pradesh</p>
+            <p class="text-zinc-500 font-mono mt-0.5">CGPA: 9.50 / 10.0</p>
+          </div>
+          <span class="font-mono text-zinc-500 shrink-0">2017 &mdash; 2018</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="space-y-6 pt-4 border-t border-zinc-800/80">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <h2 class="text-lg font-bold text-zinc-100">Get in Touch</h2>
+          <p class="text-xs text-zinc-400 mt-1">Open to technical roles, AI agent engineering, and collaborative projects.</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="mailto:jayakrishnaakaliki@gmail.com" class="px-4 py-2 rounded-lg bg-zinc-100 text-zinc-950 hover:bg-zinc-200 text-xs font-semibold transition-all">
+            Email Me
+          </a>
+          <a href="tel:+918374210497" class="px-4 py-2 rounded-lg border border-zinc-800 bg-zinc-900/60 hover:bg-zinc-800 text-zinc-300 text-xs font-semibold transition-all">
+            +91 8374210497
           </a>
         </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center justify-between text-xs text-zinc-600 font-mono pt-8">
+        <p>&copy; 2026 Kaliki Jayakrishnaa</p>
+        <p>Built with Tailwind CSS &middot; Hosted on GitHub Pages</p>
       </div>
     </section>
 
   </main>
 
   <!-- Interactive Toast Notification -->
-  <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
-    <div class="glass-card px-4 py-3 rounded-xl border border-cyan-500/40 text-cyan-300 text-xs font-semibold shadow-2xl flex items-center gap-2">
-      <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-      <span id="toastMsg">Copied to clipboard!</span>
+  <div id="toast" class="fixed top-6 right-6 z-50 transform -translate-y-12 opacity-0 transition-all duration-300 pointer-events-none">
+    <div class="px-3.5 py-2 rounded-lg border border-zinc-700 bg-zinc-900 text-zinc-200 text-xs font-mono shadow-2xl flex items-center gap-2">
+      <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+      <span id="toastMsg">Copied</span>
     </div>
   </div>
 
   <script>
-    // Project filtering logic
-    function filterProjects(category) {
-      const cards = document.querySelectorAll('.project-card');
-      const buttons = document.querySelectorAll('.project-filter-btn');
-
-      buttons.forEach(btn => {
-        btn.classList.remove('bg-cyan-500', 'text-white');
-        btn.classList.add('bg-slate-800/80', 'text-slate-300');
-      });
-
-      const activeBtn = document.getElementById(`btn-${category}`);
-      if (activeBtn) {
-        activeBtn.classList.remove('bg-slate-800/80', 'text-slate-300');
-        activeBtn.classList.add('bg-cyan-500', 'text-white');
-      }
-
-      cards.forEach(card => {
-        if (category === 'all' || card.getAttribute('data-category') === category) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    }
-
-    // Copy to clipboard helper
-    function copyToClipboard(text, type) {
+    function copyContact(type) {
+      const text = type === 'email' ? 'jayakrishnaakaliki@gmail.com' : '+918374210497';
       navigator.clipboard.writeText(text).then(() => {
-        showToast(type === 'emailToast' ? 'Email copied: ' + text : 'Phone copied: ' + text);
+        showToast(type === 'email' ? 'Email copied to clipboard' : 'Phone copied to clipboard');
       }).catch(() => {
         showToast('Copied: ' + text);
       });
@@ -1103,37 +546,10 @@
       const toast = document.getElementById('toast');
       const toastMsg = document.getElementById('toastMsg');
       toastMsg.innerText = msg;
-      toast.classList.remove('translate-y-20', 'opacity-0');
+      toast.classList.remove('-translate-y-12', 'opacity-0');
       setTimeout(() => {
-        toast.classList.add('translate-y-20', 'opacity-0');
-      }, 3000);
-    }
-
-    // Mobile nav toggle
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    if (mobileMenuBtn && mobileMenu) {
-      mobileMenuBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-      });
-    }
-
-    // Form submission
-    function handleFormSubmit(e) {
-      e.preventDefault();
-      const name = document.getElementById('senderName').value;
-      const email = document.getElementById('senderEmail').value;
-      const msg = document.getElementById('senderMsg').value;
-      const status = document.getElementById('formStatus');
-
-      status.classList.remove('hidden');
-      
-      const subject = encodeURIComponent(`Portfolio Inquiry from ${name}`);
-      const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${msg}`);
-      
-      setTimeout(() => {
-        window.location.href = `mailto:jayakrishnaakaliki@gmail.com?subject=${subject}&body=${body}`;
-      }, 500);
+        toast.classList.add('-translate-y-12', 'opacity-0');
+      }, 2500);
     }
   </script>
 </body>
