@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kaliki Jayakrishnaa — Software Engineer | AI/ML · Python · Full Stack</title>
-  <meta name="description" content="Portfolio of Kaliki Jayakrishnaa. Software Engineer specializing in AI/ML, Python backends, autonomous agents, and full stack & mobile platforms.">
+  <meta name="description" content="Portfolio of Kaliki Jayakrishnaa. Software Engineer specializing in AI/ML, autonomous AI agents, scalable Python backends, and full stack & native Android systems.">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -34,39 +34,41 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root, html.dark {
-      --bg: #09090b;
-      --card: #121215;
-      --card-hover: #18181b;
-      --border: #27272a;
-      --border-hover: #3f3f46;
-      --text: #fafafa;
-      --muted: #a1a1aa;
-      --subtle: #71717a;
-      --accent: #f4f4f5;
-      --badge-bg: #1c1c20;
+      --bg: #090a0f;
+      --card: #11131a;
+      --card-hover: #171a24;
+      --border: #1e222e;
+      --border-hover: #2e3446;
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --subtle: #64748b;
+      --accent: #f8fafc;
+      --badge-bg: #151822;
+      --card-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4), 0 1px 2px -1px rgba(0, 0, 0, 0.3);
     }
 
     html.light {
-      --bg: #ffffff;
-      --card: #fafafa;
-      --card-hover: #f4f4f5;
-      --border: #e4e4e7;
-      --border-hover: #d4d4d8;
-      --text: #09090b;
-      --muted: #52525b;
-      --subtle: #71717a;
-      --accent: #18181b;
-      --badge-bg: #f4f4f5;
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --card-hover: #f1f5f9;
+      --border: #e2e8f0;
+      --border-hover: #cbd5e1;
+      --text: #0f172a;
+      --muted: #475569;
+      --subtle: #64748b;
+      --accent: #0284c7;
+      --badge-bg: #f1f5f9;
+      --card-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
     }
 
     body {
       background-color: var(--bg);
       color: var(--text);
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      transition: background-color 0.15s ease, color 0.15s ease;
+      transition: background-color 0.2s ease, color 0.2s ease;
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
     }
@@ -78,7 +80,8 @@
     .card-clean {
       background-color: var(--card);
       border: 1px solid var(--border);
-      transition: border-color 0.15s ease, background-color 0.15s ease;
+      box-shadow: var(--card-shadow);
+      transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
     }
     .card-clean:hover {
       border-color: var(--border-hover);
@@ -109,24 +112,24 @@
     @media print {
       body { background: #fff !important; color: #000 !important; }
       header, .no-print, #toast, #mobileMenu { display: none !important; }
-      .card-clean { border: 1px solid #ddd !important; background: transparent !important; }
+      .card-clean { border: 1px solid #ddd !important; background: transparent !important; box-shadow: none !important; }
     }
   </style>
 </head>
-<body class="bg-app-bg text-app-text min-h-screen selection:bg-neutral-800 selection:text-white">
+<body class="bg-app-bg text-app-text min-h-screen selection:bg-sky-500/20 selection:text-sky-400">
 
   <!-- Header Navigation -->
-  <header class="sticky top-0 z-40 w-full border-b border-[var(--border)] bg-[var(--bg)]/95 backdrop-blur-sm">
+  <header class="sticky top-0 z-40 w-full border-b border-[var(--border)] bg-[var(--bg)]/90 backdrop-blur-md">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
       
       <!-- Brand & Roles -->
       <a href="#about" class="flex items-center gap-3 group shrink-0">
-        <div class="w-8 h-8 rounded-lg border border-[var(--border)] bg-[var(--card)] flex items-center justify-center font-mono font-bold text-xs text-[var(--text)] group-hover:border-neutral-500 transition-colors">
+        <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-sky-500/20 to-indigo-500/20 border border-sky-500/30 flex items-center justify-center font-bold text-xs text-sky-600 dark:text-sky-400 group-hover:scale-105 transition-transform">
           JK
         </div>
         <div class="flex flex-col">
           <span class="font-bold text-sm tracking-tight text-[var(--text)]">Kaliki Jayakrishnaa</span>
-          <span class="text-[11px] text-[var(--subtle)] font-mono hidden sm:inline">Software Engineer &middot; AI/ML &middot; Full Stack</span>
+          <span class="text-[11px] text-[var(--muted)] font-medium hidden sm:inline">Software Engineer &middot; AI/ML &middot; Full Stack</span>
         </div>
       </a>
 
@@ -142,7 +145,7 @@
 
       <!-- Action Items: Print Resume & Theme Toggle -->
       <div class="flex items-center gap-2">
-        <button onclick="window.print()" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-[var(--border)] bg-[var(--card)] hover:bg-[var(--card-hover)] text-xs text-[var(--text)] font-mono transition-colors" title="Print or save as PDF Resume">
+        <button onclick="window.print()" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-[var(--border)] bg-[var(--card)] hover:bg-[var(--card-hover)] text-xs text-[var(--text)] font-medium transition-colors" title="Print or save as PDF Resume">
           <svg class="w-3.5 h-3.5 text-[var(--muted)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
           <span class="hidden sm:inline">Resume / CV</span>
         </button>
@@ -161,7 +164,7 @@
     </div>
 
     <!-- Mobile Drawer -->
-    <div id="mobileMenu" class="hidden md:hidden border-b border-[var(--border)] bg-[var(--bg)] px-4 py-3 space-y-1 text-xs font-mono">
+    <div id="mobileMenu" class="hidden md:hidden border-b border-[var(--border)] bg-[var(--bg)] px-4 py-3 space-y-1 text-xs">
       <a href="#experience" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded hover:bg-[var(--card)] text-[var(--muted)] hover:text-[var(--text)]">Experience</a>
       <a href="#projects" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded hover:bg-[var(--card)] text-[var(--muted)] hover:text-[var(--text)]">Projects</a>
       <a href="#skills" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded hover:bg-[var(--card)] text-[var(--muted)] hover:text-[var(--text)]">Tech Stack</a>
@@ -172,34 +175,57 @@
   </header>
 
   <!-- Main Content Container: Clean, Widescreen (max-w-7xl) -->
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-24 space-y-20">
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 sm:pt-14 pb-24 space-y-16 sm:space-y-20">
 
     <!-- HERO SECTION -->
     <section id="about" class="space-y-8">
       
       <!-- Status Bar -->
       <div class="flex flex-wrap items-center justify-between gap-3 border-b border-[var(--border)] pb-4">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md border border-[var(--border)] bg-[var(--card)] text-xs font-mono text-[var(--muted)]">
-          <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-          <span>Available for Software Engineering Roles &middot; AI/ML &middot; Python &middot; Full Stack</span>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-emerald-500/25 bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 text-xs font-medium">
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+          </span>
+          <span>Available for Software Engineering Roles &middot; AI/ML, Python &amp; Full Stack</span>
         </div>
         <span class="text-xs font-mono text-[var(--subtle)]">Hyderabad, India &middot; Open to Relocation / Remote</span>
       </div>
 
       <!-- Hero Header & Content -->
-      <div class="space-y-6 max-w-4xl">
-        <div class="space-y-2">
-          <h1 class="text-4xl sm:text-6xl font-bold tracking-tight text-[var(--text)]">
+      <div class="space-y-5 max-w-4xl">
+        <div class="space-y-3">
+          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[var(--text)]">
             Kaliki Jayakrishnaa
           </h1>
-          <p class="text-xl sm:text-2xl font-mono text-[var(--muted)]">
-            Software Engineer &mdash; AI/ML, Python &amp; Full Stack
+          <p class="text-lg sm:text-2xl font-semibold tracking-tight text-[var(--muted)]">
+            Software Engineer &mdash; <span class="text-[var(--text)]">AI/ML Systems</span>, <span class="text-[var(--text)]">Python Backends</span> &amp; <span class="text-[var(--text)]">Full Stack</span>
           </p>
         </div>
 
-        <p class="text-base sm:text-lg text-[var(--muted)] leading-relaxed">
-          I build production AI agent systems, scalable Python backend pipelines, and native mobile &amp; web applications. At <strong class="text-[var(--text)] font-semibold">Amazon Development Center</strong>, I contributed to the design of an autonomous AI investigation agent that resolved <strong class="text-[var(--text)] font-semibold">70% of operational queries independently</strong> with 99%+ accuracy. Through <strong class="text-[var(--text)] font-semibold">Kaliki Labs</strong>, I architect and ship production Android apps on the Google Play Store and maintain full-stack web platforms.
+        <p class="text-sm sm:text-base text-[var(--muted)] leading-relaxed max-w-3xl">
+          I architect and build production AI agent systems, scalable Python backend pipelines, and native mobile platforms. At <strong class="text-[var(--text)] font-semibold">Amazon Development Center</strong>, I contributed to the design of an autonomous AI investigation agent that resolved <strong class="text-[var(--text)] font-semibold">70% of operational queries independently</strong> with 99%+ accuracy. Through <strong class="text-[var(--text)] font-semibold">Kaliki Labs</strong>, I engineer and maintain native Kotlin Android applications published on the Google Play Store and full-stack web platforms.
         </p>
+
+        <!-- Key Engineering Domain Pills -->
+        <div class="flex flex-wrap gap-2 pt-1">
+          <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-medium bg-[var(--badge-bg)] text-[var(--text)] border border-[var(--border)]">
+            <span class="w-1.5 h-1.5 rounded-full bg-sky-500"></span>
+            Autonomous AI Agents &amp; Tool Calling
+          </span>
+          <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-medium bg-[var(--badge-bg)] text-[var(--text)] border border-[var(--border)]">
+            <span class="w-1.5 h-1.5 rounded-full bg-sky-500"></span>
+            Scalable Python &amp; Backend Systems
+          </span>
+          <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-medium bg-[var(--badge-bg)] text-[var(--text)] border border-[var(--border)]">
+            <span class="w-1.5 h-1.5 rounded-full bg-sky-500"></span>
+            Native Android SDK &amp; Kotlin
+          </span>
+          <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-medium bg-[var(--badge-bg)] text-[var(--text)] border border-[var(--border)]">
+            <span class="w-1.5 h-1.5 rounded-full bg-sky-500"></span>
+            AWS Generative AI &amp; OCI DevOps Certified
+          </span>
+        </div>
 
         <!-- Social & Contact Actions -->
         <div class="flex flex-wrap items-center gap-2.5 pt-2">
@@ -238,23 +264,23 @@
         </div>
       </div>
 
-      <!-- Clean Minimal Key Metrics -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-4 border-t border-[var(--border)]">
-        <div class="card-clean rounded-lg p-4">
-          <div class="text-3xl font-bold font-mono text-[var(--text)]">70%</div>
-          <div class="text-xs text-[var(--muted)] mt-1 font-medium">Auto-Resolution with AI Agents at Amazon</div>
+      <!-- Key Metrics Strip -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-6 border-t border-[var(--border)]">
+        <div class="card-clean rounded-xl p-4 sm:p-5 flex flex-col justify-between">
+          <div class="text-3xl sm:text-4xl font-extrabold text-[var(--text)] tracking-tight">70%</div>
+          <div class="text-xs text-[var(--muted)] mt-1.5 font-medium leading-snug">Auto-Resolution with AI Agents at Amazon</div>
         </div>
-        <div class="card-clean rounded-lg p-4">
-          <div class="text-3xl font-bold font-mono text-[var(--text)]">99%+</div>
-          <div class="text-xs text-[var(--muted)] mt-1 font-medium">Investigation QA &amp; System Accuracy</div>
+        <div class="card-clean rounded-xl p-4 sm:p-5 flex flex-col justify-between">
+          <div class="text-3xl sm:text-4xl font-extrabold text-[var(--text)] tracking-tight">99%+</div>
+          <div class="text-xs text-[var(--muted)] mt-1.5 font-medium leading-snug">Investigation QA &amp; System Accuracy</div>
         </div>
-        <div class="card-clean rounded-lg p-4">
-          <div class="text-3xl font-bold font-mono text-[var(--text)]">100%</div>
-          <div class="text-xs text-[var(--muted)] mt-1 font-medium">Academic Merit Scholarship (GITAM AIML)</div>
+        <div class="card-clean rounded-xl p-4 sm:p-5 flex flex-col justify-between">
+          <div class="text-3xl sm:text-4xl font-extrabold text-[var(--text)] tracking-tight">100%</div>
+          <div class="text-xs text-[var(--muted)] mt-1.5 font-medium leading-snug">Academic Merit Scholarship (GITAM AIML)</div>
         </div>
-        <div class="card-clean rounded-lg p-4">
-          <div class="text-3xl font-bold font-mono text-[var(--text)]">3+ Apps</div>
-          <div class="text-xs text-[var(--muted)] mt-1 font-medium">Published on Google Play Store</div>
+        <div class="card-clean rounded-xl p-4 sm:p-5 flex flex-col justify-between">
+          <div class="text-3xl sm:text-4xl font-extrabold text-[var(--text)] tracking-tight">3+ Apps</div>
+          <div class="text-xs text-[var(--muted)] mt-1.5 font-medium leading-snug">Published on Google Play Store</div>
         </div>
       </div>
 
@@ -270,33 +296,33 @@
       <div class="space-y-4">
 
         <!-- Amazon Development Center -->
-        <div class="card-clean rounded-lg p-6 space-y-3">
+        <div class="card-clean rounded-xl p-6 space-y-4">
           <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
             <div>
               <h3 class="text-base font-bold text-[var(--text)]">
                 ML Data Associate &mdash; Amazon Development Center
               </h3>
-              <p class="text-xs text-[var(--muted)] font-mono mt-0.5">AI Agent Development &middot; ML &amp; Process Automation</p>
+              <p class="text-xs text-sky-500 dark:text-sky-400 font-medium mt-0.5">AI Agent Development &middot; ML &amp; Process Automation</p>
             </div>
             <span class="text-xs text-[var(--subtle)] font-mono shrink-0">Mar 2025 &mdash; Jun 2026 &middot; Hyderabad, India</span>
           </div>
 
-          <ul class="space-y-2 text-xs sm:text-sm text-[var(--muted)] leading-relaxed">
+          <ul class="space-y-2.5 text-xs sm:text-sm text-[var(--muted)] leading-relaxed">
             <li class="flex items-start gap-2">
-              <span class="text-[var(--subtle)] select-none">&bull;</span>
-              <span>Contributed to the design and development of an <strong class="text-[var(--text)]">autonomous AI agent</strong> for transaction investigation workflows, enabling <strong class="text-[var(--text)]">70% of operational queries to be resolved independently</strong> and scaling throughput across high-volume queues.</span>
+              <span class="text-sky-500 font-bold select-none">&bull;</span>
+              <span>Contributed to the design and development of an <strong class="text-[var(--text)] font-semibold">autonomous AI agent</strong> for transaction investigation workflows, enabling <strong class="text-[var(--text)] font-semibold">70% of operational queries to be resolved independently</strong> and scaling throughput across high-volume queues.</span>
             </li>
             <li class="flex items-start gap-2">
-              <span class="text-[var(--subtle)] select-none">&bull;</span>
-              <span>Engineered custom <strong class="text-[var(--text)]">process automation scripts (Tampermonkey / JavaScript)</strong> integrated into internal operational consoles, eliminating repetitive manual steps and cutting turnaround time.</span>
+              <span class="text-sky-500 font-bold select-none">&bull;</span>
+              <span>Engineered custom <strong class="text-[var(--text)] font-semibold">process automation scripts (Tampermonkey / JavaScript)</strong> integrated into internal operational consoles, eliminating repetitive manual steps and cutting turnaround time.</span>
             </li>
             <li class="flex items-start gap-2">
-              <span class="text-[var(--subtle)] select-none">&bull;</span>
-              <span>Investigated and resolved high-volume transaction cases with <strong class="text-[var(--text)]">99%+ accuracy</strong>, applying root-cause analysis (RCA) and data-driven debugging to close system gaps and improve operational reliability.</span>
+              <span class="text-sky-500 font-bold select-none">&bull;</span>
+              <span>Investigated and resolved high-volume transaction cases with <strong class="text-[var(--text)] font-semibold">99%+ accuracy</strong>, applying root-cause analysis (RCA) and data-driven debugging to close system gaps and improve operational reliability.</span>
             </li>
             <li class="flex items-start gap-2">
-              <span class="text-[var(--subtle)] select-none">&bull;</span>
-              <span>Served as <strong class="text-[var(--text)]">Point of Contact (POC) for two core operational workflows</strong>, translating business requirements into technical tooling improvements and collaborating with engineering stakeholders.</span>
+              <span class="text-sky-500 font-bold select-none">&bull;</span>
+              <span>Served as <strong class="text-[var(--text)] font-semibold">Point of Contact (POC) for two core operational workflows</strong>, translating business requirements into technical tooling improvements and collaborating with engineering stakeholders.</span>
             </li>
           </ul>
 
@@ -311,7 +337,7 @@
         </div>
 
         <!-- Kaliki Labs -->
-        <div class="card-clean rounded-lg p-6 space-y-3">
+        <div class="card-clean rounded-xl p-6 space-y-4">
           <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
             <div>
               <h3 class="text-base font-bold text-[var(--text)] flex flex-wrap items-center gap-2">
@@ -323,35 +349,35 @@
                   Google Play Dev ↗
                 </a>
               </h3>
-              <p class="text-xs text-[var(--muted)] font-mono mt-0.5">Software Engineering &middot; Mobile &amp; Platform Systems</p>
+              <p class="text-xs text-sky-500 dark:text-sky-400 font-medium mt-0.5">Software Engineering &middot; Mobile &amp; Platform Systems</p>
             </div>
             <span class="text-xs text-[var(--subtle)] font-mono shrink-0">Jan 2025 &mdash; Present &middot; Remote</span>
           </div>
 
-          <ul class="space-y-2 text-xs sm:text-sm text-[var(--muted)] leading-relaxed">
+          <ul class="space-y-2.5 text-xs sm:text-sm text-[var(--muted)] leading-relaxed">
             <li class="flex items-start gap-2">
-              <span class="text-[var(--subtle)] select-none">&bull;</span>
-              <span>Architected and deployed full-lifecycle production software across <strong class="text-[var(--text)]">Android and web platforms</strong>: system architecture, latency profiling, unit testing, and continuous deployment.</span>
+              <span class="text-sky-500 font-bold select-none">&bull;</span>
+              <span>Architected and deployed full-lifecycle production software across <strong class="text-[var(--text)] font-semibold">Android and web platforms</strong>: system architecture, latency profiling, unit testing, and continuous deployment.</span>
             </li>
             <li class="flex items-start gap-2">
-              <span class="text-[var(--subtle)] select-none">&bull;</span>
-              <span>Published and maintained a suite of native Android applications on the <strong class="text-[var(--text)]">Google Play Store</strong> (Google Play Dev ID: <a href="https://play.google.com/store/apps/dev?id=8662455924431698982" target="_blank" rel="noopener noreferrer" class="link-blue hover:underline font-mono">8662455924431698982 ↗</a>), owning Android 14 SDK compliance, key signing, staged rollouts, and crash telemetry.</span>
+              <span class="text-sky-500 font-bold select-none">&bull;</span>
+              <span>Published and maintained a suite of native Android applications on the <strong class="text-[var(--text)] font-semibold">Google Play Store</strong> (Google Play Dev ID: <a href="https://play.google.com/store/apps/dev?id=8662455924431698982" target="_blank" rel="noopener noreferrer" class="link-blue hover:underline font-mono">8662455924431698982 ↗</a>), owning Android 14 SDK compliance, key signing, staged rollouts, and crash telemetry.</span>
             </li>
             <li class="flex items-start gap-2">
-              <span class="text-[var(--subtle)] select-none">&bull;</span>
-              <span><strong class="text-[var(--text)]">Kaliki Player</strong>: Native Kotlin player featuring MediaCodec hardware decoding, 60 FPS fluid gesture UI, thumb reachability, and persistent playback states using the ExoPlayer pipeline.</span>
+              <span class="text-sky-500 font-bold select-none">&bull;</span>
+              <span><strong class="text-[var(--text)] font-semibold">Kaliki Player</strong>: Native Kotlin player featuring MediaCodec hardware decoding, 60 FPS fluid gesture UI, thumb reachability, and persistent playback states using the ExoPlayer pipeline.</span>
             </li>
             <li class="flex items-start gap-2">
-              <span class="text-[var(--subtle)] select-none">&bull;</span>
-              <span><strong class="text-[var(--text)]">SmartScan (PDF &amp; OCR Scan)</strong>: 100% offline-first Android scanner integrating on-device <strong class="text-[var(--text)]">Google ML Kit OCR</strong> for zero-latency text recognition, automated perspective rectification, image enhancement filters, and AES password encryption (<a href="https://play.google.com/store/apps/details?id=com.smartscan.pdfocr" target="_blank" rel="noopener noreferrer" class="link-blue hover:underline font-mono">view on Google Play ↗</a>).</span>
+              <span class="text-sky-500 font-bold select-none">&bull;</span>
+              <span><strong class="text-[var(--text)] font-semibold">SmartScan (PDF &amp; OCR Scan)</strong>: 100% offline-first Android scanner integrating on-device <strong class="text-[var(--text)] font-semibold">Google ML Kit OCR</strong> for zero-latency text recognition, automated perspective rectification, image enhancement filters, and AES password encryption (<a href="https://play.google.com/store/apps/details?id=com.smartscan.pdfocr" target="_blank" rel="noopener noreferrer" class="link-blue hover:underline font-mono">view on Google Play ↗</a>).</span>
             </li>
             <li class="flex items-start gap-2">
-              <span class="text-[var(--subtle)] select-none">&bull;</span>
-              <span><strong class="text-[var(--text)]">PDF Tools &amp; Utilities</strong>: High-throughput document processing app handling on-device file merging, compression, and image-to-PDF transformations (<a href="https://play.google.com/store/apps/details?id=com.tools.pdfimage.pdf_tools_app" target="_blank" rel="noopener noreferrer" class="link-blue hover:underline font-mono">view on Google Play ↗</a>).</span>
+              <span class="text-sky-500 font-bold select-none">&bull;</span>
+              <span><strong class="text-[var(--text)] font-semibold">PDF Tools &amp; Utilities</strong>: High-throughput document processing app handling on-device file merging, compression, and image-to-PDF transformations (<a href="https://play.google.com/store/apps/details?id=com.tools.pdfimage.pdf_tools_app" target="_blank" rel="noopener noreferrer" class="link-blue hover:underline font-mono">view on Google Play ↗</a>).</span>
             </li>
             <li class="flex items-start gap-2">
-              <span class="text-[var(--subtle)] select-none">&bull;</span>
-              <span>Built and deployed <a href="https://krihaa.me" target="_blank" rel="noopener noreferrer" class="link-blue hover:underline">Krihaa News (krihaa.me) ↗</a>, an optimized bilingual English/Telugu platform, covering backend content structure, indexing, SEO, and technical maintenance.</span>
+              <span class="text-sky-500 font-bold select-none">&bull;</span>
+              <span>Built and deployed <a href="https://krihaa.me" target="_blank" rel="noopener noreferrer" class="link-blue hover:underline font-medium">Krihaa News (krihaa.me) ↗</a>, an optimized bilingual English/Telugu platform, covering backend content structure, indexing, SEO, and technical maintenance.</span>
             </li>
           </ul>
 
@@ -369,28 +395,28 @@
         </div>
 
         <!-- IBM AICTE -->
-        <div class="card-clean rounded-lg p-6 space-y-3">
+        <div class="card-clean rounded-xl p-6 space-y-4">
           <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
             <div>
               <h3 class="text-base font-bold text-[var(--text)]">
                 AI Sign Language Recognition Intern &mdash; IBM AICTE
               </h3>
-              <p class="text-xs text-[var(--muted)] font-mono mt-0.5">Machine Learning &middot; Deep Learning</p>
+              <p class="text-xs text-sky-500 dark:text-sky-400 font-medium mt-0.5">Machine Learning &middot; Deep Learning</p>
             </div>
             <span class="text-xs text-[var(--subtle)] font-mono shrink-0">Sep 2023 &mdash; Nov 2023 &middot; Remote</span>
           </div>
 
-          <ul class="space-y-2 text-xs sm:text-sm text-[var(--muted)] leading-relaxed">
+          <ul class="space-y-2.5 text-xs sm:text-sm text-[var(--muted)] leading-relaxed">
             <li class="flex items-start gap-2">
-              <span class="text-[var(--subtle)] select-none">&bull;</span>
-              <span>Built a real-time gesture-recognition system in Python achieving <strong class="text-[var(--text)]">85% accuracy</strong> on alphanumeric Sign Language classification using ML/DL techniques.</span>
+              <span class="text-sky-500 font-bold select-none">&bull;</span>
+              <span>Built a real-time gesture-recognition system in Python achieving <strong class="text-[var(--text)] font-semibold">85% accuracy</strong> on alphanumeric Sign Language classification using ML/DL techniques.</span>
             </li>
             <li class="flex items-start gap-2">
-              <span class="text-[var(--subtle)] select-none">&bull;</span>
+              <span class="text-sky-500 font-bold select-none">&bull;</span>
               <span>Designed and trained deep convolutional neural networks (CNNs) for classifying alphanumeric hand gestures from video camera feeds.</span>
             </li>
             <li class="flex items-start gap-2">
-              <span class="text-[var(--subtle)] select-none">&bull;</span>
+              <span class="text-sky-500 font-bold select-none">&bull;</span>
               <span>Owned data collection, preprocessing, training, validation, and evaluation to systematically improve recognition accuracy.</span>
             </li>
           </ul>
@@ -415,14 +441,14 @@
         </a>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
 
         <!-- Project 1: ReviewGuard (BERT NLP) -->
-        <div class="card-clean rounded-lg p-5 flex flex-col justify-between">
+        <div class="card-clean rounded-xl p-5 flex flex-col justify-between">
           <div class="space-y-2.5">
             <div class="flex items-center justify-between gap-2">
               <span class="text-[11px] font-mono text-[var(--subtle)] uppercase">NLP &middot; Python</span>
-              <span class="text-[11px] font-mono text-[var(--text)] font-semibold">92% Acc &middot; 94% Prec</span>
+              <span class="text-[11px] font-mono text-emerald-500 font-semibold">92% Acc &middot; 94% Prec</span>
             </div>
             <h3 class="text-base font-bold text-[var(--text)]">ReviewGuard: BERT NLP Assurance</h3>
             <p class="text-xs text-[var(--muted)] leading-relaxed">
@@ -438,11 +464,11 @@
         </div>
 
         <!-- Project 2: Amazon Autonomous Investigation Agent -->
-        <div class="card-clean rounded-lg p-5 flex flex-col justify-between">
+        <div class="card-clean rounded-xl p-5 flex flex-col justify-between">
           <div class="space-y-2.5">
             <div class="flex items-center justify-between gap-2">
               <span class="text-[11px] font-mono text-[var(--subtle)] uppercase">AI Agents &middot; Enterprise</span>
-              <span class="text-[11px] font-mono text-[var(--text)] font-semibold">70% Auto-Resolution</span>
+              <span class="text-[11px] font-mono text-sky-500 font-semibold">70% Auto-Resolution</span>
             </div>
             <h3 class="text-base font-bold text-[var(--text)]">Autonomous Investigation Agent</h3>
             <p class="text-xs text-[var(--muted)] leading-relaxed">
@@ -458,7 +484,7 @@
         </div>
 
         <!-- Project 3: SmartScan - On-Device ML & OCR Engine -->
-        <div class="card-clean rounded-lg p-5 flex flex-col justify-between">
+        <div class="card-clean rounded-xl p-5 flex flex-col justify-between">
           <div class="space-y-2.5">
             <div class="flex items-center justify-between gap-2">
               <span class="text-[11px] font-mono text-[var(--subtle)] uppercase">Google Play &middot; On-Device ML</span>
@@ -482,7 +508,7 @@
         </div>
 
         <!-- Project 4: Kaliki Player -->
-        <div class="card-clean rounded-lg p-5 flex flex-col justify-between">
+        <div class="card-clean rounded-xl p-5 flex flex-col justify-between">
           <div class="space-y-2.5">
             <div class="flex items-center justify-between gap-2">
               <span class="text-[11px] font-mono text-[var(--subtle)] uppercase">Android 14 &middot; MediaCodec</span>
@@ -506,7 +532,7 @@
         </div>
 
         <!-- Project 5: Krihaa News -->
-        <div class="card-clean rounded-lg p-5 flex flex-col justify-between">
+        <div class="card-clean rounded-xl p-5 flex flex-col justify-between">
           <div class="space-y-2.5">
             <div class="flex items-center justify-between gap-2">
               <span class="text-[11px] font-mono text-[var(--subtle)] uppercase">Full Stack Web</span>
@@ -530,7 +556,7 @@
         </div>
 
         <!-- Project 6: PDF Tools & Image Utilities -->
-        <div class="card-clean rounded-lg p-5 flex flex-col justify-between">
+        <div class="card-clean rounded-xl p-5 flex flex-col justify-between">
           <div class="space-y-2.5">
             <div class="flex items-center justify-between gap-2">
               <span class="text-[11px] font-mono text-[var(--subtle)] uppercase">Google Play &middot; Utility</span>
@@ -566,8 +592,8 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
         
         <!-- Pillar 1: Python & Backend -->
-        <div class="card-clean rounded-lg p-5 space-y-3">
-          <div class="font-mono text-xs font-bold text-[var(--text)]">
+        <div class="card-clean rounded-xl p-5 space-y-3">
+          <div class="font-mono text-xs font-bold text-sky-500 dark:text-sky-400">
             01. PYTHON &amp; BACKEND
           </div>
           <div class="flex flex-wrap gap-1.5">
@@ -581,8 +607,8 @@
         </div>
 
         <!-- Pillar 2: AI/ML & Agentic Systems -->
-        <div class="card-clean rounded-lg p-5 space-y-3">
-          <div class="font-mono text-xs font-bold text-[var(--text)]">
+        <div class="card-clean rounded-xl p-5 space-y-3">
+          <div class="font-mono text-xs font-bold text-sky-500 dark:text-sky-400">
             02. AI / ML &amp; AGENTIC SYSTEMS
           </div>
           <div class="flex flex-wrap gap-1.5">
@@ -597,8 +623,8 @@
         </div>
 
         <!-- Pillar 3: Mobile & Full Stack -->
-        <div class="card-clean rounded-lg p-5 space-y-3">
-          <div class="font-mono text-xs font-bold text-[var(--text)]">
+        <div class="card-clean rounded-xl p-5 space-y-3">
+          <div class="font-mono text-xs font-bold text-sky-500 dark:text-sky-400">
             03. MOBILE &amp; FULL STACK
           </div>
           <div class="flex flex-wrap gap-1.5">
@@ -614,8 +640,8 @@
         </div>
 
         <!-- Pillar 4: Tools & Enterprise QA -->
-        <div class="card-clean rounded-lg p-5 space-y-3">
-          <div class="font-mono text-xs font-bold text-[var(--text)]">
+        <div class="card-clean rounded-xl p-5 space-y-3">
+          <div class="font-mono text-xs font-bold text-sky-500 dark:text-sky-400">
             04. TOOLS &amp; ENTERPRISE QA
           </div>
           <div class="flex flex-wrap gap-1.5">
@@ -635,19 +661,19 @@
     <section id="certifications" class="space-y-6">
       <div class="flex items-center justify-between border-b border-[var(--border)] pb-3">
         <h2 class="text-sm font-bold tracking-wider text-[var(--text)] uppercase font-mono">Licenses &amp; Certifications</h2>
-        <a href="https://www.linkedin.com/in/jayakrishnaakaliki/" target="_blank" rel="noopener noreferrer" class="text-xs text-sky-400 hover:text-sky-300 hover:underline font-mono transition-colors">
+        <a href="https://www.linkedin.com/in/jayakrishnaakaliki/" target="_blank" rel="noopener noreferrer" class="link-blue text-xs font-mono transition-colors">
           LinkedIn Verified Credentials ↗
         </a>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-xs">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 text-xs">
 
         <!-- Credential 1: AWS Certified Generative AI Developer - Professional -->
-        <div class="card-clean rounded-lg p-5 flex flex-col justify-between space-y-3">
+        <div class="card-clean rounded-xl p-5 flex flex-col justify-between space-y-3">
           <div>
             <div class="flex items-center justify-between gap-2 mb-2 font-mono text-[11px] text-[var(--subtle)]">
               <span>Amazon Web Services</span>
-              <span>Issued May 2026 &middot; Expires May 2029</span>
+              <span>May 2026 &mdash; May 2029</span>
             </div>
             <h3 class="text-sm font-bold text-[var(--text)]">AWS Certified Generative AI Developer &mdash; Professional</h3>
             <p class="text-xs text-[var(--muted)] mt-1.5 leading-relaxed">
@@ -662,7 +688,7 @@
           </div>
           <div class="pt-3 border-t border-[var(--border)] flex items-center justify-between font-mono text-[11px]">
             <span class="text-[var(--subtle)]">Credly Verified</span>
-            <a href="https://www.credly.com/badges/fc0d1b81-75f8-46b0-94ea-33e15388d3d1/public_url" target="_blank" rel="noopener noreferrer" class="text-sky-400 hover:text-sky-300 hover:underline inline-flex items-center gap-1 font-semibold transition-colors">
+            <a href="https://www.credly.com/badges/fc0d1b81-75f8-46b0-94ea-33e15388d3d1/public_url" target="_blank" rel="noopener noreferrer" class="link-blue inline-flex items-center gap-1 font-semibold transition-colors">
               <span>Show Credential</span>
               <span>↗</span>
             </a>
@@ -670,11 +696,11 @@
         </div>
 
         <!-- Credential 2: Oracle Cloud Infrastructure 2025 Certified DevOps Professional -->
-        <div class="card-clean rounded-lg p-5 flex flex-col justify-between space-y-3">
+        <div class="card-clean rounded-xl p-5 flex flex-col justify-between space-y-3">
           <div>
             <div class="flex items-center justify-between gap-2 mb-2 font-mono text-[11px] text-[var(--subtle)]">
               <span>Oracle</span>
-              <span>Issued Oct 2025 &middot; Expires Oct 2027</span>
+              <span>Oct 2025 &mdash; Oct 2027</span>
             </div>
             <h3 class="text-sm font-bold text-[var(--text)]">Oracle Cloud Infrastructure 2025 Certified DevOps Professional</h3>
             <p class="text-xs text-[var(--muted)] mt-1.5 leading-relaxed">
@@ -689,7 +715,7 @@
           </div>
           <div class="pt-3 border-t border-[var(--border)] flex items-center justify-between font-mono text-[11px]">
             <span class="text-[var(--subtle)]">Oracle Verified</span>
-            <a href="https://catalog-education.oracle.com/pls/certview/sharebadge?id=509D7598DE21B0F5DA4BE4664BC339F96D1FD5AB769BA9D36D90C10FEAA23D32" target="_blank" rel="noopener noreferrer" class="text-sky-400 hover:text-sky-300 hover:underline inline-flex items-center gap-1 font-semibold transition-colors">
+            <a href="https://catalog-education.oracle.com/pls/certview/sharebadge?id=509D7598DE21B0F5DA4BE4664BC339F96D1FD5AB769BA9D36D90C10FEAA23D32" target="_blank" rel="noopener noreferrer" class="link-blue inline-flex items-center gap-1 font-semibold transition-colors">
               <span>Show Credential</span>
               <span>↗</span>
             </a>
@@ -697,7 +723,7 @@
         </div>
 
         <!-- Credential 3: AWS Academy Machine Learning Foundations -->
-        <div class="card-clean rounded-lg p-5 flex flex-col justify-between space-y-3">
+        <div class="card-clean rounded-xl p-5 flex flex-col justify-between space-y-3">
           <div>
             <div class="flex items-center justify-between gap-2 mb-2 font-mono text-[11px] text-[var(--subtle)]">
               <span>Amazon Web Services (AWS)</span>
@@ -715,7 +741,7 @@
           </div>
           <div class="pt-3 border-t border-[var(--border)] flex items-center justify-between font-mono text-[11px]">
             <span class="text-[var(--subtle)]">Credly Verified</span>
-            <a href="https://www.credly.com/go/uP1bur51" target="_blank" rel="noopener noreferrer" class="text-sky-400 hover:text-sky-300 hover:underline inline-flex items-center gap-1 font-semibold transition-colors">
+            <a href="https://www.credly.com/go/uP1bur51" target="_blank" rel="noopener noreferrer" class="link-blue inline-flex items-center gap-1 font-semibold transition-colors">
               <span>Show Credential</span>
               <span>↗</span>
             </a>
@@ -723,7 +749,7 @@
         </div>
 
         <!-- Credential 4: AWS Academy Data Analytics -->
-        <div class="card-clean rounded-lg p-5 flex flex-col justify-between space-y-3">
+        <div class="card-clean rounded-xl p-5 flex flex-col justify-between space-y-3">
           <div>
             <div class="flex items-center justify-between gap-2 mb-2 font-mono text-[11px] text-[var(--subtle)]">
               <span>Amazon Web Services (AWS)</span>
@@ -741,7 +767,7 @@
           </div>
           <div class="pt-3 border-t border-[var(--border)] flex items-center justify-between font-mono text-[11px]">
             <span class="text-[var(--subtle)]">Credly Verified</span>
-            <a href="https://www.credly.com/go/Zu8WUNoi" target="_blank" rel="noopener noreferrer" class="text-sky-400 hover:text-sky-300 hover:underline inline-flex items-center gap-1 font-semibold transition-colors">
+            <a href="https://www.credly.com/go/Zu8WUNoi" target="_blank" rel="noopener noreferrer" class="link-blue inline-flex items-center gap-1 font-semibold transition-colors">
               <span>Show Credential</span>
               <span>↗</span>
             </a>
@@ -749,7 +775,7 @@
         </div>
 
         <!-- Credential 5: Machine Learning With Python -->
-        <div class="card-clean rounded-lg p-5 flex flex-col justify-between space-y-3">
+        <div class="card-clean rounded-xl p-5 flex flex-col justify-between space-y-3">
           <div>
             <div class="flex items-center justify-between gap-2 mb-2 font-mono text-[11px] text-[var(--subtle)]">
               <span>Coursera</span>
@@ -767,7 +793,7 @@
           </div>
           <div class="pt-3 border-t border-[var(--border)] flex items-center justify-between font-mono text-[11px]">
             <span class="text-[var(--subtle)]">Coursera Verified</span>
-            <a href="https://www.linkedin.com/in/jayakrishnaakaliki/" target="_blank" rel="noopener noreferrer" class="text-sky-400 hover:text-sky-300 hover:underline inline-flex items-center gap-1 font-semibold transition-colors">
+            <a href="https://www.linkedin.com/in/jayakrishnaakaliki/" target="_blank" rel="noopener noreferrer" class="link-blue inline-flex items-center gap-1 font-semibold transition-colors">
               <span>Show Credential</span>
               <span>↗</span>
             </a>
@@ -775,7 +801,7 @@
         </div>
 
         <!-- Credential 6: AICTE IBM AI Virtual Internship -->
-        <div class="card-clean rounded-lg p-5 flex flex-col justify-between space-y-3">
+        <div class="card-clean rounded-xl p-5 flex flex-col justify-between space-y-3">
           <div>
             <div class="flex items-center justify-between gap-2 mb-2 font-mono text-[11px] text-[var(--subtle)]">
               <span>IBM &middot; AICTE</span>
@@ -793,7 +819,7 @@
           </div>
           <div class="pt-3 border-t border-[var(--border)] flex items-center justify-between font-mono text-[11px]">
             <span class="text-[var(--subtle)]">IBM &middot; AICTE</span>
-            <a href="https://www.linkedin.com/in/jayakrishnaakaliki/" target="_blank" rel="noopener noreferrer" class="text-sky-400 hover:text-sky-300 hover:underline inline-flex items-center gap-1 font-semibold transition-colors">
+            <a href="https://www.linkedin.com/in/jayakrishnaakaliki/" target="_blank" rel="noopener noreferrer" class="link-blue inline-flex items-center gap-1 font-semibold transition-colors">
               <span>Show Credential</span>
               <span>↗</span>
             </a>
@@ -810,56 +836,56 @@
         <span class="text-xs text-[var(--subtle)] font-mono">Academic Background</span>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5 text-xs">
 
         <!-- Andhra University -->
-        <div class="card-clean rounded-lg p-5 space-y-2">
+        <div class="card-clean rounded-xl p-5 space-y-2">
           <div class="flex items-center justify-between gap-2 font-mono text-[11px] text-[var(--subtle)]">
             <span>Post-Graduate</span>
             <span>Jul 2026 &mdash; Present</span>
           </div>
           <h3 class="text-base font-bold text-[var(--text)]">Andhra University</h3>
-          <p class="text-xs text-[var(--muted)]">MBA in Data Science and Analytics</p>
-          <p class="text-[11px] text-[var(--subtle)] mt-1">Predictive modeling, enterprise data architectures, operational analytics, and business intelligence systems.</p>
+          <p class="text-xs text-sky-500 dark:text-sky-400 font-medium">MBA in Data Science and Analytics</p>
+          <p class="text-[12px] text-[var(--muted)] mt-1 leading-relaxed">Predictive modeling, enterprise data architectures, operational analytics, and business intelligence systems.</p>
         </div>
 
         <!-- GITAM University -->
-        <div class="card-clean rounded-lg p-5 space-y-2">
+        <div class="card-clean rounded-xl p-5 space-y-2">
           <div class="flex items-center justify-between gap-2 font-mono text-[11px] text-[var(--subtle)]">
-            <span>100% Merit Scholarship Awardee</span>
+            <span class="text-emerald-500 font-semibold">100% Merit Scholarship Awardee</span>
             <span>2020 &mdash; 2024</span>
           </div>
           <h3 class="text-base font-bold text-[var(--text)]">GITAM (Deemed to be University), Visakhapatnam</h3>
-          <p class="text-xs text-[var(--muted)]">B.Tech in Computer Science and Engineering &mdash; AIML</p>
-          <p class="text-[11px] text-[var(--subtle)] mt-1">Cumulative GPA: <strong class="text-[var(--text)] font-mono">8.18 / 10.0</strong> &middot; Full four-year tuition merit scholarship awardee.</p>
+          <p class="text-xs text-sky-500 dark:text-sky-400 font-medium">B.Tech in Computer Science and Engineering &mdash; AIML</p>
+          <p class="text-[12px] text-[var(--muted)] mt-1 leading-relaxed">Cumulative GPA: <strong class="text-[var(--text)] font-mono">8.18 / 10.0</strong> &middot; Full four-year tuition merit scholarship awardee.</p>
         </div>
 
       </div>
 
       <!-- Senior Secondary & Secondary -->
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
-        <div class="card-clean rounded-lg p-4">
+        <div class="card-clean rounded-xl p-4">
           <h4 class="font-bold text-[var(--text)]">Narayana Institute &mdash; Senior Secondary</h4>
           <p class="text-[var(--muted)] text-[11px] mt-0.5">Board of Intermediate Education, AP (2018&ndash;2020)</p>
-          <span class="text-[var(--text)] font-mono text-xs block mt-1">CGPA: 9.15 / 10.0</span>
+          <span class="text-sky-500 font-mono text-xs block mt-1 font-semibold">CGPA: 9.15 / 10.0</span>
         </div>
 
-        <div class="card-clean rounded-lg p-4">
+        <div class="card-clean rounded-xl p-4">
           <h4 class="font-bold text-[var(--text)]">Narayana EM School</h4>
           <p class="text-[var(--muted)] text-[11px] mt-0.5">Board of Secondary Education, AP (2017&ndash;2018)</p>
-          <span class="text-[var(--text)] font-mono text-xs block mt-1">CGPA: 9.50 / 10.0</span>
+          <span class="text-sky-500 font-mono text-xs block mt-1 font-semibold">CGPA: 9.50 / 10.0</span>
         </div>
       </div>
     </section>
 
     <!-- CONTACT & HIRING INQUIRIES -->
     <section id="contact" class="space-y-6 pt-6 border-t border-[var(--border)]">
-      <div class="card-clean rounded-xl p-8 space-y-6">
+      <div class="card-clean rounded-2xl p-6 sm:p-8 space-y-6">
         <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
-          <div class="space-y-1.5">
-            <h2 class="text-2xl font-bold text-[var(--text)]">Get In Touch</h2>
+          <div class="space-y-2">
+            <h2 class="text-2xl font-extrabold tracking-tight text-[var(--text)]">Get In Touch</h2>
             <p class="text-xs sm:text-sm text-[var(--muted)] max-w-xl leading-relaxed">
-              Open to Software Engineering roles in AI/ML, Python backends, and full stack systems. Feel free to reach out directly via email, phone, or LinkedIn.
+              Actively open to Software Engineering roles in AI/ML, scalable Python backend systems, and full-stack platforms. Direct communication is always welcome.
             </p>
           </div>
           <div class="flex flex-wrap items-center gap-2.5 shrink-0">
@@ -873,19 +899,19 @@
         </div>
 
         <div class="flex flex-wrap items-center gap-2 pt-6 border-t border-[var(--border)] text-xs font-mono">
-          <a href="https://www.linkedin.com/in/jayakrishnaakaliki/" target="_blank" rel="noopener noreferrer" class="link-blue px-3 py-1.5 rounded border border-[var(--border)] bg-[var(--badge-bg)] hover:border-neutral-500 transition-colors">
+          <a href="https://www.linkedin.com/in/jayakrishnaakaliki/" target="_blank" rel="noopener noreferrer" class="link-blue px-3 py-1.5 rounded-md border border-[var(--border)] bg-[var(--badge-bg)] hover:border-neutral-500 transition-colors">
             LinkedIn Profile ↗
           </a>
-          <a href="https://github.com/jayakrishnaa18" target="_blank" rel="noopener noreferrer" class="link-blue px-3 py-1.5 rounded border border-[var(--border)] bg-[var(--badge-bg)] hover:border-neutral-500 transition-colors">
+          <a href="https://github.com/jayakrishnaa18" target="_blank" rel="noopener noreferrer" class="link-blue px-3 py-1.5 rounded-md border border-[var(--border)] bg-[var(--badge-bg)] hover:border-neutral-500 transition-colors">
             GitHub Profile ↗
           </a>
-          <a href="https://play.google.com/store/apps/dev?id=8662455924431698982" target="_blank" rel="noopener noreferrer" class="link-blue px-3 py-1.5 rounded border border-[var(--border)] bg-[var(--badge-bg)] hover:border-neutral-500 transition-colors">
+          <a href="https://play.google.com/store/apps/dev?id=8662455924431698982" target="_blank" rel="noopener noreferrer" class="link-blue px-3 py-1.5 rounded-md border border-[var(--border)] bg-[var(--badge-bg)] hover:border-neutral-500 transition-colors">
             Google Play Store ↗
           </a>
-          <a href="https://krihaa.me" target="_blank" rel="noopener noreferrer" class="link-blue px-3 py-1.5 rounded border border-[var(--border)] bg-[var(--badge-bg)] hover:border-neutral-500 transition-colors">
+          <a href="https://krihaa.me" target="_blank" rel="noopener noreferrer" class="link-blue px-3 py-1.5 rounded-md border border-[var(--border)] bg-[var(--badge-bg)] hover:border-neutral-500 transition-colors">
             krihaa.me ↗
           </a>
-          <a href="https://kalikilabs.tech" target="_blank" rel="noopener noreferrer" class="link-blue px-3 py-1.5 rounded border border-[var(--border)] bg-[var(--badge-bg)] hover:border-neutral-500 transition-colors">
+          <a href="https://kalikilabs.tech" target="_blank" rel="noopener noreferrer" class="link-blue px-3 py-1.5 rounded-md border border-[var(--border)] bg-[var(--badge-bg)] hover:border-neutral-500 transition-colors">
             kalikilabs.tech ↗
           </a>
         </div>
@@ -915,7 +941,7 @@
       }
     }
 
-    // Default to Dark Theme
+    // Default to Dark Theme unless explicitly set
     const savedTheme = localStorage.getItem('theme') || 'dark';
     if (savedTheme === 'light') {
       document.documentElement.classList.remove('dark');
