@@ -85,6 +85,27 @@
       background-color: var(--card-hover);
     }
 
+    /* Clean Blue Hyperlinks */
+    .link-blue,
+    a.link-blue {
+      color: #38bdf8;
+      transition: color 0.15s ease, text-decoration 0.15s ease;
+    }
+    .link-blue:hover,
+    a.link-blue:hover {
+      color: #7dd3fc;
+      text-decoration: underline;
+    }
+    html.light .link-blue,
+    html.light a.link-blue {
+      color: #0284c7;
+    }
+    html.light .link-blue:hover,
+    html.light a.link-blue:hover {
+      color: #0369a1;
+      text-decoration: underline;
+    }
+
     @media print {
       body { background: #fff !important; color: #000 !important; }
       header, .no-print, #toast, #mobileMenu { display: none !important; }
@@ -207,11 +228,11 @@
             <span>Google Play Dev</span>
           </a>
 
-          <a href="https://krihaa.me" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-md border border-[var(--border)] bg-[var(--card)] hover:bg-[var(--card-hover)] text-xs font-mono text-[var(--muted)] hover:text-[var(--text)] transition-colors">
+          <a href="https://krihaa.me" target="_blank" rel="noopener noreferrer" class="link-blue inline-flex items-center gap-1.5 px-3 py-2 rounded-md border border-[var(--border)] bg-[var(--card)] hover:bg-[var(--card-hover)] text-xs font-mono transition-colors">
             <span>krihaa.me ↗</span>
           </a>
 
-          <a href="https://kalikilabs.tech" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-md border border-[var(--border)] bg-[var(--card)] hover:bg-[var(--card-hover)] text-xs font-mono text-[var(--muted)] hover:text-[var(--text)] transition-colors">
+          <a href="https://kalikilabs.tech" target="_blank" rel="noopener noreferrer" class="link-blue inline-flex items-center gap-1.5 px-3 py-2 rounded-md border border-[var(--border)] bg-[var(--card)] hover:bg-[var(--card-hover)] text-xs font-mono transition-colors">
             <span>kalikilabs.tech ↗</span>
           </a>
         </div>
@@ -295,10 +316,10 @@
             <div>
               <h3 class="text-base font-bold text-[var(--text)] flex flex-wrap items-center gap-2">
                 <span>Freelance Software Engineer &mdash; Kaliki Labs</span>
-                <a href="https://kalikilabs.tech" target="_blank" rel="noopener noreferrer" class="text-xs px-2 py-0.5 rounded border border-[var(--border)] bg-[var(--badge-bg)] hover:border-neutral-500 text-[var(--text)] font-normal transition-colors">
+                <a href="https://kalikilabs.tech" target="_blank" rel="noopener noreferrer" class="link-blue text-xs px-2 py-0.5 rounded border border-[var(--border)] bg-[var(--badge-bg)] hover:border-neutral-500 font-normal transition-colors">
                   kalikilabs.tech ↗
                 </a>
-                <a href="https://play.google.com/store/apps/dev?id=8662455924431698982" target="_blank" rel="noopener noreferrer" class="text-xs px-2 py-0.5 rounded border border-[var(--border)] bg-[var(--badge-bg)] hover:border-neutral-500 text-[var(--text)] font-normal transition-colors">
+                <a href="https://play.google.com/store/apps/dev?id=8662455924431698982" target="_blank" rel="noopener noreferrer" class="link-blue text-xs px-2 py-0.5 rounded border border-[var(--border)] bg-[var(--badge-bg)] hover:border-neutral-500 font-normal transition-colors">
                   Google Play Dev ↗
                 </a>
               </h3>
@@ -314,7 +335,7 @@
             </li>
             <li class="flex items-start gap-2">
               <span class="text-[var(--subtle)] select-none">&bull;</span>
-              <span>Published and maintained a suite of native Android applications on the <strong class="text-[var(--text)]">Google Play Store</strong> (Google Play Dev ID: <a href="https://play.google.com/store/apps/dev?id=8662455924431698982" target="_blank" rel="noopener noreferrer" class="text-[var(--text)] hover:underline font-mono">8662455924431698982 ↗</a>), owning Android 14 SDK compliance, key signing, staged rollouts, and crash telemetry.</span>
+              <span>Published and maintained a suite of native Android applications on the <strong class="text-[var(--text)]">Google Play Store</strong> (Google Play Dev ID: <a href="https://play.google.com/store/apps/dev?id=8662455924431698982" target="_blank" rel="noopener noreferrer" class="link-blue hover:underline font-mono">8662455924431698982 ↗</a>), owning Android 14 SDK compliance, key signing, staged rollouts, and crash telemetry.</span>
             </li>
             <li class="flex items-start gap-2">
               <span class="text-[var(--subtle)] select-none">&bull;</span>
@@ -322,15 +343,15 @@
             </li>
             <li class="flex items-start gap-2">
               <span class="text-[var(--subtle)] select-none">&bull;</span>
-              <span><strong class="text-[var(--text)]">SmartScan (PDF &amp; OCR Scan)</strong>: 100% offline-first Android scanner integrating on-device <strong class="text-[var(--text)]">Google ML Kit OCR</strong> for zero-latency text recognition, automated perspective rectification, image enhancement filters, and AES password encryption (<a href="https://play.google.com/store/apps/details?id=com.smartscan.pdfocr" target="_blank" rel="noopener noreferrer" class="text-[var(--text)] hover:underline font-mono">view on Google Play ↗</a>).</span>
+              <span><strong class="text-[var(--text)]">SmartScan (PDF &amp; OCR Scan)</strong>: 100% offline-first Android scanner integrating on-device <strong class="text-[var(--text)]">Google ML Kit OCR</strong> for zero-latency text recognition, automated perspective rectification, image enhancement filters, and AES password encryption (<a href="https://play.google.com/store/apps/details?id=com.smartscan.pdfocr" target="_blank" rel="noopener noreferrer" class="link-blue hover:underline font-mono">view on Google Play ↗</a>).</span>
             </li>
             <li class="flex items-start gap-2">
               <span class="text-[var(--subtle)] select-none">&bull;</span>
-              <span><strong class="text-[var(--text)]">PDF Tools &amp; Utilities</strong>: High-throughput document processing app handling on-device file merging, compression, and image-to-PDF transformations (<a href="https://play.google.com/store/apps/details?id=com.tools.pdfimage.pdf_tools_app" target="_blank" rel="noopener noreferrer" class="text-[var(--text)] hover:underline font-mono">view on Google Play ↗</a>).</span>
+              <span><strong class="text-[var(--text)]">PDF Tools &amp; Utilities</strong>: High-throughput document processing app handling on-device file merging, compression, and image-to-PDF transformations (<a href="https://play.google.com/store/apps/details?id=com.tools.pdfimage.pdf_tools_app" target="_blank" rel="noopener noreferrer" class="link-blue hover:underline font-mono">view on Google Play ↗</a>).</span>
             </li>
             <li class="flex items-start gap-2">
               <span class="text-[var(--subtle)] select-none">&bull;</span>
-              <span>Built and deployed <a href="https://krihaa.me" target="_blank" rel="noopener noreferrer" class="text-[var(--text)] hover:underline">Krihaa News (krihaa.me) ↗</a>, an optimized bilingual English/Telugu platform, covering backend content structure, indexing, SEO, and technical maintenance.</span>
+              <span>Built and deployed <a href="https://krihaa.me" target="_blank" rel="noopener noreferrer" class="link-blue hover:underline">Krihaa News (krihaa.me) ↗</a>, an optimized bilingual English/Telugu platform, covering backend content structure, indexing, SEO, and technical maintenance.</span>
             </li>
           </ul>
 
@@ -389,7 +410,7 @@
     <section id="projects" class="space-y-6">
       <div class="flex items-center justify-between border-b border-[var(--border)] pb-3">
         <h2 class="text-sm font-bold tracking-wider text-[var(--text)] uppercase font-mono">Featured Systems &amp; Projects</h2>
-        <a href="https://github.com/jayakrishnaa18" target="_blank" class="text-xs text-[var(--subtle)] hover:text-[var(--text)] font-mono transition-colors">
+        <a href="https://github.com/jayakrishnaa18" target="_blank" class="link-blue text-xs font-mono transition-colors">
           github.com/jayakrishnaa18 ↗
         </a>
       </div>
@@ -441,7 +462,7 @@
           <div class="space-y-2.5">
             <div class="flex items-center justify-between gap-2">
               <span class="text-[11px] font-mono text-[var(--subtle)] uppercase">Google Play &middot; On-Device ML</span>
-              <a href="https://play.google.com/store/apps/details?id=com.smartscan.pdfocr" target="_blank" rel="noopener noreferrer" class="text-[11px] font-mono text-[var(--text)] hover:underline">
+              <a href="https://play.google.com/store/apps/details?id=com.smartscan.pdfocr" target="_blank" rel="noopener noreferrer" class="link-blue text-[11px] font-mono">
                 Play Store ↗
               </a>
             </div>
@@ -466,9 +487,9 @@
             <div class="flex items-center justify-between gap-2">
               <span class="text-[11px] font-mono text-[var(--subtle)] uppercase">Android 14 &middot; MediaCodec</span>
               <div class="flex items-center gap-1.5 text-[11px] font-mono">
-                <a href="https://play.google.com/store/apps/dev?id=8662455924431698982" target="_blank" rel="noopener noreferrer" class="text-[var(--text)] hover:underline">Play Store ↗</a>
+                <a href="https://play.google.com/store/apps/dev?id=8662455924431698982" target="_blank" rel="noopener noreferrer" class="link-blue">Play Store ↗</a>
                 <span class="text-[var(--subtle)]">&middot;</span>
-                <a href="https://kalikilabs.tech" target="_blank" rel="noopener noreferrer" class="text-[var(--text)] hover:underline">kalikilabs ↗</a>
+                <a href="https://kalikilabs.tech" target="_blank" rel="noopener noreferrer" class="link-blue">kalikilabs ↗</a>
               </div>
             </div>
             <h3 class="text-base font-bold text-[var(--text)]">Kaliki Player: Android Audio Engine</h3>
@@ -489,7 +510,7 @@
           <div class="space-y-2.5">
             <div class="flex items-center justify-between gap-2">
               <span class="text-[11px] font-mono text-[var(--subtle)] uppercase">Full Stack Web</span>
-              <a href="https://krihaa.me" target="_blank" rel="noopener noreferrer" class="text-[11px] font-mono text-[var(--text)] hover:underline">
+              <a href="https://krihaa.me" target="_blank" rel="noopener noreferrer" class="link-blue text-[11px] font-mono">
                 krihaa.me ↗
               </a>
             </div>
@@ -513,7 +534,7 @@
           <div class="space-y-2.5">
             <div class="flex items-center justify-between gap-2">
               <span class="text-[11px] font-mono text-[var(--subtle)] uppercase">Google Play &middot; Utility</span>
-              <a href="https://play.google.com/store/apps/details?id=com.tools.pdfimage.pdf_tools_app" target="_blank" rel="noopener noreferrer" class="text-[11px] font-mono text-[var(--text)] hover:underline">
+              <a href="https://play.google.com/store/apps/details?id=com.tools.pdfimage.pdf_tools_app" target="_blank" rel="noopener noreferrer" class="link-blue text-[11px] font-mono">
                 Play Store ↗
               </a>
             </div>
@@ -614,31 +635,120 @@
     <section id="certifications" class="space-y-6">
       <div class="flex items-center justify-between border-b border-[var(--border)] pb-3">
         <h2 class="text-sm font-bold tracking-wider text-[var(--text)] uppercase font-mono">Licenses &amp; Certifications</h2>
-        <a href="https://www.linkedin.com/in/jayakrishnaakaliki/" target="_blank" rel="noopener noreferrer" class="text-xs text-[var(--subtle)] hover:text-[var(--text)] font-mono transition-colors">
+        <a href="https://www.linkedin.com/in/jayakrishnaakaliki/" target="_blank" rel="noopener noreferrer" class="text-xs text-sky-400 hover:text-sky-300 hover:underline font-mono transition-colors">
           LinkedIn Verified Credentials ↗
         </a>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-xs">
 
-        <!-- Credential 1: AWS Academy Machine Learning -->
+        <!-- Credential 1: AWS Certified Generative AI Developer - Professional -->
         <div class="card-clean rounded-lg p-5 flex flex-col justify-between space-y-3">
           <div>
             <div class="flex items-center justify-between gap-2 mb-2 font-mono text-[11px] text-[var(--subtle)]">
               <span>Amazon Web Services</span>
-              <span>Aug 2025</span>
+              <span>Issued May 2026 &middot; Expires May 2029</span>
             </div>
-            <h3 class="text-sm font-bold text-[var(--text)]">AWS Academy Machine Learning</h3>
+            <h3 class="text-sm font-bold text-[var(--text)]">AWS Certified Generative AI Developer &mdash; Professional</h3>
             <p class="text-xs text-[var(--muted)] mt-1.5 leading-relaxed">
-              Certified by AWS Academy. Validates core competencies in machine learning pipelines, cloud AI services, computer vision, natural language processing, and model training/deployment on AWS cloud infrastructure.
+              Professional credential validating mastery in architecting generative AI applications, multi-agent frameworks, LangGraph orchestration, foundation models, and serverless AWS Lambda pipelines.
             </p>
+            <div class="flex flex-wrap gap-1.5 pt-2 mt-2">
+              <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--badge-bg)] rounded border border-[var(--border)]">LangGraph</span>
+              <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--badge-bg)] rounded border border-[var(--border)]">AWS Lambda</span>
+              <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--badge-bg)] rounded border border-[var(--border)]">Generative AI</span>
+              <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--badge-bg)] rounded border border-[var(--border)]">Tool Calling</span>
+            </div>
           </div>
-          <div class="pt-3 border-t border-[var(--border)] font-mono text-[11px] text-[var(--subtle)]">
-            AWS Academy &middot; Cloud AI
+          <div class="pt-3 border-t border-[var(--border)] flex items-center justify-between font-mono text-[11px]">
+            <span class="text-[var(--subtle)]">Credly Verified</span>
+            <a href="https://www.credly.com/badges/fc0d1b81-75f8-46b0-94ea-33e15388d3d1/public_url" target="_blank" rel="noopener noreferrer" class="text-sky-400 hover:text-sky-300 hover:underline inline-flex items-center gap-1 font-semibold transition-colors">
+              <span>Show Credential</span>
+              <span>↗</span>
+            </a>
           </div>
         </div>
 
-        <!-- Credential 2: Machine Learning With Python -->
+        <!-- Credential 2: Oracle Cloud Infrastructure 2025 Certified DevOps Professional -->
+        <div class="card-clean rounded-lg p-5 flex flex-col justify-between space-y-3">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-2 font-mono text-[11px] text-[var(--subtle)]">
+              <span>Oracle</span>
+              <span>Issued Oct 2025 &middot; Expires Oct 2027</span>
+            </div>
+            <h3 class="text-sm font-bold text-[var(--text)]">Oracle Cloud Infrastructure 2025 Certified DevOps Professional</h3>
+            <p class="text-xs text-[var(--muted)] mt-1.5 leading-relaxed">
+              Professional credential validating automated continuous integration and continuous delivery (CI/CD) pipelines, infrastructure as code, containerization, and enterprise Linux production operations on OCI.
+            </p>
+            <div class="flex flex-wrap gap-1.5 pt-2 mt-2">
+              <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--badge-bg)] rounded border border-[var(--border)]">CI/CD</span>
+              <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--badge-bg)] rounded border border-[var(--border)]">Linux</span>
+              <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--badge-bg)] rounded border border-[var(--border)]">DevOps</span>
+              <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--badge-bg)] rounded border border-[var(--border)]">Cloud Infrastructure</span>
+            </div>
+          </div>
+          <div class="pt-3 border-t border-[var(--border)] flex items-center justify-between font-mono text-[11px]">
+            <span class="text-[var(--subtle)]">Oracle Verified</span>
+            <a href="https://catalog-education.oracle.com/pls/certview/sharebadge?id=509D7598DE21B0F5DA4BE4664BC339F96D1FD5AB769BA9D36D90C10FEAA23D32" target="_blank" rel="noopener noreferrer" class="text-sky-400 hover:text-sky-300 hover:underline inline-flex items-center gap-1 font-semibold transition-colors">
+              <span>Show Credential</span>
+              <span>↗</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Credential 3: AWS Academy Machine Learning Foundations -->
+        <div class="card-clean rounded-lg p-5 flex flex-col justify-between space-y-3">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-2 font-mono text-[11px] text-[var(--subtle)]">
+              <span>Amazon Web Services (AWS)</span>
+              <span>Aug 2025</span>
+            </div>
+            <h3 class="text-sm font-bold text-[var(--text)]">AWS Academy Machine Learning Foundations</h3>
+            <p class="text-xs text-[var(--muted)] mt-1.5 leading-relaxed">
+              Certified by AWS Academy. Demonstrates core competency in machine learning pipelines, feature engineering, cloud AI models, computer vision, and LangGraph agent integration.
+            </p>
+            <div class="flex flex-wrap gap-1.5 pt-2 mt-2">
+              <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--badge-bg)] rounded border border-[var(--border)]">LangGraph</span>
+              <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--badge-bg)] rounded border border-[var(--border)]">Machine Learning</span>
+              <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--badge-bg)] rounded border border-[var(--border)]">Python</span>
+            </div>
+          </div>
+          <div class="pt-3 border-t border-[var(--border)] flex items-center justify-between font-mono text-[11px]">
+            <span class="text-[var(--subtle)]">Credly Verified</span>
+            <a href="https://www.credly.com/go/uP1bur51" target="_blank" rel="noopener noreferrer" class="text-sky-400 hover:text-sky-300 hover:underline inline-flex items-center gap-1 font-semibold transition-colors">
+              <span>Show Credential</span>
+              <span>↗</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Credential 4: AWS Academy Data Analytics -->
+        <div class="card-clean rounded-lg p-5 flex flex-col justify-between space-y-3">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-2 font-mono text-[11px] text-[var(--subtle)]">
+              <span>Amazon Web Services (AWS)</span>
+              <span>Aug 2025</span>
+            </div>
+            <h3 class="text-sm font-bold text-[var(--text)]">AWS Academy Data Analytics</h3>
+            <p class="text-xs text-[var(--muted)] mt-1.5 leading-relaxed">
+              Validates technical proficiency in data querying, SQL analytics, data ingestion architectures, warehousing, and cloud analytical processing on AWS.
+            </p>
+            <div class="flex flex-wrap gap-1.5 pt-2 mt-2">
+              <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--badge-bg)] rounded border border-[var(--border)]">SQL</span>
+              <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--badge-bg)] rounded border border-[var(--border)]">AWS Analytics</span>
+              <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--badge-bg)] rounded border border-[var(--border)]">Data Pipelines</span>
+            </div>
+          </div>
+          <div class="pt-3 border-t border-[var(--border)] flex items-center justify-between font-mono text-[11px]">
+            <span class="text-[var(--subtle)]">Credly Verified</span>
+            <a href="https://www.credly.com/go/Zu8WUNoi" target="_blank" rel="noopener noreferrer" class="text-sky-400 hover:text-sky-300 hover:underline inline-flex items-center gap-1 font-semibold transition-colors">
+              <span>Show Credential</span>
+              <span>↗</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Credential 5: Machine Learning With Python -->
         <div class="card-clean rounded-lg p-5 flex flex-col justify-between space-y-3">
           <div>
             <div class="flex items-center justify-between gap-2 mb-2 font-mono text-[11px] text-[var(--subtle)]">
@@ -649,13 +759,22 @@
             <p class="text-xs text-[var(--muted)] mt-1.5 leading-relaxed">
               Professional credential demonstrating end-to-end Python ML mastery: supervised/unsupervised algorithms, regression, classification, clustering, recommendation systems, and model validation using Scikit-learn, NumPy, and Pandas.
             </p>
+            <div class="flex flex-wrap gap-1.5 pt-2 mt-2">
+              <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--badge-bg)] rounded border border-[var(--border)]">Python ML</span>
+              <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--badge-bg)] rounded border border-[var(--border)]">Scikit-learn</span>
+              <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--badge-bg)] rounded border border-[var(--border)]">Statistical Modeling</span>
+            </div>
           </div>
-          <div class="pt-3 border-t border-[var(--border)] font-mono text-[11px] text-[var(--subtle)]">
-            Coursera &middot; Python ML
+          <div class="pt-3 border-t border-[var(--border)] flex items-center justify-between font-mono text-[11px]">
+            <span class="text-[var(--subtle)]">Coursera Verified</span>
+            <a href="https://www.linkedin.com/in/jayakrishnaakaliki/" target="_blank" rel="noopener noreferrer" class="text-sky-400 hover:text-sky-300 hover:underline inline-flex items-center gap-1 font-semibold transition-colors">
+              <span>Show Credential</span>
+              <span>↗</span>
+            </a>
           </div>
         </div>
 
-        <!-- Credential 3: AICTE IBM AI Virtual Internship -->
+        <!-- Credential 6: AICTE IBM AI Virtual Internship -->
         <div class="card-clean rounded-lg p-5 flex flex-col justify-between space-y-3">
           <div>
             <div class="flex items-center justify-between gap-2 mb-2 font-mono text-[11px] text-[var(--subtle)]">
@@ -666,26 +785,18 @@
             <p class="text-xs text-[var(--muted)] mt-1.5 leading-relaxed">
               Credential issued upon completing the national AICTE-IBM virtual internship. Architected and validated a real-time gesture recognition model with OpenCV and Deep Convolutional Neural Networks (85% accuracy).
             </p>
-          </div>
-          <div class="pt-3 border-t border-[var(--border)] font-mono text-[11px] text-[var(--subtle)]">
-            IBM &middot; OpenCV &middot; CNN
-          </div>
-        </div>
-
-        <!-- Credential 4: Academic Merit Scholarship Award -->
-        <div class="card-clean rounded-lg p-5 flex flex-col justify-between space-y-3">
-          <div>
-            <div class="flex items-center justify-between gap-2 mb-2 font-mono text-[11px] text-[var(--subtle)]">
-              <span>GITAM University</span>
-              <span>2020 &mdash; 2024</span>
+            <div class="flex flex-wrap gap-1.5 pt-2 mt-2">
+              <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--badge-bg)] rounded border border-[var(--border)]">OpenCV</span>
+              <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--badge-bg)] rounded border border-[var(--border)]">Deep Learning CNN</span>
+              <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--badge-bg)] rounded border border-[var(--border)]">Real-time Vision</span>
             </div>
-            <h3 class="text-sm font-bold text-[var(--text)]">100% Merit Scholarship Honor</h3>
-            <p class="text-xs text-[var(--muted)] mt-1.5 leading-relaxed">
-              Awarded 100% tuition merit scholarship for 4 consecutive academic years in recognition of top academic rank in B.Tech Computer Science and Engineering (AIML), maintaining 8.18 CGPA.
-            </p>
           </div>
-          <div class="pt-3 border-t border-[var(--border)] font-mono text-[11px] text-[var(--subtle)]">
-            Academic Excellence &middot; 4 Years
+          <div class="pt-3 border-t border-[var(--border)] flex items-center justify-between font-mono text-[11px]">
+            <span class="text-[var(--subtle)]">IBM &middot; AICTE</span>
+            <a href="https://www.linkedin.com/in/jayakrishnaakaliki/" target="_blank" rel="noopener noreferrer" class="text-sky-400 hover:text-sky-300 hover:underline inline-flex items-center gap-1 font-semibold transition-colors">
+              <span>Show Credential</span>
+              <span>↗</span>
+            </a>
           </div>
         </div>
 
@@ -762,19 +873,19 @@
         </div>
 
         <div class="flex flex-wrap items-center gap-2 pt-6 border-t border-[var(--border)] text-xs font-mono">
-          <a href="https://www.linkedin.com/in/jayakrishnaakaliki/" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded border border-[var(--border)] bg-[var(--badge-bg)] hover:border-neutral-500 text-[var(--text)] transition-colors">
+          <a href="https://www.linkedin.com/in/jayakrishnaakaliki/" target="_blank" rel="noopener noreferrer" class="link-blue px-3 py-1.5 rounded border border-[var(--border)] bg-[var(--badge-bg)] hover:border-neutral-500 transition-colors">
             LinkedIn Profile ↗
           </a>
-          <a href="https://github.com/jayakrishnaa18" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded border border-[var(--border)] bg-[var(--badge-bg)] hover:border-neutral-500 text-[var(--text)] transition-colors">
+          <a href="https://github.com/jayakrishnaa18" target="_blank" rel="noopener noreferrer" class="link-blue px-3 py-1.5 rounded border border-[var(--border)] bg-[var(--badge-bg)] hover:border-neutral-500 transition-colors">
             GitHub Profile ↗
           </a>
-          <a href="https://play.google.com/store/apps/dev?id=8662455924431698982" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded border border-[var(--border)] bg-[var(--badge-bg)] hover:border-neutral-500 text-[var(--text)] transition-colors">
+          <a href="https://play.google.com/store/apps/dev?id=8662455924431698982" target="_blank" rel="noopener noreferrer" class="link-blue px-3 py-1.5 rounded border border-[var(--border)] bg-[var(--badge-bg)] hover:border-neutral-500 transition-colors">
             Google Play Store ↗
           </a>
-          <a href="https://krihaa.me" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded border border-[var(--border)] bg-[var(--badge-bg)] hover:border-neutral-500 text-[var(--text)] transition-colors">
+          <a href="https://krihaa.me" target="_blank" rel="noopener noreferrer" class="link-blue px-3 py-1.5 rounded border border-[var(--border)] bg-[var(--badge-bg)] hover:border-neutral-500 transition-colors">
             krihaa.me ↗
           </a>
-          <a href="https://kalikilabs.tech" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded border border-[var(--border)] bg-[var(--badge-bg)] hover:border-neutral-500 text-[var(--text)] transition-colors">
+          <a href="https://kalikilabs.tech" target="_blank" rel="noopener noreferrer" class="link-blue px-3 py-1.5 rounded border border-[var(--border)] bg-[var(--badge-bg)] hover:border-neutral-500 transition-colors">
             kalikilabs.tech ↗
           </a>
         </div>
