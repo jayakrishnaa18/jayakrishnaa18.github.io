@@ -35,21 +35,21 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root, html.dark {
       --bg: #090d16;
-      --card: rgba(15, 23, 42, 0.65);
-      --card-hover: rgba(30, 41, 59, 0.85);
+      --card: rgba(15, 23, 42, 0.75);
+      --card-hover: rgba(30, 41, 59, 0.9);
       --border: rgba(255, 255, 255, 0.08);
-      --border-hover: rgba(56, 189, 248, 0.3);
+      --border-hover: rgba(56, 189, 248, 0.35);
       --text: #f8fafc;
       --muted: #94a3b8;
       --subtle: #64748b;
       --accent: #38bdf8;
       --accent-bg: rgba(56, 189, 248, 0.1);
-      --grid-dot: rgba(255, 255, 255, 0.04);
-      --spotlight: rgba(56, 189, 248, 0.06);
+      --grid-dot: rgba(255, 255, 255, 0.05);
+      --spotlight: rgba(56, 189, 248, 0.08);
     }
 
     html.light {
@@ -63,8 +63,8 @@
       --subtle: #64748b;
       --accent: #0284c7;
       --accent-bg: rgba(2, 132, 199, 0.08);
-      --grid-dot: rgba(15, 23, 42, 0.04);
-      --spotlight: rgba(2, 132, 199, 0.04);
+      --grid-dot: rgba(15, 23, 42, 0.05);
+      --spotlight: rgba(2, 132, 199, 0.05);
     }
 
     body {
@@ -73,6 +73,7 @@
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       transition: background-color 0.2s ease, color 0.2s ease;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
 
     .font-mono {
@@ -80,8 +81,8 @@
     }
 
     .bg-grid-dots {
-      background-size: 24px 24px;
-      background-image: radial-gradient(var(--grid-dot) 1px, transparent 1px);
+      background-size: 28px 28px;
+      background-image: radial-gradient(var(--grid-dot) 1.2px, transparent 1.2px);
     }
 
     .spotlight-card {
@@ -98,7 +99,7 @@
       content: "";
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), var(--spotlight), transparent 40%);
+      background: radial-gradient(650px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), var(--spotlight), transparent 45%);
       opacity: 0;
       transition: opacity 0.3s ease;
       pointer-events: none;
@@ -110,308 +111,367 @@
 
     @media print {
       body { background: #fff !important; color: #000 !important; }
-      header, .no-print, #toast { display: none !important; }
+      header, .no-print, #toast, #mobileMenu { display: none !important; }
       .spotlight-card { border: 1px solid #ccc !important; background: transparent !important; }
     }
   </style>
 </head>
 <body class="bg-theme-bg text-theme-text relative min-h-screen selection:bg-sky-500/20 selection:text-sky-300">
 
-  <!-- Background Dots -->
+  <!-- Background Dots & Ambient Glow -->
   <div class="fixed inset-0 bg-grid-dots pointer-events-none -z-20"></div>
-  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-5xl h-80 bg-gradient-to-b from-[var(--accent-bg)] to-transparent pointer-events-none -z-10 blur-3xl opacity-60"></div>
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 bg-gradient-to-b from-sky-500/10 via-sky-500/5 to-transparent pointer-events-none -z-10 blur-3xl opacity-70"></div>
 
-  <!-- Navigation Bar -->
+  <!-- Responsive Navigation Bar -->
   <header class="sticky top-0 z-40 w-full border-b border-[var(--border)] bg-[var(--bg)]/90 backdrop-blur-md transition-colors">
-    <div class="max-w-3xl mx-auto px-6 h-14 flex items-center justify-between">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
       
       <!-- Brand & Roles -->
-      <a href="#about" class="flex items-center gap-2.5 group">
-        <div class="w-8 h-8 rounded-lg border border-[var(--border)] bg-[var(--card)] flex items-center justify-center font-mono font-bold text-xs text-[var(--text)] group-hover:border-[var(--accent)] transition-colors shadow-sm">
+      <a href="#about" class="flex items-center gap-3 group shrink-0">
+        <div class="w-9 h-9 rounded-xl border border-[var(--border)] bg-[var(--card)] flex items-center justify-center font-mono font-bold text-sm text-[var(--text)] group-hover:border-[var(--accent)] group-hover:text-[var(--accent)] transition-all shadow-sm">
           JK
         </div>
         <div class="flex flex-col">
-          <span class="font-semibold text-xs tracking-tight text-[var(--text)]">Kaliki Jayakrishnaa</span>
-          <span class="text-[10px] text-[var(--subtle)] font-mono">Software Engineer &middot; AI/ML &middot; Python</span>
+          <span class="font-bold text-sm sm:text-base tracking-tight text-[var(--text)]">Kaliki Jayakrishnaa</span>
+          <span class="text-[11px] text-[var(--muted)] font-mono hidden sm:inline">Software Engineer &middot; AI/ML &middot; Python &middot; Full Stack</span>
         </div>
       </a>
 
-      <!-- Navigation Links -->
-      <nav class="hidden md:flex items-center gap-1 text-xs font-medium text-[var(--muted)]">
-        <a href="#experience" class="px-2.5 py-1 rounded hover:text-[var(--text)] transition-colors">Experience</a>
-        <a href="#projects" class="px-2.5 py-1 rounded hover:text-[var(--text)] transition-colors">Projects</a>
-        <a href="#skills" class="px-2.5 py-1 rounded hover:text-[var(--text)] transition-colors">Tech Stack</a>
-        <a href="#certifications" class="px-2.5 py-1 rounded hover:text-[var(--text)] transition-colors">Certifications</a>
-        <a href="#education" class="px-2.5 py-1 rounded hover:text-[var(--text)] transition-colors">Education</a>
-        <a href="#contact" class="px-2.5 py-1 rounded hover:text-[var(--text)] transition-colors">Contact</a>
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden lg:flex items-center gap-1.5 text-xs font-medium text-[var(--muted)]">
+        <a href="#experience" class="px-3 py-1.5 rounded-lg hover:text-[var(--text)] hover:bg-[var(--card)] transition-all">Experience</a>
+        <a href="#projects" class="px-3 py-1.5 rounded-lg hover:text-[var(--text)] hover:bg-[var(--card)] transition-all">Projects</a>
+        <a href="#skills" class="px-3 py-1.5 rounded-lg hover:text-[var(--text)] hover:bg-[var(--card)] transition-all">Tech Stack</a>
+        <a href="#certifications" class="px-3 py-1.5 rounded-lg hover:text-[var(--text)] hover:bg-[var(--card)] transition-all">Certifications</a>
+        <a href="#education" class="px-3 py-1.5 rounded-lg hover:text-[var(--text)] hover:bg-[var(--card)] transition-all">Education</a>
+        <a href="#contact" class="px-3 py-1.5 rounded-lg hover:text-[var(--text)] hover:bg-[var(--card)] transition-all">Contact</a>
       </nav>
 
-      <!-- Action Items: Print CV & Theme Toggle -->
+      <!-- Action Items: Print CV, Theme Toggle, Mobile Menu Button -->
       <div class="flex items-center gap-2">
-        <button onclick="window.print()" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md border border-[var(--border)] bg-[var(--card)] hover:bg-[var(--card-hover)] text-xs text-[var(--text)] font-mono transition-all" title="Print or save as PDF">
+        <button onclick="window.print()" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-[var(--border)] bg-[var(--card)] hover:bg-[var(--card-hover)] hover:border-[var(--border-hover)] text-xs text-[var(--text)] font-mono transition-all shadow-sm" title="Print or save as PDF Resume">
           <svg class="w-3.5 h-3.5 text-[var(--accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
           <span class="hidden sm:inline">Resume / CV</span>
         </button>
 
-        <button onclick="toggleTheme()" id="themeToggleBtn" class="p-1.5 rounded-lg border border-[var(--border)] bg-[var(--card)] text-[var(--subtle)] hover:text-[var(--text)] transition-colors" title="Toggle Light / Dark mode">
+        <button onclick="toggleTheme()" id="themeToggleBtn" class="p-2 rounded-lg border border-[var(--border)] bg-[var(--card)] text-[var(--subtle)] hover:text-[var(--text)] hover:border-[var(--border-hover)] transition-all shadow-sm" title="Toggle Light / Dark mode">
           <svg id="moonIcon" class="w-4 h-4 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
           <svg id="sunIcon" class="w-4 h-4 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+        </button>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button onclick="toggleMobileMenu()" id="mobileMenuBtn" class="lg:hidden p-2 rounded-lg border border-[var(--border)] bg-[var(--card)] text-[var(--subtle)] hover:text-[var(--text)] transition-colors" title="Toggle Navigation Menu">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
         </button>
       </div>
 
     </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobileMenu" class="hidden lg:hidden border-b border-[var(--border)] bg-[var(--bg)] px-4 py-3 space-y-1 text-xs font-medium font-mono">
+      <a href="#experience" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md hover:bg-[var(--card)] hover:text-[var(--text)] text-[var(--muted)]">01. Experience</a>
+      <a href="#projects" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md hover:bg-[var(--card)] hover:text-[var(--text)] text-[var(--muted)]">02. Featured Projects</a>
+      <a href="#skills" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md hover:bg-[var(--card)] hover:text-[var(--text)] text-[var(--muted)]">03. Technical Skills</a>
+      <a href="#certifications" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md hover:bg-[var(--card)] hover:text-[var(--text)] text-[var(--muted)]">04. Licenses &amp; Certifications</a>
+      <a href="#education" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md hover:bg-[var(--card)] hover:text-[var(--text)] text-[var(--muted)]">05. Education &amp; Honors</a>
+      <a href="#contact" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md hover:bg-[var(--card)] hover:text-[var(--text)] text-[var(--muted)]">06. Contact &amp; Inquiries</a>
+    </div>
   </header>
 
-  <!-- Main Content Container -->
-  <main class="max-w-3xl mx-auto px-6 pt-12 pb-24 space-y-16">
+  <!-- Main Content Container: Fluid & Expansive (Max-w-7xl) -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-24 space-y-20">
 
-    <!-- HERO SECTION: SOFTWARE ENGINEER (AI/ML · PYTHON · FULL STACK) -->
-    <section id="about" class="space-y-6">
+    <!-- HERO SECTION: 2-COLUMN EXPANSIVE LAYOUT -->
+    <section id="about" class="space-y-8">
       
-      <!-- Target Roles Pill -->
-      <div class="flex flex-wrap items-center justify-between gap-3">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-sky-500/25 bg-sky-500/10 text-sky-400 text-xs font-mono font-medium">
+      <!-- Status Row: Target Roles & Availability -->
+      <div class="flex flex-wrap items-center justify-between gap-3 border-b border-[var(--border)] pb-4">
+        <div class="inline-flex items-center gap-2.5 px-3 py-1 rounded-full border border-sky-500/30 bg-sky-500/10 text-sky-400 text-xs font-mono font-medium">
           <span class="relative flex h-2 w-2">
             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
             <span class="relative inline-flex rounded-full h-2 w-2 bg-sky-500"></span>
           </span>
           <span>Targeting: Software Engineer &middot; AI/ML &middot; Python &middot; Full Stack</span>
         </div>
-        <span class="text-xs font-mono text-[var(--subtle)]">Hyderabad, IN &middot; Relocation / Remote OK</span>
-      </div>
-
-      <!-- Headline -->
-      <div class="space-y-3">
-        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-[var(--text)]">
-          Software Engineer <br/>
-          <span class="text-[var(--accent)] font-mono text-2xl sm:text-4xl font-bold">AI/ML &middot; Python &middot; Full Stack</span>
-        </h1>
-        <p class="text-base text-[var(--muted)] leading-relaxed max-w-2xl">
-          Hi, I'm <strong class="text-[var(--text)] font-semibold">Kaliki Jayakrishnaa</strong>. I build autonomous AI agents, production Python pipelines, and full-stack web and Android applications. At <strong class="text-[var(--text)]">Amazon Development Center</strong>, I contributed to developing an AI agent that automated investigation workflows for high-volume transactions, resolving 70% of queries independently with 99%+ accuracy.
-        </p>
-      </div>
-
-      <!-- Key Impact Metrics (Hiring Evidence) -->
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-1">
-        <div class="spotlight-card rounded-xl p-3.5" onmousemove="handleSpotlight(event, this)">
-          <span class="text-2xl font-bold font-mono text-[var(--accent)]">70%</span>
-          <p class="text-[11px] text-[var(--muted)] mt-0.5 leading-snug">Auto-Resolution with AI Agents at Amazon</p>
-        </div>
-        <div class="spotlight-card rounded-xl p-3.5" onmousemove="handleSpotlight(event, this)">
-          <span class="text-2xl font-bold font-mono text-emerald-500 dark:text-emerald-400">99%+</span>
-          <p class="text-[11px] text-[var(--muted)] mt-0.5 leading-snug">Investigation Accuracy &amp; System QA</p>
-        </div>
-        <div class="spotlight-card rounded-xl p-3.5" onmousemove="handleSpotlight(event, this)">
-          <span class="text-2xl font-bold font-mono text-[var(--text)]">94%</span>
-          <p class="text-[11px] text-[var(--muted)] mt-0.5 leading-snug">BERT ML Deceptive Feedback Precision</p>
-        </div>
-        <div class="spotlight-card rounded-xl p-3.5" onmousemove="handleSpotlight(event, this)">
-          <span class="text-2xl font-bold font-mono text-amber-500 dark:text-amber-400">100%</span>
-          <p class="text-[11px] text-[var(--muted)] mt-0.5 leading-snug">Academic Merit Scholarship (GITAM AIML)</p>
+        <div class="flex items-center gap-2 text-xs font-mono text-[var(--subtle)]">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+          <span>Hyderabad, India &middot; Open to Relocation / Remote</span>
         </div>
       </div>
 
-      <!-- Direct Contact & Code Links -->
-      <div class="flex flex-wrap items-center gap-2 pt-2">
-        <a href="mailto:jayakrishnaakaliki@gmail.com" class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-[var(--text)] text-[var(--bg)] hover:opacity-90 text-xs font-semibold transition-all">
-          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-          <span>jayakrishnaakaliki@gmail.com</span>
-        </a>
+      <!-- Main Hero 2-Column Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+        
+        <!-- Left Column: Biography, Elevator Pitch & Actions (col-span-7) -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="space-y-3">
+            <p class="text-xs uppercase tracking-widest font-mono text-[var(--accent)] font-semibold">Engineering Portfolio</p>
+            <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[var(--text)] leading-[1.1]">
+              Kaliki Jayakrishnaa
+            </h1>
+            <h2 class="text-xl sm:text-2xl lg:text-3xl font-bold font-mono text-[var(--accent)]">
+              Software Engineer &middot; AI/ML &middot; Full Stack
+            </h2>
+          </div>
 
-        <a href="tel:+918374210497" class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg border border-[var(--border)] bg-[var(--card)] hover:bg-[var(--card-hover)] text-xs font-mono text-[var(--text)] transition-all">
-          <svg class="w-3.5 h-3.5 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-          <span>+91-8374210497</span>
-        </a>
+          <p class="text-sm sm:text-base text-[var(--muted)] leading-relaxed">
+            I engineer <strong class="text-[var(--text)] font-semibold">autonomous AI agent pipelines</strong>, robust <strong class="text-[var(--text)] font-semibold">Python backend services</strong>, and <strong class="text-[var(--text)] font-semibold">native Android &amp; web platforms</strong>. At <strong class="text-[var(--text)] font-semibold">Amazon Development Center</strong>, I contributed to the design of an autonomous AI investigation agent that scaled across high-volume queues, resolving <strong class="text-[var(--accent)] font-semibold">70% of operational queries independently</strong> with 99%+ accuracy.
+          </p>
 
-        <a href="https://github.com/jayakrishnaa18" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-[var(--border)] bg-[var(--card)] hover:bg-[var(--card-hover)] text-xs font-mono text-[var(--text)] transition-all">
-          <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-          <span>github/jayakrishnaa18</span>
-        </a>
+          <!-- Direct Communication & Social Links Grid -->
+          <div class="flex flex-wrap items-center gap-2.5 pt-2">
+            <a href="mailto:jayakrishnaakaliki@gmail.com" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[var(--text)] text-[var(--bg)] hover:opacity-90 text-xs font-semibold transition-all shadow-md">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              <span>jayakrishnaakaliki@gmail.com</span>
+            </a>
 
-        <a href="https://www.linkedin.com/in/jayakrishnaakaliki/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-[var(--border)] bg-[var(--card)] hover:bg-[var(--card-hover)] text-xs font-medium text-[var(--text)] transition-all">
-          <svg class="w-3.5 h-3.5 fill-current text-[#0a66c2]" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9h2.8v8.37h-2.8V10.9M7.86 6.5a1.63 1.63 0 0 0-1.63 1.62c0 .9.73 1.63 1.63 1.63.9 0 1.63-.73 1.63-1.63 0-.9-.73-1.62-1.63-1.62Z"/></svg>
-          <span>LinkedIn</span>
-        </a>
+            <a href="tel:+918374210497" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl border border-[var(--border)] bg-[var(--card)] hover:bg-[var(--card-hover)] text-xs font-mono text-[var(--text)] transition-all">
+              <svg class="w-3.5 h-3.5 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+              <span>+91-8374210497</span>
+            </a>
 
-        <a href="https://krihaa.me" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-[var(--border)] bg-[var(--card)] hover:bg-[var(--card-hover)] text-xs font-mono text-emerald-400 transition-all">
-          <span>krihaa.me (Full Stack Live)</span>
-          <span class="text-[10px]">↗</span>
-        </a>
+            <a href="https://github.com/jayakrishnaa18" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl border border-[var(--border)] bg-[var(--card)] hover:bg-[var(--card-hover)] text-xs font-mono text-[var(--text)] transition-all">
+              <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+              <span>GitHub</span>
+            </a>
 
-        <a href="https://kalikilabs.tech" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-[var(--border)] bg-[var(--card)] hover:bg-[var(--card-hover)] text-xs font-mono text-[var(--accent)] transition-all">
-          <span>kalikilabs.tech (Mobile &amp; Platforms)</span>
-          <span class="text-[10px]">↗</span>
-        </a>
+            <a href="https://www.linkedin.com/in/jayakrishnaakaliki/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl border border-[var(--border)] bg-[var(--card)] hover:bg-[var(--card-hover)] text-xs font-medium text-[var(--text)] transition-all">
+              <svg class="w-3.5 h-3.5 fill-current text-[#0a66c2]" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9h2.8v8.37h-2.8V10.9M7.86 6.5a1.63 1.63 0 0 0-1.63 1.62c0 .9.73 1.63 1.63 1.63.9 0 1.63-.73 1.63-1.63 0-.9-.73-1.62-1.63-1.62Z"/></svg>
+              <span>LinkedIn</span>
+            </a>
 
-        <a href="https://play.google.com/store/apps/dev?id=8662455924431698982" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-emerald-500/30 bg-emerald-500/10 hover:bg-emerald-500/20 text-xs font-mono text-emerald-400 transition-all">
-          <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M3.609 1.814L13.792 12 3.61 22.186c-.37-.417-.61-.98-.61-1.619V3.433c0-.638.24-1.202.609-1.619zm11.235 11.238l2.366 2.366-11.758 6.787 9.392-9.153zm0-2.104L5.452 1.795 17.21 8.582l-2.366 2.366zm1.488 1.052l3.437-1.984a1.442 1.442 0 0 1 0 2.498l-3.437 1.984v-2.498z"/></svg>
-          <span>Google Play Developer (Kaliki Labs)</span>
-          <span class="text-[10px]">↗</span>
-        </a>
+            <a href="https://play.google.com/store/apps/dev?id=8662455924431698982" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl border border-emerald-500/30 bg-emerald-500/10 hover:bg-emerald-500/20 text-xs font-mono text-emerald-400 transition-all">
+              <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M3.609 1.814L13.792 12 3.61 22.186c-.37-.417-.61-.98-.61-1.619V3.433c0-.638.24-1.202.609-1.619zm11.235 11.238l2.366 2.366-11.758 6.787 9.392-9.153zm0-2.104L5.452 1.795 17.21 8.582l-2.366 2.366zm1.488 1.052l3.437-1.984a1.442 1.442 0 0 1 0 2.498l-3.437 1.984v-2.498z"/></svg>
+              <span>Play Store Dev</span>
+            </a>
+
+            <a href="https://krihaa.me" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl border border-[var(--border)] bg-[var(--card)] hover:bg-[var(--card-hover)] text-xs font-mono text-emerald-400 transition-all">
+              <span>krihaa.me</span>
+              <span class="text-[10px]">↗</span>
+            </a>
+
+            <a href="https://kalikilabs.tech" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl border border-[var(--border)] bg-[var(--card)] hover:bg-[var(--card-hover)] text-xs font-mono text-[var(--accent)] transition-all">
+              <span>kalikilabs.tech</span>
+              <span class="text-[10px]">↗</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Column: Interactive System Telemetry Card (col-span-5) -->
+        <div class="lg:col-span-5 spotlight-card rounded-2xl p-6 space-y-5 border-[var(--border)] bg-[var(--card)] shadow-xl" onmousemove="handleSpotlight(event, this)">
+          
+          <!-- Terminal Header -->
+          <div class="flex items-center justify-between border-b border-[var(--border)] pb-3">
+            <div class="flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-rose-500/80 inline-block"></span>
+              <span class="w-3 h-3 rounded-full bg-amber-500/80 inline-block"></span>
+              <span class="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
+              <span class="text-xs font-mono text-[var(--muted)] ml-2">swe_metrics_telemetry.py</span>
+            </div>
+            <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">LIVE</span>
+          </div>
+
+          <!-- Key Quantified Metric Highlights -->
+          <div class="grid grid-cols-2 gap-3.5">
+            <div class="p-3.5 rounded-xl border border-[var(--border)] bg-[var(--bg)]">
+              <span class="text-2xl sm:text-3xl font-extrabold font-mono text-[var(--accent)]">70%</span>
+              <p class="text-[11px] text-[var(--muted)] font-medium mt-1 leading-snug">Auto-Resolution with AI Agents at Amazon</p>
+            </div>
+            <div class="p-3.5 rounded-xl border border-[var(--border)] bg-[var(--bg)]">
+              <span class="text-2xl sm:text-3xl font-extrabold font-mono text-emerald-400">99%+</span>
+              <p class="text-[11px] text-[var(--muted)] font-medium mt-1 leading-snug">Investigation Accuracy &amp; System QA</p>
+            </div>
+            <div class="p-3.5 rounded-xl border border-[var(--border)] bg-[var(--bg)]">
+              <span class="text-2xl sm:text-3xl font-extrabold font-mono text-amber-400">100%</span>
+              <p class="text-[11px] text-[var(--muted)] font-medium mt-1 leading-snug">Merit Scholarship (GITAM AIML)</p>
+            </div>
+            <div class="p-3.5 rounded-xl border border-[var(--border)] bg-[var(--bg)]">
+              <span class="text-2xl sm:text-3xl font-extrabold font-mono text-[var(--text)]">3+ Apps</span>
+              <p class="text-[11px] text-[var(--muted)] font-medium mt-1 leading-snug">Shipped on Google Play Console</p>
+            </div>
+          </div>
+
+          <!-- Production Platforms Telemetry -->
+          <div class="space-y-2 pt-1 border-t border-[var(--border)] text-xs font-mono">
+            <div class="flex items-center justify-between text-[11px]">
+              <span class="text-[var(--muted)]">SmartScan (Google ML Kit OCR):</span>
+              <span class="text-emerald-400 font-semibold">Active on Play Store</span>
+            </div>
+            <div class="flex items-center justify-between text-[11px]">
+              <span class="text-[var(--muted)]">Kaliki Player (MediaCodec 60FPS):</span>
+              <span class="text-[var(--accent)] font-semibold">ExoPlayer Pipeline</span>
+            </div>
+            <div class="flex items-center justify-between text-[11px]">
+              <span class="text-[var(--muted)]">Krihaa News (React &middot; SEO &middot; Firebase):</span>
+              <span class="text-emerald-400 font-semibold">Online &middot; krihaa.me</span>
+            </div>
+          </div>
+
+        </div>
+
       </div>
 
     </section>
 
-    <!-- PROFESSIONAL WORK EXPERIENCE -->
+    <!-- WORK EXPERIENCE SECTION (FULL WIDTH & EXPANSIVE) -->
     <section id="experience" class="space-y-6">
-      <div class="flex items-center justify-between border-b border-[var(--border)] pb-3">
-        <div class="flex items-center gap-2">
-          <span class="w-2 h-2 rounded-full bg-[var(--accent)]"></span>
-          <h2 class="text-sm font-semibold uppercase tracking-wider text-[var(--muted)] font-mono">Work Experience</h2>
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[var(--border)] pb-3">
+        <div class="flex items-center gap-2.5">
+          <span class="w-2.5 h-2.5 rounded-full bg-[var(--accent)]"></span>
+          <h2 class="text-base sm:text-lg font-bold tracking-tight text-[var(--text)] uppercase font-mono">Work Experience</h2>
         </div>
-        <span class="text-xs text-[var(--subtle)] font-mono">Software &middot; AI/ML &middot; Enterprise</span>
+        <span class="text-xs text-[var(--subtle)] font-mono">Software Engineering &middot; AI/ML &middot; Enterprise Automation</span>
       </div>
 
-      <div class="space-y-5">
+      <div class="space-y-6">
 
-        <!-- Amazon Development Center -->
-        <div class="spotlight-card rounded-xl p-5" onmousemove="handleSpotlight(event, this)">
-          <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-2">
+        <!-- Experience 1: Amazon Development Center -->
+        <div class="spotlight-card rounded-2xl p-6 sm:p-7 space-y-4" onmousemove="handleSpotlight(event, this)">
+          <div class="flex flex-col md:flex-row md:items-baseline justify-between gap-2">
             <div>
-              <h3 class="text-base font-semibold text-[var(--text)] flex items-center gap-2">
+              <h3 class="text-lg font-bold text-[var(--text)] flex flex-wrap items-center gap-2">
                 <span>ML Data Associate</span>
-                <span class="text-xs px-2 py-0.5 rounded border border-[var(--border)] bg-[var(--bg)] text-[var(--text)] font-normal">Amazon Development Center</span>
+                <span class="text-xs px-2.5 py-0.5 rounded-full border border-sky-500/30 bg-sky-500/10 text-sky-400 font-mono">Amazon Development Center</span>
               </h3>
-              <p class="text-xs text-[var(--muted)] font-mono mt-0.5">AI Agent Development &middot; ML &amp; Process Automation</p>
+              <p class="text-xs text-[var(--muted)] font-mono mt-1">AI Agent Development &middot; ML &amp; Process Automation</p>
             </div>
             <span class="text-xs text-[var(--subtle)] font-mono shrink-0">Mar 2025 &mdash; Jun 2026 &middot; Hyderabad, India</span>
           </div>
 
-          <ul class="space-y-2 text-xs text-[var(--muted)] leading-relaxed mt-3.5">
-            <li class="flex items-start gap-2">
-              <span class="text-[var(--accent)] mt-1 select-none">&bull;</span>
-              <span>Contributed to the design and implementation of an <strong class="text-[var(--text)] font-medium">autonomous AI agent</strong> for transaction investigation workflows, enabling <strong class="text-[var(--accent)] font-medium">70% of operational queries to be resolved independently</strong> and scaling throughput across high-volume queues.</span>
+          <ul class="space-y-2.5 text-xs sm:text-sm text-[var(--muted)] leading-relaxed">
+            <li class="flex items-start gap-2.5">
+              <span class="text-[var(--accent)] mt-1.5 select-none text-base">&bull;</span>
+              <span>Contributed to the design and implementation of an <strong class="text-[var(--text)] font-semibold">autonomous AI agent</strong> for transaction investigation workflows, enabling <strong class="text-[var(--accent)] font-semibold">70% of operational queries to be resolved independently</strong> and scaling throughput across high-volume queues.</span>
             </li>
-            <li class="flex items-start gap-2">
-              <span class="text-[var(--accent)] mt-1 select-none">&bull;</span>
-              <span>Built custom <strong class="text-[var(--text)] font-medium">process automation scripts (Tampermonkey / JavaScript)</strong> integrated into internal operational consoles, eliminating repetitive manual steps and cutting turnaround time.</span>
+            <li class="flex items-start gap-2.5">
+              <span class="text-[var(--accent)] mt-1.5 select-none text-base">&bull;</span>
+              <span>Built custom <strong class="text-[var(--text)] font-semibold">process automation scripts (Tampermonkey / JavaScript)</strong> integrated into internal operational consoles, eliminating repetitive manual steps and cutting turnaround time.</span>
             </li>
-            <li class="flex items-start gap-2">
-              <span class="text-[var(--accent)] mt-1 select-none">&bull;</span>
-              <span>Investigated and resolved high-volume transaction cases with <strong class="text-emerald-500 dark:text-emerald-400 font-medium">99%+ accuracy</strong>, applying root-cause analysis (RCA) and data-driven debugging to close system gaps and improve operational reliability.</span>
+            <li class="flex items-start gap-2.5">
+              <span class="text-[var(--accent)] mt-1.5 select-none text-base">&bull;</span>
+              <span>Investigated and resolved high-volume transaction cases with <strong class="text-emerald-400 font-semibold">99%+ accuracy</strong>, applying root-cause analysis (RCA) and data-driven debugging to close system gaps and improve operational reliability.</span>
             </li>
-            <li class="flex items-start gap-2">
-              <span class="text-[var(--accent)] mt-1 select-none">&bull;</span>
-              <span>Served as <strong class="text-[var(--text)] font-medium">Point of Contact (POC) for two core operational workflows</strong>, translating business requirements into technical tooling improvements and collaborating with engineering stakeholders.</span>
+            <li class="flex items-start gap-2.5">
+              <span class="text-[var(--accent)] mt-1.5 select-none text-base">&bull;</span>
+              <span>Served as <strong class="text-[var(--text)] font-semibold">Point of Contact (POC) for two core operational workflows</strong>, translating business requirements into technical tooling improvements and collaborating with engineering stakeholders.</span>
             </li>
           </ul>
 
-          <div class="flex flex-wrap gap-1.5 mt-4 pt-3 border-t border-[var(--border)]">
-            <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">AI Agents</span>
-            <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">Tool Calling</span>
-            <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">Python &amp; JS Scripts</span>
-            <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">Tampermonkey</span>
-            <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">Root Cause Analysis</span>
-            <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">SOP Compliance</span>
+          <div class="flex flex-wrap gap-2 pt-3 border-t border-[var(--border)]">
+            <span class="px-2.5 py-1 text-xs font-mono text-[var(--subtle)] bg-[var(--bg)] rounded-md border border-[var(--border)]">AI Agents</span>
+            <span class="px-2.5 py-1 text-xs font-mono text-[var(--subtle)] bg-[var(--bg)] rounded-md border border-[var(--border)]">Tool Calling</span>
+            <span class="px-2.5 py-1 text-xs font-mono text-[var(--subtle)] bg-[var(--bg)] rounded-md border border-[var(--border)]">Python &amp; JS Scripts</span>
+            <span class="px-2.5 py-1 text-xs font-mono text-[var(--subtle)] bg-[var(--bg)] rounded-md border border-[var(--border)]">Tampermonkey</span>
+            <span class="px-2.5 py-1 text-xs font-mono text-[var(--subtle)] bg-[var(--bg)] rounded-md border border-[var(--border)]">Root Cause Analysis</span>
+            <span class="px-2.5 py-1 text-xs font-mono text-[var(--subtle)] bg-[var(--bg)] rounded-md border border-[var(--border)]">SOP Compliance</span>
           </div>
         </div>
 
-        <!-- Kaliki Labs -->
-        <div class="spotlight-card rounded-xl p-5" onmousemove="handleSpotlight(event, this)">
-          <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-2">
+        <!-- Experience 2: Kaliki Labs (Freelance SWE) -->
+        <div class="spotlight-card rounded-2xl p-6 sm:p-7 space-y-4" onmousemove="handleSpotlight(event, this)">
+          <div class="flex flex-col md:flex-row md:items-baseline justify-between gap-2">
             <div>
-              <h3 class="text-base font-semibold text-[var(--text)] flex flex-wrap items-center gap-2">
+              <h3 class="text-lg font-bold text-[var(--text)] flex flex-wrap items-center gap-2">
                 <span>Freelance Software Engineer</span>
-                <a href="https://kalikilabs.tech" target="_blank" rel="noopener noreferrer" class="text-xs px-2 py-0.5 rounded border border-[var(--border)] bg-[var(--bg)] hover:border-[var(--accent)] text-[var(--text)] font-normal inline-flex items-center gap-1 transition-colors">
+                <a href="https://kalikilabs.tech" target="_blank" rel="noopener noreferrer" class="text-xs px-2.5 py-0.5 rounded-full border border-[var(--border)] bg-[var(--bg)] hover:border-[var(--accent)] text-[var(--text)] font-normal inline-flex items-center gap-1 transition-colors">
                   <span>kalikilabs.tech</span>
                   <span class="text-[var(--accent)] font-mono text-[10px]">↗</span>
                 </a>
-                <a href="https://play.google.com/store/apps/dev?id=8662455924431698982" target="_blank" rel="noopener noreferrer" class="text-xs px-2 py-0.5 rounded border border-emerald-500/30 bg-emerald-500/10 hover:border-emerald-500 text-emerald-400 font-normal inline-flex items-center gap-1 transition-colors">
+                <a href="https://play.google.com/store/apps/dev?id=8662455924431698982" target="_blank" rel="noopener noreferrer" class="text-xs px-2.5 py-0.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 hover:border-emerald-500 text-emerald-400 font-normal inline-flex items-center gap-1 transition-colors">
                   <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M3.609 1.814L13.792 12 3.61 22.186c-.37-.417-.61-.98-.61-1.619V3.433c0-.638.24-1.202.609-1.619zm11.235 11.238l2.366 2.366-11.758 6.787 9.392-9.153zm0-2.104L5.452 1.795 17.21 8.582l-2.366 2.366zm1.488 1.052l3.437-1.984a1.442 1.442 0 0 1 0 2.498l-3.437 1.984v-2.498z"/></svg>
-                  <span>Google Play Profile</span>
-                  <span class="font-mono text-[10px]">↗</span>
+                  <span>Google Play Dev Profile ↗</span>
                 </a>
               </h3>
-              <p class="text-xs text-[var(--muted)] font-mono mt-0.5">Software Engineering &middot; Mobile &amp; Platform Systems</p>
+              <p class="text-xs text-[var(--muted)] font-mono mt-1">Software Engineering &middot; Mobile &amp; Platform Systems</p>
             </div>
             <span class="text-xs text-[var(--subtle)] font-mono shrink-0">Jan 2025 &mdash; Present &middot; Remote</span>
           </div>
 
-          <ul class="space-y-2 text-xs text-[var(--muted)] leading-relaxed mt-3.5">
-            <li class="flex items-start gap-2">
-              <span class="text-[var(--accent)] mt-1 select-none">&bull;</span>
-              <span>Architected and deployed production software across <strong class="text-[var(--text)] font-medium">Android and web platforms</strong>: system architecture, latency profiling, unit testing, and continuous deployment.</span>
+          <ul class="space-y-2.5 text-xs sm:text-sm text-[var(--muted)] leading-relaxed">
+            <li class="flex items-start gap-2.5">
+              <span class="text-[var(--accent)] mt-1.5 select-none text-base">&bull;</span>
+              <span>Architected and deployed production software across <strong class="text-[var(--text)] font-semibold">Android and web platforms</strong>: system architecture, latency profiling, unit testing, and continuous deployment.</span>
             </li>
-            <li class="flex items-start gap-2">
-              <span class="text-[var(--accent)] mt-1 select-none">&bull;</span>
-              <span>Published and maintained a suite of native Android applications on the <strong class="text-[var(--text)] font-medium">Google Play Store</strong> under developer entity <strong class="text-[var(--text)] font-medium">Kaliki Labs</strong> (Google Play Dev ID: <a href="https://play.google.com/store/apps/dev?id=8662455924431698982" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline font-mono">8662455924431698982 ↗</a>), owning Android 14 SDK compliance, key signing, staged rollouts, and production crash telemetry.</span>
+            <li class="flex items-start gap-2.5">
+              <span class="text-[var(--accent)] mt-1.5 select-none text-base">&bull;</span>
+              <span>Published and maintained a suite of native Android applications on the <strong class="text-[var(--text)] font-semibold">Google Play Store</strong> under developer entity <strong class="text-[var(--text)] font-semibold">Kaliki Labs</strong> (Google Play Dev ID: <a href="https://play.google.com/store/apps/dev?id=8662455924431698982" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline font-mono">8662455924431698982 ↗</a>), owning Android 14 SDK compliance, key signing, staged rollouts, and production crash telemetry.</span>
             </li>
-            <li class="flex items-start gap-2">
-              <span class="text-[var(--accent)] mt-1 select-none">&bull;</span>
-              <span><strong class="text-[var(--text)] font-medium">Kaliki Player</strong>: Native Kotlin player featuring <strong class="text-[var(--text)] font-medium">MediaCodec hardware decoding</strong>, 60 FPS fluid gesture UI, one-handed thumb reachability, and persistent playback states using the <strong class="text-[var(--accent)] font-medium">ExoPlayer pipeline</strong>.</span>
+            <li class="flex items-start gap-2.5">
+              <span class="text-[var(--accent)] mt-1.5 select-none text-base">&bull;</span>
+              <span><strong class="text-[var(--text)] font-semibold">Kaliki Player</strong>: Native Kotlin player featuring <strong class="text-[var(--text)] font-semibold">MediaCodec hardware decoding</strong>, 60 FPS fluid gesture UI, one-handed thumb reachability, and persistent playback states using the <strong class="text-[var(--accent)] font-semibold">ExoPlayer pipeline</strong>.</span>
             </li>
-            <li class="flex items-start gap-2">
-              <span class="text-[var(--accent)] mt-1 select-none">&bull;</span>
-              <span><strong class="text-[var(--text)] font-medium">SmartScan (PDF &amp; OCR Scan)</strong>: 100% offline-first Android scanner integrating on-device <strong class="text-[var(--text)] font-medium">Google ML Kit OCR</strong> for zero-latency text recognition, automated perspective rectification, image enhancement filters, and AES password encryption (<a href="https://play.google.com/store/apps/details?id=com.smartscan.pdfocr" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline font-mono">view on Google Play ↗</a>).</span>
+            <li class="flex items-start gap-2.5">
+              <span class="text-[var(--accent)] mt-1.5 select-none text-base">&bull;</span>
+              <span><strong class="text-[var(--text)] font-semibold">SmartScan (PDF &amp; OCR Scan)</strong>: 100% offline-first Android scanner integrating on-device <strong class="text-[var(--text)] font-semibold">Google ML Kit OCR</strong> for zero-latency text recognition, automated perspective rectification, image enhancement filters, and AES password encryption (<a href="https://play.google.com/store/apps/details?id=com.smartscan.pdfocr" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline font-mono">view on Google Play ↗</a>).</span>
             </li>
-            <li class="flex items-start gap-2">
-              <span class="text-[var(--accent)] mt-1 select-none">&bull;</span>
-              <span><strong class="text-[var(--text)] font-medium">PDF Tools &amp; Utilities</strong>: High-throughput document processing app handling on-device file merging, compression, and image-to-PDF transformations (<a href="https://play.google.com/store/apps/details?id=com.tools.pdfimage.pdf_tools_app" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline font-mono">view on Google Play ↗</a>).</span>
+            <li class="flex items-start gap-2.5">
+              <span class="text-[var(--accent)] mt-1.5 select-none text-base">&bull;</span>
+              <span><strong class="text-[var(--text)] font-semibold">PDF Tools &amp; Utilities</strong>: High-throughput document processing app handling on-device file merging, compression, and image-to-PDF transformations (<a href="https://play.google.com/store/apps/details?id=com.tools.pdfimage.pdf_tools_app" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline font-mono">view on Google Play ↗</a>).</span>
             </li>
-            <li class="flex items-start gap-2">
-              <span class="text-[var(--accent)] mt-1 select-none">&bull;</span>
+            <li class="flex items-start gap-2.5">
+              <span class="text-[var(--accent)] mt-1.5 select-none text-base">&bull;</span>
               <span>Built and deployed <a href="https://krihaa.me" target="_blank" rel="noopener noreferrer" class="text-[var(--text)] hover:underline font-medium">Krihaa News (krihaa.me) ↗</a>, an optimized bilingual English/Telugu platform, covering backend content structure, indexing, SEO, and technical maintenance.</span>
             </li>
           </ul>
 
-          <div class="flex flex-wrap gap-1.5 mt-4 pt-3 border-t border-[var(--border)]">
-            <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">Android 14</span>
-            <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">Kotlin</span>
-            <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">Google ML Kit</span>
-            <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">MediaCodec</span>
-            <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">ExoPlayer</span>
-            <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">Google Play Console</span>
-            <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">Python</span>
-            <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">React</span>
-            <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">Firebase</span>
+          <div class="flex flex-wrap gap-2 pt-3 border-t border-[var(--border)]">
+            <span class="px-2.5 py-1 text-xs font-mono text-[var(--subtle)] bg-[var(--bg)] rounded-md border border-[var(--border)]">Android 14</span>
+            <span class="px-2.5 py-1 text-xs font-mono text-[var(--subtle)] bg-[var(--bg)] rounded-md border border-[var(--border)]">Kotlin</span>
+            <span class="px-2.5 py-1 text-xs font-mono text-[var(--subtle)] bg-[var(--bg)] rounded-md border border-[var(--border)]">Google ML Kit</span>
+            <span class="px-2.5 py-1 text-xs font-mono text-[var(--subtle)] bg-[var(--bg)] rounded-md border border-[var(--border)]">MediaCodec</span>
+            <span class="px-2.5 py-1 text-xs font-mono text-[var(--subtle)] bg-[var(--bg)] rounded-md border border-[var(--border)]">ExoPlayer</span>
+            <span class="px-2.5 py-1 text-xs font-mono text-[var(--subtle)] bg-[var(--bg)] rounded-md border border-[var(--border)]">Google Play Console</span>
+            <span class="px-2.5 py-1 text-xs font-mono text-[var(--subtle)] bg-[var(--bg)] rounded-md border border-[var(--border)]">Python</span>
+            <span class="px-2.5 py-1 text-xs font-mono text-[var(--subtle)] bg-[var(--bg)] rounded-md border border-[var(--border)]">React</span>
+            <span class="px-2.5 py-1 text-xs font-mono text-[var(--subtle)] bg-[var(--bg)] rounded-md border border-[var(--border)]">Firebase</span>
           </div>
         </div>
 
-        <!-- IBM AICTE -->
-        <div class="spotlight-card rounded-xl p-5" onmousemove="handleSpotlight(event, this)">
-          <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-2">
+        <!-- Experience 3: IBM AICTE -->
+        <div class="spotlight-card rounded-2xl p-6 sm:p-7 space-y-4" onmousemove="handleSpotlight(event, this)">
+          <div class="flex flex-col md:flex-row md:items-baseline justify-between gap-2">
             <div>
-              <h3 class="text-base font-semibold text-[var(--text)] flex items-center gap-2">
+              <h3 class="text-lg font-bold text-[var(--text)] flex items-center gap-2">
                 <span>AI Sign Language Recognition Intern</span>
-                <span class="text-xs px-2 py-0.5 rounded border border-[var(--border)] bg-[var(--bg)] text-[var(--text)] font-normal">IBM AICTE</span>
+                <span class="text-xs px-2.5 py-0.5 rounded-full border border-[var(--border)] bg-[var(--bg)] text-[var(--text)] font-normal">IBM AICTE</span>
               </h3>
-              <p class="text-xs text-[var(--muted)] font-mono mt-0.5">Machine Learning &middot; Deep Learning</p>
+              <p class="text-xs text-[var(--muted)] font-mono mt-1">Machine Learning &middot; Deep Learning</p>
             </div>
             <span class="text-xs text-[var(--subtle)] font-mono shrink-0">Sep 2023 &mdash; Nov 2023 &middot; Remote</span>
           </div>
 
-          <ul class="space-y-2 text-xs text-[var(--muted)] leading-relaxed mt-3.5">
-            <li class="flex items-start gap-2">
-              <span class="text-[var(--accent)] mt-1 select-none">&bull;</span>
-              <span>Built a real-time gesture-recognition system in Python achieving <strong class="text-[var(--text)] font-medium">85% accuracy</strong> on alphanumeric Sign Language classification using ML/DL techniques.</span>
+          <ul class="space-y-2.5 text-xs sm:text-sm text-[var(--muted)] leading-relaxed">
+            <li class="flex items-start gap-2.5">
+              <span class="text-[var(--accent)] mt-1.5 select-none text-base">&bull;</span>
+              <span>Built a real-time gesture-recognition system in Python achieving <strong class="text-[var(--text)] font-semibold">85% accuracy</strong> on alphanumeric Sign Language classification using ML/DL techniques.</span>
             </li>
-            <li class="flex items-start gap-2">
-              <span class="text-[var(--accent)] mt-1 select-none">&bull;</span>
-              <span>Designed and trained deep neural models for classifying alphanumeric hand gestures from image-based camera input.</span>
+            <li class="flex items-start gap-2.5">
+              <span class="text-[var(--accent)] mt-1.5 select-none text-base">&bull;</span>
+              <span>Designed and trained deep convolutional neural networks (CNNs) for classifying alphanumeric hand gestures from video camera feeds.</span>
             </li>
-            <li class="flex items-start gap-2">
-              <span class="text-[var(--accent)] mt-1 select-none">&bull;</span>
-              <span>Owned data collection, preprocessing, training, validation, and evaluation to improve recognition accuracy.</span>
+            <li class="flex items-start gap-2.5">
+              <span class="text-[var(--accent)] mt-1.5 select-none text-base">&bull;</span>
+              <span>Owned data collection, preprocessing, training, validation, and evaluation to systematically improve recognition accuracy.</span>
             </li>
           </ul>
 
-          <div class="flex flex-wrap gap-1.5 mt-4 pt-3 border-t border-[var(--border)]">
-            <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">Python</span>
-            <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">OpenCV</span>
-            <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">CNN</span>
-            <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">Deep Learning</span>
+          <div class="flex flex-wrap gap-2 pt-3 border-t border-[var(--border)]">
+            <span class="px-2.5 py-1 text-xs font-mono text-[var(--subtle)] bg-[var(--bg)] rounded-md border border-[var(--border)]">Python</span>
+            <span class="px-2.5 py-1 text-xs font-mono text-[var(--subtle)] bg-[var(--bg)] rounded-md border border-[var(--border)]">OpenCV</span>
+            <span class="px-2.5 py-1 text-xs font-mono text-[var(--subtle)] bg-[var(--bg)] rounded-md border border-[var(--border)]">CNN</span>
+            <span class="px-2.5 py-1 text-xs font-mono text-[var(--subtle)] bg-[var(--bg)] rounded-md border border-[var(--border)]">Deep Learning</span>
           </div>
         </div>
 
       </div>
     </section>
 
-    <!-- FEATURED PROJECTS (AI/ML · PYTHON · FULL STACK) -->
+    <!-- FEATURED PROJECTS (FULL WIDTH 3-COLUMN RESPONSIVE GRID) -->
     <section id="projects" class="space-y-6">
-      <div class="flex items-center justify-between border-b border-[var(--border)] pb-3">
-        <div class="flex items-center gap-2">
-          <span class="w-2 h-2 rounded-full bg-[var(--accent)]"></span>
-          <h2 class="text-sm font-semibold uppercase tracking-wider text-[var(--muted)] font-mono">Featured Projects &amp; Systems</h2>
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[var(--border)] pb-3">
+        <div class="flex items-center gap-2.5">
+          <span class="w-2.5 h-2.5 rounded-full bg-[var(--accent)]"></span>
+          <h2 class="text-base sm:text-lg font-bold tracking-tight text-[var(--text)] uppercase font-mono">Featured Systems &amp; Projects</h2>
         </div>
         <a href="https://github.com/jayakrishnaa18" target="_blank" class="text-xs text-[var(--subtle)] hover:text-[var(--text)] font-mono flex items-center gap-1 transition-colors">
           <span>github.com/jayakrishnaa18</span>
@@ -419,23 +479,23 @@
         </a>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
 
-        <!-- Project 1: ReviewGuard (BERT NLP in Python) -->
-        <div class="spotlight-card rounded-xl p-5 flex flex-col justify-between" onmousemove="handleSpotlight(event, this)">
+        <!-- Project 1: ReviewGuard (BERT NLP) -->
+        <div class="spotlight-card rounded-2xl p-5 flex flex-col justify-between" onmousemove="handleSpotlight(event, this)">
           <div>
-            <div class="flex items-center justify-between mb-3">
-              <span class="text-[11px] font-mono text-emerald-500 dark:text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20 font-medium">92% Acc &middot; 94% Prec</span>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="text-[11px] font-mono text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded-full border border-emerald-500/25 font-semibold">92% Acc &middot; 94% Prec</span>
               <a href="https://github.com/jayakrishnaa18" target="_blank" class="text-[var(--subtle)] hover:text-[var(--text)] transition-colors">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
               </a>
             </div>
-            <h3 class="text-sm font-semibold text-[var(--text)] mb-1.5">ReviewGuard: BERT-Based Integrity Assurance</h3>
+            <h3 class="text-base font-bold text-[var(--text)] mb-2">ReviewGuard: BERT-Based Integrity Assurance</h3>
             <p class="text-xs text-[var(--muted)] leading-relaxed mb-4">
               Led development of a fake-review detection system using BERT, achieving over 90% classification accuracy. Built an NLP-based text classification pipeline to distinguish authentic from deceptive feedback, validating the approach for production-style screening.
             </p>
           </div>
-          <div class="flex flex-wrap gap-1.5 pt-2 border-t border-[var(--border)]">
+          <div class="flex flex-wrap gap-1.5 pt-3 border-t border-[var(--border)]">
             <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">Python</span>
             <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">BERT</span>
             <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">PyTorch</span>
@@ -445,18 +505,18 @@
         </div>
 
         <!-- Project 2: Amazon Autonomous Investigation Agent -->
-        <div class="spotlight-card rounded-xl p-5 flex flex-col justify-between" onmousemove="handleSpotlight(event, this)">
+        <div class="spotlight-card rounded-2xl p-5 flex flex-col justify-between" onmousemove="handleSpotlight(event, this)">
           <div>
-            <div class="flex items-center justify-between mb-3">
-              <span class="text-[11px] font-mono text-[var(--accent)] bg-[var(--accent-bg)] px-2 py-0.5 rounded border border-[var(--border)] font-medium">70% Auto-Resolution</span>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="text-[11px] font-mono text-[var(--accent)] bg-[var(--accent-bg)] px-2.5 py-0.5 rounded-full border border-sky-500/25 font-semibold">70% Auto-Resolution</span>
               <span class="text-[10px] font-mono text-[var(--subtle)]">Enterprise Scale</span>
             </div>
-            <h3 class="text-sm font-semibold text-[var(--text)] mb-1.5">Autonomous Investigation Agent</h3>
+            <h3 class="text-base font-bold text-[var(--text)] mb-2">Autonomous Investigation Agent</h3>
             <p class="text-xs text-[var(--muted)] leading-relaxed mb-4">
               Designed multi-step reasoning and custom tool-calling agent logic for Amazon transactional queues. Synthesizes operational state, checks SOP constraints, and resolves high-volume cases autonomously with 99%+ accuracy.
             </p>
           </div>
-          <div class="flex flex-wrap gap-1.5 pt-2 border-t border-[var(--border)]">
+          <div class="flex flex-wrap gap-1.5 pt-3 border-t border-[var(--border)]">
             <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">Python</span>
             <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">AI Agents</span>
             <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">Tool Calling</span>
@@ -465,122 +525,109 @@
           </div>
         </div>
 
-        <!-- Project 3: Krihaa News (Full Stack Web) -->
-        <div class="spotlight-card rounded-xl p-5 flex flex-col justify-between" onmousemove="handleSpotlight(event, this)">
+        <!-- Project 3: SmartScan - On-Device ML & OCR Engine -->
+        <div class="spotlight-card rounded-2xl p-5 flex flex-col justify-between border-emerald-500/20" onmousemove="handleSpotlight(event, this)">
           <div>
-            <div class="flex items-center justify-between mb-3">
-              <span class="text-[11px] font-mono text-[var(--text)] bg-[var(--bg)] px-2 py-0.5 rounded border border-[var(--border)] font-medium">Full Stack Web</span>
-              <div class="flex items-center gap-2">
-                <a href="https://krihaa.me" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-[11px] font-mono text-emerald-500 dark:text-emerald-400 hover:opacity-80 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20 transition-all">
-                  <span>krihaa.me</span>
-                  <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="text-[11px] font-mono text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded-full border border-emerald-500/25 font-semibold">Google Play &middot; On-Device ML</span>
+              <a href="https://play.google.com/store/apps/details?id=com.smartscan.pdfocr" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-[11px] font-mono text-emerald-400 hover:opacity-80 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/25 transition-all">
+                <span>Play Store</span>
+                <span class="text-[10px]">↗</span>
+              </a>
+            </div>
+            <h3 class="text-base font-bold text-[var(--text)] mb-2">
+              <a href="https://play.google.com/store/apps/details?id=com.smartscan.pdfocr" target="_blank" rel="noopener noreferrer" class="hover:underline hover:text-[var(--text)]">SmartScan: On-Device ML &amp; OCR Engine</a>
+            </h3>
+            <p class="text-xs text-[var(--muted)] leading-relaxed mb-4">
+              100% offline-first Android document scanner powered by on-device Google ML Kit text recognition. Implements real-time auto-edge detection, smart perspective correction, image enhancement filters, and local AES password encryption with zero cloud telemetry.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-1.5 pt-3 border-t border-[var(--border)]">
+            <span class="px-2 py-0.5 text-[10px] font-mono text-emerald-400 bg-emerald-500/10 rounded border border-emerald-500/20 font-medium">Google ML Kit</span>
+            <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">On-Device OCR</span>
+            <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">Kotlin</span>
+            <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">Computer Vision</span>
+            <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">AES-256</span>
+          </div>
+        </div>
+
+        <!-- Project 4: Kaliki Player: Fluid Android Audio Ergonomics -->
+        <div class="spotlight-card rounded-2xl p-5 flex flex-col justify-between border-sky-500/20" onmousemove="handleSpotlight(event, this)">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="text-[11px] font-mono text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded-full border border-emerald-500/25 font-semibold">Android 14 &middot; MediaCodec &middot; 60 FPS</span>
+              <div class="flex items-center gap-1.5">
+                <a href="https://play.google.com/store/apps/dev?id=8662455924431698982" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-[11px] font-mono text-emerald-400 hover:opacity-80 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/25 transition-all">
+                  <span>Play Store</span>
+                  <span class="text-[10px]">↗</span>
+                </a>
+                <a href="https://kalikilabs.tech" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-[11px] font-mono text-[var(--accent)] hover:opacity-80 bg-[var(--accent-bg)] px-2 py-0.5 rounded border border-[var(--border)] transition-all">
+                  <span>kalikilabs</span>
+                  <span class="text-[10px]">↗</span>
                 </a>
               </div>
             </div>
-            <h3 class="text-sm font-semibold text-[var(--text)] mb-1.5 flex items-center gap-1.5">
+            <h3 class="text-base font-bold text-[var(--text)] mb-2">Kaliki Player: Fluid Android Audio Ergonomics</h3>
+            <p class="text-xs text-[var(--muted)] leading-relaxed mb-4">
+              Native Kotlin player engineered for one-handed thumb reachability, gesture scrubbing, battery-friendly hardware decoding via MediaCodec and ExoPlayer pipeline, and persistent playback states on Google Play.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-1.5 pt-3 border-t border-[var(--border)]">
+            <span class="px-2 py-0.5 text-[10px] font-mono text-emerald-400 bg-emerald-500/10 rounded border border-emerald-500/20 font-medium">ExoPlayer</span>
+            <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">Android 14</span>
+            <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">Kotlin</span>
+            <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">MediaCodec</span>
+            <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">60 FPS Hardware UI</span>
+          </div>
+        </div>
+
+        <!-- Project 5: Krihaa News (Full Stack Web) -->
+        <div class="spotlight-card rounded-2xl p-5 flex flex-col justify-between" onmousemove="handleSpotlight(event, this)">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="text-[11px] font-mono text-[var(--text)] bg-[var(--bg)] px-2.5 py-0.5 rounded-full border border-[var(--border)] font-semibold">Full Stack Web</span>
+              <a href="https://krihaa.me" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-[11px] font-mono text-emerald-400 hover:opacity-80 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20 transition-all">
+                <span>krihaa.me</span>
+                <span class="text-[10px]">↗</span>
+              </a>
+            </div>
+            <h3 class="text-base font-bold text-[var(--text)] mb-2">
               <a href="https://krihaa.me" target="_blank" rel="noopener noreferrer" class="hover:underline hover:text-[var(--text)]">Krihaa News: Bilingual Publishing Platform</a>
             </h3>
             <p class="text-xs text-[var(--muted)] leading-relaxed mb-4">
               Full-stack digital news platform engineered for bilingual English/Telugu publication. Architected backend content structure, indexing, dynamic schema metadata, and high-performance SEO visibility.
             </p>
           </div>
-          <div class="flex flex-wrap gap-1.5 pt-2 border-t border-[var(--border)]">
+          <div class="flex flex-wrap gap-1.5 pt-3 border-t border-[var(--border)]">
             <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">React</span>
             <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">JavaScript</span>
             <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">Firebase</span>
             <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">SEO</span>
-            <span class="px-2 py-0.5 text-[10px] font-mono text-emerald-500 dark:text-emerald-400 bg-emerald-500/10 rounded">Live</span>
-          </div>
-        </div>
-
-        <!-- Project 4: Kaliki Player (Android / Kotlin) -->
-        <div class="spotlight-card rounded-xl p-5 flex flex-col justify-between border-sky-500/20" onmousemove="handleSpotlight(event, this)">
-          <div>
-            <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
-              <span class="text-[11px] font-mono text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded border border-emerald-500/25 font-semibold">Android 14 &middot; MediaCodec &middot; 60 FPS Hardware UI</span>
-              <div class="flex items-center gap-1.5">
-                <a href="https://play.google.com/store/apps/dev?id=8662455924431698982" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-[11px] font-mono text-emerald-400 hover:opacity-80 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/25 transition-all" title="View Kaliki Labs on Google Play Store">
-                  <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M3.609 1.814L13.792 12 3.61 22.186c-.37-.417-.61-.98-.61-1.619V3.433c0-.638.24-1.202.609-1.619zm11.235 11.238l2.366 2.366-11.758 6.787 9.392-9.153zm0-2.104L5.452 1.795 17.21 8.582l-2.366 2.366zm1.488 1.052l3.437-1.984a1.442 1.442 0 0 1 0 2.498l-3.437 1.984v-2.498z"/></svg>
-                  <span>Google Play Store</span>
-                  <span class="text-[10px]">↗</span>
-                </a>
-                <a href="https://kalikilabs.tech" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-[11px] font-mono text-[var(--accent)] hover:opacity-80 bg-[var(--accent-bg)] px-2 py-0.5 rounded border border-[var(--border)] transition-all">
-                  <span>kalikilabs.tech</span>
-                  <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-                </a>
-              </div>
-            </div>
-            <h3 class="text-sm font-semibold text-[var(--text)] mb-1.5 flex items-center gap-1.5">
-              <span>Kaliki Player: Fluid Android Audio Ergonomics</span>
-            </h3>
-            <p class="text-xs text-[var(--muted)] leading-relaxed mb-4">
-              Native Kotlin player engineered for one-handed thumb reachability, gesture scrubbing, battery-friendly hardware decoding via MediaCodec and ExoPlayer pipeline, and persistent playback states on Google Play.
-            </p>
-          </div>
-          <div class="flex flex-wrap gap-1.5 pt-2 border-t border-[var(--border)]">
-            <span class="px-2 py-0.5 text-[10px] font-mono text-emerald-400 bg-emerald-500/10 rounded border border-emerald-500/20 font-medium">ExoPlayer Pipeline</span>
-            <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">Android 14</span>
-            <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">Kotlin</span>
-            <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">MediaCodec</span>
-            <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">60 FPS Hardware UI</span>
-            <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">Google Play Console</span>
-          </div>
-        </div>
-
-        <!-- Project 5: SmartScan - PDF & OCR Scan (On-Device ML Kit) -->
-        <div class="spotlight-card rounded-xl p-5 flex flex-col justify-between border-emerald-500/20" onmousemove="handleSpotlight(event, this)">
-          <div>
-            <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
-              <span class="text-[11px] font-mono text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded border border-emerald-500/25 font-semibold">Google Play &middot; On-Device ML Kit OCR</span>
-              <div class="flex items-center gap-1.5">
-                <a href="https://play.google.com/store/apps/details?id=com.smartscan.pdfocr" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-[11px] font-mono text-emerald-400 hover:opacity-80 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/25 transition-all" title="View on Google Play Store">
-                  <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M3.609 1.814L13.792 12 3.61 22.186c-.37-.417-.61-.98-.61-1.619V3.433c0-.638.24-1.202.609-1.619zm11.235 11.238l2.366 2.366-11.758 6.787 9.392-9.153zm0-2.104L5.452 1.795 17.21 8.582l-2.366 2.366zm1.488 1.052l3.437-1.984a1.442 1.442 0 0 1 0 2.498l-3.437 1.984v-2.498z"/></svg>
-                  <span>Play Store (Live)</span>
-                  <span class="text-[10px]">↗</span>
-                </a>
-              </div>
-            </div>
-            <h3 class="text-sm font-semibold text-[var(--text)] mb-1.5 flex items-center gap-1.5">
-              <a href="https://play.google.com/store/apps/details?id=com.smartscan.pdfocr" target="_blank" rel="noopener noreferrer" class="hover:underline hover:text-[var(--text)]">SmartScan: On-Device ML &amp; OCR Engine</a>
-            </h3>
-            <p class="text-xs text-[var(--muted)] leading-relaxed mb-4">
-              100% offline-first Android document scanner powered by on-device Google ML Kit text recognition. Implements real-time auto-edge detection, smart perspective correction, image enhancement filters, and local AES password encryption with zero cloud telemetry. Published on Google Play.
-            </p>
-          </div>
-          <div class="flex flex-wrap gap-1.5 pt-2 border-t border-[var(--border)]">
-            <span class="px-2 py-0.5 text-[10px] font-mono text-emerald-400 bg-emerald-500/10 rounded border border-emerald-500/20 font-medium">Google ML Kit</span>
-            <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">On-Device OCR</span>
-            <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">Kotlin</span>
-            <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">Computer Vision</span>
-            <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">AES-256</span>
-            <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">Google Play Store</span>
+            <span class="px-2 py-0.5 text-[10px] font-mono text-emerald-400 bg-emerald-500/10 rounded">Live</span>
           </div>
         </div>
 
         <!-- Project 6: PDF Tools & Image Utilities (Android) -->
-        <div class="spotlight-card rounded-xl p-5 flex flex-col justify-between" onmousemove="handleSpotlight(event, this)">
+        <div class="spotlight-card rounded-2xl p-5 flex flex-col justify-between" onmousemove="handleSpotlight(event, this)">
           <div>
-            <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
-              <span class="text-[11px] font-mono text-[var(--text)] bg-[var(--bg)] px-2.5 py-0.5 rounded border border-[var(--border)] font-medium">Google Play &middot; Android Utility Suite</span>
-              <div class="flex items-center gap-1.5">
-                <a href="https://play.google.com/store/apps/details?id=com.tools.pdfimage.pdf_tools_app" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-[11px] font-mono text-emerald-400 hover:opacity-80 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/25 transition-all" title="View on Google Play Store">
-                  <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M3.609 1.814L13.792 12 3.61 22.186c-.37-.417-.61-.98-.61-1.619V3.433c0-.638.24-1.202.609-1.619zm11.235 11.238l2.366 2.366-11.758 6.787 9.392-9.153zm0-2.104L5.452 1.795 17.21 8.582l-2.366 2.366zm1.488 1.052l3.437-1.984a1.442 1.442 0 0 1 0 2.498l-3.437 1.984v-2.498z"/></svg>
-                  <span>Play Store (Live)</span>
-                  <span class="text-[10px]">↗</span>
-                </a>
-              </div>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="text-[11px] font-mono text-[var(--text)] bg-[var(--bg)] px-2.5 py-0.5 rounded-full border border-[var(--border)] font-semibold">Google Play &middot; Utilities</span>
+              <a href="https://play.google.com/store/apps/details?id=com.tools.pdfimage.pdf_tools_app" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-[11px] font-mono text-emerald-400 hover:opacity-80 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/25 transition-all">
+                <span>Play Store</span>
+                <span class="text-[10px]">↗</span>
+              </a>
             </div>
-            <h3 class="text-sm font-semibold text-[var(--text)] mb-1.5 flex items-center gap-1.5">
+            <h3 class="text-base font-bold text-[var(--text)] mb-2">
               <a href="https://play.google.com/store/apps/details?id=com.tools.pdfimage.pdf_tools_app" target="_blank" rel="noopener noreferrer" class="hover:underline hover:text-[var(--text)]">PDF Tools: Document &amp; Image Engine</a>
             </h3>
             <p class="text-xs text-[var(--muted)] leading-relaxed mb-4">
               High-throughput Android utility engine for multi-page PDF compilation, document splitting, image-to-PDF formatting, and local file optimization with fast native I/O processing.
             </p>
           </div>
-          <div class="flex flex-wrap gap-1.5 pt-2 border-t border-[var(--border)]">
+          <div class="flex flex-wrap gap-1.5 pt-3 border-t border-[var(--border)]">
             <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">Kotlin</span>
             <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">Android SDK</span>
-            <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">Document Processing</span>
+            <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">File I/O</span>
             <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">Google Play Console</span>
           </div>
         </div>
@@ -588,99 +635,98 @@
       </div>
     </section>
 
-    <!-- TECHNICAL ARSENAL: STRUCTURED FOR SWE / AIML / PYTHON / FULL STACK -->
+    <!-- TECHNICAL ARSENAL: 4-COLUMN RESPONSIVE GRID -->
     <section id="skills" class="space-y-6">
-      <div class="flex items-center justify-between border-b border-[var(--border)] pb-3">
-        <div class="flex items-center gap-2">
-          <span class="w-2 h-2 rounded-full bg-[var(--accent)]"></span>
-          <h2 class="text-sm font-semibold uppercase tracking-wider text-[var(--muted)] font-mono">Technical Skills (SWE &middot; AI/ML &middot; Python &middot; Full Stack)</h2>
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[var(--border)] pb-3">
+        <div class="flex items-center gap-2.5">
+          <span class="w-2.5 h-2.5 rounded-full bg-[var(--accent)]"></span>
+          <h2 class="text-base sm:text-lg font-bold tracking-tight text-[var(--text)] uppercase font-mono">Technical Skills &amp; Stack</h2>
         </div>
+        <span class="text-xs text-[var(--subtle)] font-mono">SWE &middot; AI/ML &middot; Python &middot; Full Stack</span>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
         
         <!-- Pillar 1: Python & Backend -->
-        <div class="spotlight-card rounded-xl p-4 space-y-2.5" onmousemove="handleSpotlight(event, this)">
-          <div class="flex items-center gap-2 font-mono text-xs font-semibold text-[var(--text)]">
+        <div class="spotlight-card rounded-2xl p-5 space-y-3" onmousemove="handleSpotlight(event, this)">
+          <div class="flex items-center gap-2 font-mono text-xs font-bold text-[var(--text)]">
             <span class="text-[var(--accent)]">01.</span>
-            <span>PYTHON &amp; BACKEND SYSTEMS</span>
+            <span>PYTHON &amp; BACKEND</span>
           </div>
           <div class="flex flex-wrap gap-1.5">
-            <span class="px-2 py-1 rounded border border-[var(--border)] bg-[var(--bg)] text-[var(--text)] font-semibold text-[var(--accent)]">Python</span>
-            <span class="px-2 py-1 rounded border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">SQL (PostgreSQL / MySQL)</span>
-            <span class="px-2 py-1 rounded border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">REST APIs</span>
-            <span class="px-2 py-1 rounded border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">FastAPI / Flask Principles</span>
-            <span class="px-2 py-1 rounded border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">Data Structures &amp; Algorithms</span>
-            <span class="px-2 py-1 rounded border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">Automation Scripting</span>
+            <span class="px-2.5 py-1 rounded-md border border-[var(--border)] bg-[var(--bg)] text-[var(--accent)] font-semibold">Python 3.x</span>
+            <span class="px-2.5 py-1 rounded-md border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">SQL (PostgreSQL / MySQL)</span>
+            <span class="px-2.5 py-1 rounded-md border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">REST APIs</span>
+            <span class="px-2.5 py-1 rounded-md border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">FastAPI / Flask</span>
+            <span class="px-2.5 py-1 rounded-md border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">Data Structures &amp; Algorithms</span>
+            <span class="px-2.5 py-1 rounded-md border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">Automation Scripting</span>
           </div>
         </div>
 
         <!-- Pillar 2: AI/ML & Agentic AI -->
-        <div class="spotlight-card rounded-xl p-4 space-y-2.5" onmousemove="handleSpotlight(event, this)">
-          <div class="flex items-center gap-2 font-mono text-xs font-semibold text-[var(--text)]">
+        <div class="spotlight-card rounded-2xl p-5 space-y-3" onmousemove="handleSpotlight(event, this)">
+          <div class="flex items-center gap-2 font-mono text-xs font-bold text-[var(--text)]">
             <span class="text-[var(--accent)]">02.</span>
             <span>AI / ML &amp; AGENTIC SYSTEMS</span>
           </div>
           <div class="flex flex-wrap gap-1.5">
-            <span class="px-2 py-1 rounded border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">AI Agents</span>
-            <span class="px-2 py-1 rounded border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">Tool Calling</span>
-            <span class="px-2 py-1 rounded border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">Multi-step Reasoning</span>
-            <span class="px-2 py-1 rounded border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">BERT / Transformers</span>
-            <span class="px-2 py-1 rounded border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">NLP &amp; Text Classification</span>
-            <span class="px-2 py-1 rounded border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">RAG &amp; Vector Embeddings</span>
-            <span class="px-2 py-1 rounded border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">LangChain &amp; LangGraph</span>
-            <span class="px-2 py-1 rounded border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">Deep Learning (CNN)</span>
-            <span class="px-2 py-1 rounded border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">OpenCV / Computer Vision</span>
+            <span class="px-2.5 py-1 rounded-md border border-[var(--border)] bg-[var(--bg)] text-emerald-400 font-semibold">Autonomous AI Agents</span>
+            <span class="px-2.5 py-1 rounded-md border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">Tool Calling</span>
+            <span class="px-2.5 py-1 rounded-md border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">Multi-step Reasoning</span>
+            <span class="px-2.5 py-1 rounded-md border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">BERT / Transformers</span>
+            <span class="px-2.5 py-1 rounded-md border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">NLP &amp; Text Classification</span>
+            <span class="px-2.5 py-1 rounded-md border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">RAG &amp; Vector Embeddings</span>
+            <span class="px-2.5 py-1 rounded-md border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">LangChain &amp; LangGraph</span>
+            <span class="px-2.5 py-1 rounded-md border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">Deep Learning (CNN)</span>
+            <span class="px-2.5 py-1 rounded-md border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">OpenCV / Computer Vision</span>
           </div>
         </div>
 
         <!-- Pillar 3: Full Stack & Mobile Platforms -->
-        <div class="spotlight-card rounded-xl p-4 space-y-2.5" onmousemove="handleSpotlight(event, this)">
-          <div class="flex items-center gap-2 font-mono text-xs font-semibold text-[var(--text)]">
+        <div class="spotlight-card rounded-2xl p-5 space-y-3" onmousemove="handleSpotlight(event, this)">
+          <div class="flex items-center gap-2 font-mono text-xs font-bold text-[var(--text)]">
             <span class="text-[var(--accent)]">03.</span>
-            <span>FULL STACK &amp; MOBILE PLATFORMS</span>
+            <span>MOBILE &amp; FULL STACK</span>
           </div>
           <div class="flex flex-wrap gap-1.5">
-            <span class="px-2 py-1 rounded border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">Android 14 SDK</span>
-            <span class="px-2 py-1 rounded border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">Kotlin (Android)</span>
-            <span class="px-2 py-1 rounded border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">MediaCodec (Hardware Decode)</span>
-            <span class="px-2 py-1 rounded border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">ExoPlayer Pipeline</span>
-            <span class="px-2 py-1 rounded border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">Google Play Console (Deployments)</span>
-            <span class="px-2 py-1 rounded border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">Android Studio</span>
-            <span class="px-2 py-1 rounded border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">React</span>
-            <span class="px-2 py-1 rounded border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">JavaScript / TypeScript</span>
-            <span class="px-2 py-1 rounded border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">Firebase &amp; Firestore</span>
-            <span class="px-2 py-1 rounded border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">HTML5 / Modern CSS</span>
+            <span class="px-2.5 py-1 rounded-md border border-[var(--border)] bg-[var(--bg)] text-[var(--accent)] font-semibold">Android 14 SDK</span>
+            <span class="px-2.5 py-1 rounded-md border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">Kotlin (Android)</span>
+            <span class="px-2.5 py-1 rounded-md border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">Google ML Kit (On-Device)</span>
+            <span class="px-2.5 py-1 rounded-md border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">MediaCodec (Hardware Decode)</span>
+            <span class="px-2.5 py-1 rounded-md border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">ExoPlayer Pipeline</span>
+            <span class="px-2.5 py-1 rounded-md border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">Google Play Console</span>
+            <span class="px-2.5 py-1 rounded-md border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">React</span>
+            <span class="px-2.5 py-1 rounded-md border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">JavaScript / TypeScript</span>
+            <span class="px-2.5 py-1 rounded-md border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">Firebase &amp; Firestore</span>
           </div>
         </div>
 
         <!-- Pillar 4: Enterprise Operations & Quality -->
-        <div class="spotlight-card rounded-xl p-4 space-y-2.5" onmousemove="handleSpotlight(event, this)">
-          <div class="flex items-center gap-2 font-mono text-xs font-semibold text-[var(--text)]">
+        <div class="spotlight-card rounded-2xl p-5 space-y-3" onmousemove="handleSpotlight(event, this)">
+          <div class="flex items-center gap-2 font-mono text-xs font-bold text-[var(--text)]">
             <span class="text-[var(--accent)]">04.</span>
-            <span>ENTERPRISE TOOLS &amp; QUALITY</span>
+            <span>TOOLS &amp; ENTERPRISE QA</span>
           </div>
           <div class="flex flex-wrap gap-1.5">
-            <span class="px-2 py-1 rounded border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">Git &amp; GitHub</span>
-            <span class="px-2 py-1 rounded border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">Process Automation</span>
-            <span class="px-2 py-1 rounded border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">Tampermonkey Scripting</span>
-            <span class="px-2 py-1 rounded border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">Root Cause Analysis (RCA)</span>
-            <span class="px-2 py-1 rounded border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">SOP Compliance</span>
-            <span class="px-2 py-1 rounded border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">Cross-Team Coordination</span>
-            <span class="px-2 py-1 rounded border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">Claude Code</span>
+            <span class="px-2.5 py-1 rounded-md border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">Git &amp; GitHub</span>
+            <span class="px-2.5 py-1 rounded-md border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">Process Automation</span>
+            <span class="px-2.5 py-1 rounded-md border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">Tampermonkey Scripting</span>
+            <span class="px-2.5 py-1 rounded-md border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">Root Cause Analysis (RCA)</span>
+            <span class="px-2.5 py-1 rounded-md border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">SOP Compliance</span>
+            <span class="px-2.5 py-1 rounded-md border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">Cross-Team Coordination</span>
+            <span class="px-2.5 py-1 rounded-md border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">Claude Code</span>
           </div>
         </div>
 
       </div>
-
     </section>
 
-    <!-- LICENSES & CERTIFICATIONS -->
+    <!-- LICENSES & CERTIFICATIONS (4-COLUMN RESPONSIVE GRID) -->
     <section id="certifications" class="space-y-6">
-      <div class="flex items-center justify-between border-b border-[var(--border)] pb-3">
-        <div class="flex items-center gap-2">
-          <span class="w-2 h-2 rounded-full bg-[var(--accent)]"></span>
-          <h2 class="text-sm font-semibold uppercase tracking-wider text-[var(--muted)] font-mono">Licenses &amp; Certifications</h2>
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[var(--border)] pb-3">
+        <div class="flex items-center gap-2.5">
+          <span class="w-2.5 h-2.5 rounded-full bg-[var(--accent)]"></span>
+          <h2 class="text-base sm:text-lg font-bold tracking-tight text-[var(--text)] uppercase font-mono">Licenses &amp; Certifications</h2>
         </div>
         <a href="https://www.linkedin.com/in/jayakrishnaakaliki/" target="_blank" rel="noopener noreferrer" class="text-xs text-[var(--subtle)] hover:text-[#0a66c2] font-mono flex items-center gap-1.5 transition-colors">
           <svg class="w-3.5 h-3.5 fill-current text-[#0a66c2]" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9h2.8v8.37h-2.8V10.9M7.86 6.5a1.63 1.63 0 0 0-1.63 1.62c0 .9.73 1.63 1.63 1.63.9 0 1.63-.73 1.63-1.63 0-.9-.73-1.62-1.63-1.62Z"/></svg>
@@ -688,84 +734,77 @@
         </a>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
 
         <!-- Credential 1: AWS Academy Machine Learning -->
-        <div class="spotlight-card rounded-xl p-4.5 space-y-3 flex flex-col justify-between" onmousemove="handleSpotlight(event, this)">
+        <div class="spotlight-card rounded-2xl p-5 space-y-3 flex flex-col justify-between" onmousemove="handleSpotlight(event, this)">
           <div>
-            <div class="flex items-center justify-between gap-2 mb-1.5">
-              <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-amber-500/10 text-amber-500 dark:text-amber-400 border border-amber-500/25 font-semibold">Amazon Web Services</span>
+            <div class="flex items-center justify-between gap-2 mb-2">
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-amber-500/10 text-amber-500 dark:text-amber-400 border border-amber-500/25 font-semibold">AWS Academy</span>
               <span class="font-mono text-[11px] text-[var(--subtle)]">Aug 2025</span>
             </div>
-            <h3 class="text-sm font-semibold text-[var(--text)]">AWS Academy Machine Learning</h3>
+            <h3 class="text-sm font-bold text-[var(--text)]">AWS Academy Machine Learning</h3>
             <p class="text-xs text-[var(--muted)] mt-1 leading-relaxed">
               Certified by AWS Academy. Validates core competencies in machine learning pipelines, cloud AI services, computer vision, natural language processing, and model training/deployment on AWS cloud infrastructure.
             </p>
           </div>
-          <div class="flex flex-wrap gap-1.5 pt-2.5 border-t border-[var(--border)]">
-            <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">AWS Academy</span>
+          <div class="flex flex-wrap gap-1.5 pt-3 border-t border-[var(--border)]">
             <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">Machine Learning</span>
             <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">Cloud AI</span>
-            <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">Model Deployment</span>
           </div>
         </div>
 
         <!-- Credential 2: Machine Learning With Python -->
-        <div class="spotlight-card rounded-xl p-4.5 space-y-3 flex flex-col justify-between" onmousemove="handleSpotlight(event, this)">
+        <div class="spotlight-card rounded-2xl p-5 space-y-3 flex flex-col justify-between" onmousemove="handleSpotlight(event, this)">
           <div>
-            <div class="flex items-center justify-between gap-2 mb-1.5">
-              <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-sky-500/10 text-sky-400 border border-sky-500/25 font-semibold">Coursera</span>
+            <div class="flex items-center justify-between gap-2 mb-2">
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-sky-500/10 text-sky-400 border border-sky-500/25 font-semibold">Coursera</span>
               <span class="font-mono text-[11px] text-[var(--subtle)]">Jun 2024</span>
             </div>
-            <h3 class="text-sm font-semibold text-[var(--text)]">Machine Learning With Python</h3>
+            <h3 class="text-sm font-bold text-[var(--text)]">Machine Learning With Python</h3>
             <p class="text-xs text-[var(--muted)] mt-1 leading-relaxed">
               Professional credential demonstrating end-to-end Python ML mastery: supervised/unsupervised algorithms, regression, classification, clustering, recommendation systems, and model validation using Scikit-learn, NumPy, and Pandas.
             </p>
           </div>
-          <div class="flex flex-wrap gap-1.5 pt-2.5 border-t border-[var(--border)]">
-            <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">Coursera</span>
+          <div class="flex flex-wrap gap-1.5 pt-3 border-t border-[var(--border)]">
             <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">Python ML</span>
             <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">Scikit-learn</span>
-            <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">Statistical Modeling</span>
           </div>
         </div>
 
         <!-- Credential 3: AICTE IBM AI Virtual Internship -->
-        <div class="spotlight-card rounded-xl p-4.5 space-y-3 flex flex-col justify-between" onmousemove="handleSpotlight(event, this)">
+        <div class="spotlight-card rounded-2xl p-5 space-y-3 flex flex-col justify-between" onmousemove="handleSpotlight(event, this)">
           <div>
-            <div class="flex items-center justify-between gap-2 mb-1.5">
-              <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-blue-500/10 text-blue-400 border border-blue-500/25 font-semibold">IBM &middot; AICTE</span>
+            <div class="flex items-center justify-between gap-2 mb-2">
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-blue-500/10 text-blue-400 border border-blue-500/25 font-semibold">IBM &middot; AICTE</span>
               <span class="font-mono text-[11px] text-[var(--subtle)]">Nov 2023</span>
             </div>
-            <h3 class="text-sm font-semibold text-[var(--text)]">AI Sign Language Recognition &amp; Deep Learning</h3>
+            <h3 class="text-sm font-bold text-[var(--text)]">AI Sign Language &amp; Deep Learning</h3>
             <p class="text-xs text-[var(--muted)] mt-1 leading-relaxed">
-              Credential issued upon completing the national AICTE-IBM virtual internship. Architected and validated a real-time gesture recognition model with OpenCV and Deep Convolutional Neural Networks (85% classification accuracy).
+              Credential issued upon completing the national AICTE-IBM virtual internship. Architected and validated a real-time gesture recognition model with OpenCV and Deep Convolutional Neural Networks (85% accuracy).
             </p>
           </div>
-          <div class="flex flex-wrap gap-1.5 pt-2.5 border-t border-[var(--border)]">
-            <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">IBM</span>
-            <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">AICTE</span>
+          <div class="flex flex-wrap gap-1.5 pt-3 border-t border-[var(--border)]">
             <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">OpenCV</span>
             <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">Deep Learning CNN</span>
           </div>
         </div>
 
         <!-- Credential 4: Academic Merit Scholarship Award -->
-        <div class="spotlight-card rounded-xl p-4.5 space-y-3 flex flex-col justify-between" onmousemove="handleSpotlight(event, this)">
+        <div class="spotlight-card rounded-2xl p-5 space-y-3 flex flex-col justify-between" onmousemove="handleSpotlight(event, this)">
           <div>
-            <div class="flex items-center justify-between gap-2 mb-1.5">
-              <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/25 font-semibold">GITAM University</span>
+            <div class="flex items-center justify-between gap-2 mb-2">
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/25 font-semibold">GITAM University</span>
               <span class="font-mono text-[11px] text-[var(--subtle)]">2020 &mdash; 2024</span>
             </div>
-            <h3 class="text-sm font-semibold text-[var(--text)]">100% Merit Scholarship Honor</h3>
+            <h3 class="text-sm font-bold text-[var(--text)]">100% Merit Scholarship Honor</h3>
             <p class="text-xs text-[var(--muted)] mt-1 leading-relaxed">
               Awarded 100% tuition merit scholarship for 4 consecutive academic years in recognition of top academic rank in B.Tech Computer Science and Engineering (AIML), maintaining 8.18 CGPA.
             </p>
           </div>
-          <div class="flex flex-wrap gap-1.5 pt-2.5 border-t border-[var(--border)]">
+          <div class="flex flex-wrap gap-1.5 pt-3 border-t border-[var(--border)]">
             <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">100% Scholarship</span>
             <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">Academic Excellence</span>
-            <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">B.Tech CSE AIML</span>
           </div>
         </div>
 
@@ -774,93 +813,115 @@
 
     <!-- EDUCATION & HONORS -->
     <section id="education" class="space-y-6">
-      <div class="flex items-center justify-between border-b border-[var(--border)] pb-3">
-        <div class="flex items-center gap-2">
-          <span class="w-2 h-2 rounded-full bg-[var(--accent)]"></span>
-          <h2 class="text-sm font-semibold uppercase tracking-wider text-[var(--muted)] font-mono">Education &amp; Academic Background</h2>
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[var(--border)] pb-3">
+        <div class="flex items-center gap-2.5">
+          <span class="w-2.5 h-2.5 rounded-full bg-[var(--accent)]"></span>
+          <h2 class="text-base sm:text-lg font-bold tracking-tight text-[var(--text)] uppercase font-mono">Education &amp; Academic Background</h2>
         </div>
+        <span class="text-xs text-[var(--subtle)] font-mono">GITAM &middot; Andhra University</span>
       </div>
 
-      <div class="space-y-4 text-xs">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
 
         <!-- Andhra University -->
-        <div class="spotlight-card rounded-xl p-4 flex flex-col sm:flex-row sm:items-baseline justify-between gap-2" onmousemove="handleSpotlight(event, this)">
+        <div class="spotlight-card rounded-2xl p-5 flex flex-col justify-between gap-3" onmousemove="handleSpotlight(event, this)">
           <div>
-            <h3 class="text-sm font-semibold text-[var(--text)]">Andhra University</h3>
-            <p class="text-[var(--muted)]">MBA in Data Science and Analytics</p>
-            <p class="text-[var(--subtle)] font-mono mt-1">Focusing on predictive decision systems, enterprise analytics, and data infrastructure.</p>
-          </div>
-          <span class="font-mono text-[var(--subtle)] shrink-0">Jul 2026 &mdash; Present</span>
-        </div>
-
-        <!-- GITAM (100% Scholarship) -->
-        <div class="spotlight-card rounded-xl p-4 border-amber-500/20 bg-amber-500/5 flex flex-col sm:flex-row sm:items-baseline justify-between gap-2" onmousemove="handleSpotlight(event, this)">
-          <div>
-            <div class="flex items-center gap-2">
-              <h3 class="text-sm font-semibold text-[var(--text)]">GITAM (Deemed to be University), Visakhapatnam</h3>
-              <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-amber-500/10 text-amber-500 dark:text-amber-400 border border-amber-500/25 font-semibold">100% Merit Scholarship Awardee</span>
+            <div class="flex items-center justify-between gap-2 mb-1.5">
+              <span class="text-xs font-mono text-sky-400 bg-sky-500/10 px-2 py-0.5 rounded border border-sky-500/20 font-semibold">Post-Graduate</span>
+              <span class="font-mono text-[var(--subtle)]">Jul 2026 &mdash; Present</span>
             </div>
-            <p class="text-[var(--muted)] mt-0.5">B.Tech in Computer Science and Engineering &mdash; AIML</p>
-            <p class="text-[var(--subtle)] font-mono mt-1">Cumulative GPA: <strong class="text-emerald-500 dark:text-emerald-400 font-mono">8.18 / 10.0</strong></p>
-          </div>
-          <span class="font-mono text-[var(--subtle)] shrink-0">2020 &mdash; 2024</span>
-        </div>
-
-        <!-- Senior Secondary & Secondary -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <div class="spotlight-card rounded-xl p-3.5" onmousemove="handleSpotlight(event, this)">
-            <h4 class="font-semibold text-[var(--text)]">Narayana Institute &mdash; Senior Secondary</h4>
-            <p class="text-[var(--muted)] text-[11px]">Board of Intermediate Education, AP (2018&ndash;2020)</p>
-            <span class="text-[var(--accent)] font-mono font-medium block mt-1">CGPA: 9.15 / 10.0</span>
-          </div>
-
-          <div class="spotlight-card rounded-xl p-3.5" onmousemove="handleSpotlight(event, this)">
-            <h4 class="font-semibold text-[var(--text)]">Narayana EM School</h4>
-            <p class="text-[var(--muted)] text-[11px]">Board of Secondary Education, AP (2017&ndash;2018)</p>
-            <span class="text-[var(--accent)] font-mono font-medium block mt-1">CGPA: 9.50 / 10.0</span>
+            <h3 class="text-base font-bold text-[var(--text)]">Andhra University</h3>
+            <p class="text-xs text-[var(--muted)] mt-0.5">MBA in Data Science and Analytics</p>
+            <p class="text-[11px] text-[var(--subtle)] mt-2">Advanced coursework in predictive modeling, enterprise data architectures, operational analytics, and business intelligence systems.</p>
           </div>
         </div>
 
+        <!-- GITAM University -->
+        <div class="spotlight-card rounded-2xl p-5 flex flex-col justify-between gap-3 border-amber-500/20" onmousemove="handleSpotlight(event, this)">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-1.5">
+              <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-amber-500/10 text-amber-500 dark:text-amber-400 border border-amber-500/25 font-semibold">100% Merit Scholarship Awardee</span>
+              <span class="font-mono text-[var(--subtle)]">2020 &mdash; 2024</span>
+            </div>
+            <h3 class="text-base font-bold text-[var(--text)]">GITAM (Deemed to be University), Visakhapatnam</h3>
+            <p class="text-xs text-[var(--muted)] mt-0.5">B.Tech in Computer Science and Engineering &mdash; AIML</p>
+            <p class="text-[11px] text-[var(--subtle)] mt-2">Cumulative GPA: <strong class="text-emerald-400 font-mono text-xs">8.18 / 10.0</strong> &middot; Full four-year tuition merit scholarship awardee.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Senior Secondary & Secondary Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+        <div class="spotlight-card rounded-xl p-4" onmousemove="handleSpotlight(event, this)">
+          <h4 class="font-bold text-[var(--text)]">Narayana Institute &mdash; Senior Secondary</h4>
+          <p class="text-[var(--muted)] text-[11px] mt-0.5">Board of Intermediate Education, AP (2018&ndash;2020)</p>
+          <span class="text-[var(--accent)] font-mono font-medium block mt-1.5">CGPA: 9.15 / 10.0</span>
+        </div>
+
+        <div class="spotlight-card rounded-xl p-4" onmousemove="handleSpotlight(event, this)">
+          <h4 class="font-bold text-[var(--text)]">Narayana EM School</h4>
+          <p class="text-[var(--muted)] text-[11px] mt-0.5">Board of Secondary Education, AP (2017&ndash;2018)</p>
+          <span class="text-[var(--accent)] font-mono font-medium block mt-1.5">CGPA: 9.50 / 10.0</span>
+        </div>
       </div>
     </section>
 
-    <!-- CONTACT & HIRING INQUIRIES -->
+    <!-- CONTACT & HIRING INQUIRIES (FULL WIDTH) -->
     <section id="contact" class="space-y-6 pt-6 border-t border-[var(--border)]">
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-        <div>
-          <h2 class="text-lg font-bold text-[var(--text)]">Contact &amp; Hiring Inquiries</h2>
-          <p class="text-xs text-[var(--muted)] mt-1">Open to Software Engineering roles in AI/ML, Python, and Full Stack.</p>
+      <div class="spotlight-card rounded-3xl p-8 sm:p-10 border-[var(--border)] bg-[var(--card)] space-y-6" onmousemove="handleSpotlight(event, this)">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+          <div class="space-y-2">
+            <span class="text-xs uppercase tracking-widest font-mono text-[var(--accent)] font-semibold">Immediate Availability</span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-[var(--text)]">Ready to Build Production Systems Together</h2>
+            <p class="text-sm text-[var(--muted)] max-w-2xl leading-relaxed">
+              Actively interviewing for Software Engineer roles across AI/ML, Python backends, and full stack systems. Feel free to reach out directly via email, phone, or LinkedIn.
+            </p>
+          </div>
+          <div class="flex flex-wrap items-center gap-3 shrink-0">
+            <a href="mailto:jayakrishnaakaliki@gmail.com" class="px-5 py-3 rounded-xl bg-[var(--text)] text-[var(--bg)] hover:opacity-90 text-xs font-bold transition-all shadow-lg">
+              Email Me Directly
+            </a>
+            <a href="tel:+918374210497" class="px-5 py-3 rounded-xl border border-[var(--border)] bg-[var(--bg)] hover:bg-[var(--card-hover)] text-[var(--text)] text-xs font-semibold font-mono transition-all">
+              Call: +91 8374210497
+            </a>
+          </div>
         </div>
-        <div class="flex flex-wrap items-center gap-2">
-          <a href="mailto:jayakrishnaakaliki@gmail.com" class="px-4 py-2 rounded-lg bg-[var(--text)] text-[var(--bg)] hover:opacity-90 text-xs font-semibold transition-all">
-            Email Me
-          </a>
-          <a href="tel:+918374210497" class="px-4 py-2 rounded-lg border border-[var(--border)] bg-[var(--card)] hover:bg-[var(--card-hover)] text-[var(--text)] text-xs font-semibold transition-all">
-            Call: +91 8374210497
-          </a>
-          <a href="https://www.linkedin.com/in/jayakrishnaakaliki/" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-lg border border-[var(--border)] bg-[var(--card)] hover:bg-[var(--card-hover)] text-[var(--text)] text-xs font-semibold inline-flex items-center gap-1.5 transition-all">
+
+        <div class="flex flex-wrap items-center gap-3 pt-6 border-t border-[var(--border)] text-xs font-mono">
+          <a href="https://www.linkedin.com/in/jayakrishnaakaliki/" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 rounded-lg border border-[var(--border)] bg-[var(--bg)] hover:border-[#0a66c2] text-[var(--text)] inline-flex items-center gap-1.5 transition-all">
             <svg class="w-3.5 h-3.5 fill-current text-[#0a66c2]" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9h2.8v8.37h-2.8V10.9M7.86 6.5a1.63 1.63 0 0 0-1.63 1.62c0 .9.73 1.63 1.63 1.63.9 0 1.63-.73 1.63-1.63 0-.9-.73-1.62-1.63-1.62Z"/></svg>
             <span>LinkedIn Profile ↗</span>
           </a>
-          <a href="https://play.google.com/store/apps/dev?id=8662455924431698982" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-lg border border-emerald-500/30 bg-emerald-500/10 hover:border-emerald-500 text-emerald-400 text-xs font-mono font-semibold inline-flex items-center gap-1.5 transition-all">
+          <a href="https://github.com/jayakrishnaa18" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 rounded-lg border border-[var(--border)] bg-[var(--bg)] hover:border-[var(--text)] text-[var(--text)] inline-flex items-center gap-1.5 transition-all">
+            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+            <span>GitHub Profile ↗</span>
+          </a>
+          <a href="https://play.google.com/store/apps/dev?id=8662455924431698982" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 rounded-lg border border-emerald-500/30 bg-emerald-500/10 hover:border-emerald-500 text-emerald-400 inline-flex items-center gap-1.5 transition-all">
             <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M3.609 1.814L13.792 12 3.61 22.186c-.37-.417-.61-.98-.61-1.619V3.433c0-.638.24-1.202.609-1.619zm11.235 11.238l2.366 2.366-11.758 6.787 9.392-9.153zm0-2.104L5.452 1.795 17.21 8.582l-2.366 2.366zm1.488 1.052l3.437-1.984a1.442 1.442 0 0 1 0 2.498l-3.437 1.984v-2.498z"/></svg>
-            <span>Google Play Profile ↗</span>
+            <span>Google Play Dev Profile ↗</span>
+          </a>
+          <a href="https://krihaa.me" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 rounded-lg border border-[var(--border)] bg-[var(--bg)] hover:border-emerald-500 text-emerald-400 inline-flex items-center gap-1.5 transition-all">
+            <span>krihaa.me ↗</span>
+          </a>
+          <a href="https://kalikilabs.tech" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 rounded-lg border border-[var(--border)] bg-[var(--bg)] hover:border-[var(--accent)] text-[var(--accent)] inline-flex items-center gap-1.5 transition-all">
+            <span>kalikilabs.tech ↗</span>
           </a>
         </div>
       </div>
 
-      <div class="flex flex-col sm:flex-row items-center justify-between text-xs text-[var(--subtle)] font-mono pt-8">
+      <div class="flex flex-col sm:flex-row items-center justify-between text-xs text-[var(--subtle)] font-mono pt-4">
         <p>&copy; 2026 Kaliki Jayakrishnaa &middot; Software Engineer</p>
-        <p>Hosted on GitHub Pages &middot; Built with Tailwind CSS</p>
+        <p>Hosted on GitHub Pages &middot; Responsive Tailwind CSS</p>
       </div>
     </section>
 
   </main>
 
-  <!-- Toast Notification -->
+  <!-- Interactive Toast Notification -->
   <div id="toast" class="fixed top-6 right-6 z-50 transform -translate-y-12 opacity-0 transition-all duration-300 pointer-events-none">
-    <div class="px-3.5 py-2 rounded-lg border border-[var(--border)] bg-[var(--bg)] text-[var(--text)] text-xs font-mono shadow-2xl flex items-center gap-2">
-      <svg class="w-3.5 h-3.5 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+    <div class="px-4 py-2.5 rounded-xl border border-[var(--border)] bg-[var(--bg)] text-[var(--text)] text-xs font-mono shadow-2xl flex items-center gap-2">
+      <svg class="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
       <span id="toastMsg">Action completed</span>
     </div>
   </div>
@@ -874,12 +935,10 @@
         html.classList.remove('dark');
         html.classList.add('light');
         localStorage.setItem('theme', 'light');
-        showToast('Switched to Light Theme');
       } else {
         html.classList.remove('light');
         html.classList.add('dark');
         localStorage.setItem('theme', 'dark');
-        showToast('Switched to Dark Theme');
       }
     }
 
@@ -891,6 +950,14 @@
     } else {
       document.documentElement.classList.add('dark');
       document.documentElement.classList.remove('light');
+    }
+
+    // Mobile Hamburger Menu Toggle
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      if (menu) {
+        menu.classList.toggle('hidden');
+      }
     }
 
     // Interactive spotlight cursor tracker
@@ -906,7 +973,7 @@
     function copyContact(type) {
       const text = type === 'email' ? 'jayakrishnaakaliki@gmail.com' : '+918374210497';
       navigator.clipboard.writeText(text).then(() => {
-        showToast(type === 'email' ? 'Email copied: ' + text : 'Phone copied: ' + text);
+        showToast(type === 'email' ? 'Email copied to clipboard' : 'Phone copied to clipboard');
       }).catch(() => {
         showToast('Copied: ' + text);
       });
