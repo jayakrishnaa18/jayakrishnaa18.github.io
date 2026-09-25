@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kaliki Jayakrishnaa — AI/ML Engineer &amp; UI/UX Systems</title>
-  <meta name="description" content="Portfolio of Kaliki Jayakrishnaa. AI & ML Engineer and Design Engineer building autonomous agents, scalable systems, and polished digital experiences.">
+  <title>Kaliki Jayakrishnaa — Software Engineer &amp; AI/ML Systems Specialist</title>
+  <meta name="description" content="Portfolio of Kaliki Jayakrishnaa. Software Engineer and AI/ML Specialist experienced in enterprise automation at Amazon, autonomous AI agents, production Android development, and scalable web platforms.">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -37,56 +37,41 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --bg: #09090b;
-      --card: rgba(24, 24, 27, 0.45);
-      --card-hover: rgba(39, 39, 42, 0.55);
+    :root, html.dark {
+      --bg: #090d16;
+      --card: rgba(15, 23, 42, 0.65);
+      --card-hover: rgba(30, 41, 59, 0.8);
       --border: rgba(255, 255, 255, 0.08);
-      --border-hover: rgba(255, 255, 255, 0.18);
-      --text: #fafafa;
-      --muted: #a1a1aa;
-      --subtle: #71717a;
-      --accent: #38bdf8;
-      --accent-bg: rgba(56, 189, 248, 0.1);
-      --grid-dot: rgba(255, 255, 255, 0.04);
-      --spotlight: rgba(255, 255, 255, 0.06);
-    }
-
-    html.light {
-      --bg: #fbfbfa;
-      --card: rgba(255, 255, 255, 0.85);
-      --card-hover: rgba(255, 255, 255, 1);
-      --border: rgba(0, 0, 0, 0.08);
-      --border-hover: rgba(0, 0, 0, 0.18);
-      --text: #18181b;
-      --muted: #52525b;
-      --subtle: #a1a1aa;
-      --accent: #0284c7;
-      --accent-bg: rgba(2, 132, 199, 0.08);
-      --grid-dot: rgba(0, 0, 0, 0.04);
-      --spotlight: rgba(0, 0, 0, 0.04);
-    }
-
-    html.cyber {
-      --bg: #050814;
-      --card: rgba(13, 19, 41, 0.55);
-      --card-hover: rgba(19, 27, 58, 0.7);
-      --border: rgba(99, 102, 241, 0.18);
-      --border-hover: rgba(99, 102, 241, 0.35);
+      --border-hover: rgba(56, 189, 248, 0.28);
       --text: #f8fafc;
       --muted: #94a3b8;
       --subtle: #64748b;
-      --accent: #6366f1;
-      --accent-bg: rgba(99, 102, 241, 0.12);
-      --grid-dot: rgba(99, 102, 241, 0.07);
-      --spotlight: rgba(99, 102, 241, 0.1);
+      --accent: #38bdf8;
+      --accent-bg: rgba(56, 189, 248, 0.1);
+      --grid-dot: rgba(255, 255, 255, 0.04);
+      --spotlight: rgba(56, 189, 248, 0.06);
+    }
+
+    html.light {
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --card-hover: #f1f5f9;
+      --border: #e2e8f0;
+      --border-hover: #0284c7;
+      --text: #0f172a;
+      --muted: #475569;
+      --subtle: #64748b;
+      --accent: #0284c7;
+      --accent-bg: rgba(2, 132, 199, 0.08);
+      --grid-dot: rgba(15, 23, 42, 0.04);
+      --spotlight: rgba(2, 132, 199, 0.04);
     }
 
     body {
       background-color: var(--bg);
       color: var(--text);
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      transition: background-color 0.3s ease, color 0.3s ease;
+      transition: background-color 0.25s ease, color 0.25s ease;
       -webkit-font-smoothing: antialiased;
     }
 
@@ -94,13 +79,11 @@
       font-family: 'JetBrains Mono', monospace;
     }
 
-    /* 21st.dev style dot canvas */
     .bg-grid-dots {
       background-size: 24px 24px;
       background-image: radial-gradient(var(--grid-dot) 1px, transparent 1px);
     }
 
-    /* Interactive Spotlight Card effect */
     .spotlight-card {
       position: relative;
       background-color: var(--card);
@@ -125,108 +108,127 @@
       opacity: 1;
     }
 
-    /* Pulse wave for audio/media player simulation */
-    @keyframes wave {
-      0%, 100% { height: 6px; }
-      50% { height: 24px; }
+    @media print {
+      body { background: #fff !important; color: #000 !important; }
+      header, .no-print, #toast, #commandModal { display: none !important; }
+      .spotlight-card { border: 1px solid #ccc !important; background: transparent !important; }
     }
-    .animate-wave-1 { animation: wave 1.2s ease-in-out infinite; }
-    .animate-wave-2 { animation: wave 1.4s ease-in-out infinite 0.2s; }
-    .animate-wave-3 { animation: wave 1.1s ease-in-out infinite 0.4s; }
-    .animate-wave-4 { animation: wave 1.5s ease-in-out infinite 0.1s; }
-    .animate-wave-5 { animation: wave 1.3s ease-in-out infinite 0.3s; }
   </style>
 </head>
-<body class="bg-theme-bg text-theme-text relative min-h-screen">
+<body class="bg-theme-bg text-theme-text relative min-h-screen selection:bg-sky-500/20 selection:text-sky-300">
 
-  <!-- Ambient Dotted Background & Top Glow -->
+  <!-- Background Texture -->
   <div class="fixed inset-0 bg-grid-dots pointer-events-none -z-20"></div>
-  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-80 bg-gradient-to-b from-[var(--accent-bg)] to-transparent pointer-events-none -z-10 blur-3xl opacity-70"></div>
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-5xl h-80 bg-gradient-to-b from-[var(--accent-bg)] to-transparent pointer-events-none -z-10 blur-3xl opacity-60"></div>
 
-  <!-- Top Sticky Navigation with ⌘K Command trigger & Theme Switcher -->
-  <header class="sticky top-0 z-40 w-full border-b border-[var(--border)] bg-[var(--bg)]/80 backdrop-blur-md transition-colors duration-200">
+  <!-- Top Navigation Bar -->
+  <header class="sticky top-0 z-40 w-full border-b border-[var(--border)] bg-[var(--bg)]/90 backdrop-blur-md transition-colors">
     <div class="max-w-3xl mx-auto px-6 h-14 flex items-center justify-between">
       
-      <!-- Brand & Status -->
+      <!-- Brand & Recruiter Identifier -->
       <a href="#about" class="flex items-center gap-2.5 group">
         <div class="w-8 h-8 rounded-lg border border-[var(--border)] bg-[var(--card)] flex items-center justify-center font-mono font-bold text-xs text-[var(--text)] group-hover:border-[var(--accent)] transition-colors shadow-sm">
           JK
         </div>
         <div class="flex flex-col">
           <span class="font-semibold text-xs tracking-tight text-[var(--text)]">Kaliki Jayakrishnaa</span>
-          <span class="text-[10px] text-[var(--subtle)] font-mono">Design Engineer &middot; AI/ML</span>
+          <span class="text-[10px] text-[var(--subtle)] font-mono">Software Engineer &middot; AI/ML</span>
         </div>
       </a>
 
-      <!-- Middle Quick Nav Links -->
+      <!-- Middle Navigation -->
       <nav class="hidden md:flex items-center gap-1 text-xs font-medium text-[var(--muted)]">
-        <a href="#experience" class="px-2.5 py-1 rounded hover:text-[var(--text)] transition-colors">Work</a>
+        <a href="#experience" class="px-2.5 py-1 rounded hover:text-[var(--text)] transition-colors">Experience</a>
         <a href="#projects" class="px-2.5 py-1 rounded hover:text-[var(--text)] transition-colors">Projects</a>
-        <a href="#uiux" class="px-2.5 py-1 rounded text-[var(--accent)] font-semibold hover:opacity-80 transition-colors">UI/UX Systems</a>
         <a href="#skills" class="px-2.5 py-1 rounded hover:text-[var(--text)] transition-colors">Skills</a>
+        <a href="#education" class="px-2.5 py-1 rounded hover:text-[var(--text)] transition-colors">Education</a>
         <a href="#contact" class="px-2.5 py-1 rounded hover:text-[var(--text)] transition-colors">Contact</a>
       </nav>
 
-      <!-- Interactive Controls (Command palette + Theme Switcher) -->
+      <!-- Action Items: Resume & Theme Toggle -->
       <div class="flex items-center gap-2">
-        
-        <!-- ⌘K Search Trigger Pill (21st.dev style) -->
-        <button onclick="openCommandMenu()" class="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md border border-[var(--border)] bg-[var(--card)] hover:bg-[var(--card-hover)] text-xs text-[var(--muted)] transition-all">
-          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-          <span class="font-mono text-[11px]">Search</span>
-          <kbd class="px-1.5 py-0.5 text-[9px] font-mono rounded bg-[var(--bg)] border border-[var(--border)] text-[var(--subtle)]">⌘K</kbd>
+        <button onclick="window.print()" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md border border-[var(--border)] bg-[var(--card)] hover:bg-[var(--card-hover)] text-xs text-[var(--text)] font-mono transition-all" title="Print or save as PDF">
+          <svg class="w-3.5 h-3.5 text-[var(--accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+          <span class="hidden sm:inline">Print CV</span>
         </button>
 
-        <!-- Segmented Theme Switcher: Dark / Light / Cyber -->
-        <div class="flex items-center p-0.5 rounded-lg border border-[var(--border)] bg-[var(--card)]">
-          <button onclick="setTheme('dark')" id="theme-btn-dark" class="p-1.5 rounded-md text-[var(--subtle)] hover:text-[var(--text)] transition-colors" title="Dark theme">
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
-          </button>
-          <button onclick="setTheme('light')" id="theme-btn-light" class="p-1.5 rounded-md text-[var(--subtle)] hover:text-[var(--text)] transition-colors" title="Light theme">
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
-          </button>
-          <button onclick="setTheme('cyber')" id="theme-btn-cyber" class="p-1.5 rounded-md text-[var(--subtle)] hover:text-[var(--text)] transition-colors" title="Cyber Indigo theme">
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-          </button>
-        </div>
-
+        <button onclick="toggleTheme()" id="themeToggleBtn" class="p-1.5 rounded-lg border border-[var(--border)] bg-[var(--card)] text-[var(--subtle)] hover:text-[var(--text)] transition-colors" title="Toggle Light / Dark mode">
+          <svg id="moonIcon" class="w-4 h-4 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+          <svg id="sunIcon" class="w-4 h-4 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+        </button>
       </div>
+
     </div>
   </header>
 
   <!-- Main Container -->
-  <main class="max-w-3xl mx-auto px-6 pt-12 pb-32 space-y-16">
+  <main class="max-w-3xl mx-auto px-6 pt-12 pb-24 space-y-16">
 
-    <!-- HERO SECTION -->
+    <!-- HERO SECTION: TAILORED FOR IT & TECH ROLES -->
     <section id="about" class="space-y-6">
       
-      <!-- Top Status & Location -->
+      <!-- Candidate Status Badge & Location -->
       <div class="flex flex-wrap items-center justify-between gap-3">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-emerald-500/20 bg-emerald-500/10 text-emerald-500 dark:text-emerald-400 text-xs font-medium">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-emerald-500/25 bg-emerald-500/10 text-emerald-500 dark:text-emerald-400 text-xs font-medium">
           <span class="relative flex h-2 w-2">
             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
             <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
           </span>
-          <span>Available for Engineering &amp; UI/UX Roles</span>
+          <span>Open to Software Engineer &middot; AI/ML &middot; IT Roles (Immediate)</span>
         </div>
-        <span class="text-xs font-mono text-[var(--subtle)]">Hyderabad, IN &middot; Remote</span>
+        <span class="text-xs font-mono text-[var(--subtle)]">Hyderabad, India &middot; Open to Relocation &amp; Remote</span>
       </div>
 
-      <!-- Main Heading & Title -->
+      <!-- Professional IT Role Headline -->
       <div class="space-y-3">
         <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-[var(--text)]">
-          Engineering Autonomous AI &amp; High-Craft Interfaces.
+          Software Engineer &amp; <br class="hidden sm:inline"/>AI/ML Systems Specialist
         </h1>
         <p class="text-base text-[var(--muted)] leading-relaxed max-w-2xl">
-          Hi, I'm <strong class="text-[var(--text)] font-semibold">Kaliki Jayakrishnaa</strong>. I bridge complex <span class="font-mono text-xs px-1.5 py-0.5 rounded bg-[var(--accent-bg)] text-[var(--accent)] font-medium">Agentic AI &amp; Machine Learning</span> with intentional, responsive, and tactile <span class="font-mono text-xs px-1.5 py-0.5 rounded bg-[var(--accent-bg)] text-[var(--accent)] font-medium">UI/UX Systems</span> across Android and the modern web.
+          Hi, I'm <strong class="text-[var(--text)] font-semibold">Kaliki Jayakrishnaa</strong>. I engineer scalable enterprise software, autonomous AI agent architectures, and production-grade applications. Experienced in high-volume transaction automation at <strong class="text-[var(--text)]">Amazon Development Center</strong>, and platform development through <strong class="text-[var(--text)]">Kaliki Labs</strong>.
         </p>
       </div>
 
-      <!-- Live Showcase Action Bar (All user links) -->
+      <!-- Key IT Metrics Bar (Evidence of Impact) -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-1">
+        <div class="spotlight-card rounded-xl p-3.5" onmousemove="handleSpotlight(event, this)">
+          <span class="text-2xl font-bold font-mono text-[var(--accent)]">70%</span>
+          <p class="text-[11px] text-[var(--muted)] mt-0.5 leading-snug">Autonomous Ticket Resolution (Amazon)</p>
+        </div>
+        <div class="spotlight-card rounded-xl p-3.5" onmousemove="handleSpotlight(event, this)">
+          <span class="text-2xl font-bold font-mono text-emerald-500 dark:text-emerald-400">99%+</span>
+          <p class="text-[11px] text-[var(--muted)] mt-0.5 leading-snug">Investigation Accuracy &amp; System QA</p>
+        </div>
+        <div class="spotlight-card rounded-xl p-3.5" onmousemove="handleSpotlight(event, this)">
+          <span class="text-2xl font-bold font-mono text-[var(--text)]">94%</span>
+          <p class="text-[11px] text-[var(--muted)] mt-0.5 leading-snug">BERT ML Deceptive Feedback Precision</p>
+        </div>
+        <div class="spotlight-card rounded-xl p-3.5" onmousemove="handleSpotlight(event, this)">
+          <span class="text-2xl font-bold font-mono text-amber-500 dark:text-amber-400">100%</span>
+          <p class="text-[11px] text-[var(--muted)] mt-0.5 leading-snug">B.Tech Merit Scholarship (GITAM AIML)</p>
+        </div>
+      </div>
+
+      <!-- Recruiter Action Row (Resume, Contact, GitHub, LinkedIn, Live Projects) -->
       <div class="flex flex-wrap items-center gap-2 pt-2">
+        <a href="mailto:jayakrishnaakaliki@gmail.com" class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-[var(--text)] text-[var(--bg)] hover:opacity-90 text-xs font-semibold transition-all">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          <span>Email Me</span>
+        </a>
+
+        <a href="tel:+918374210497" class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg border border-[var(--border)] bg-[var(--card)] hover:bg-[var(--card-hover)] text-xs font-mono text-[var(--text)] transition-all">
+          <svg class="w-3.5 h-3.5 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          <span>+91-8374210497</span>
+        </a>
+
         <a href="https://github.com/jayakrishnaa18" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-[var(--border)] bg-[var(--card)] hover:bg-[var(--card-hover)] text-xs font-mono text-[var(--text)] transition-all">
           <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
           <span>github/jayakrishnaa18</span>
+        </a>
+
+        <a href="https://linkedin.com/in/JayakrishnaaKaliki" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-[var(--border)] bg-[var(--card)] hover:bg-[var(--card-hover)] text-xs font-medium text-[var(--text)] transition-all">
+          <svg class="w-3.5 h-3.5 fill-current text-[#0a66c2]" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9h2.8v8.37h-2.8V10.9M7.86 6.5a1.63 1.63 0 0 0-1.63 1.62c0 .9.73 1.63 1.63 1.63.9 0 1.63-.73 1.63-1.63 0-.9-.73-1.62-1.63-1.62Z"/></svg>
+          <span>LinkedIn</span>
         </a>
 
         <a href="https://kalikilabs.tech" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-[var(--border)] bg-[var(--card)] hover:bg-[var(--card-hover)] text-xs font-mono text-[var(--accent)] transition-all">
@@ -239,11 +241,6 @@
           <span class="text-[10px]">↗</span>
         </a>
 
-        <a href="https://linkedin.com/in/JayakrishnaaKaliki" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-[var(--border)] bg-[var(--card)] hover:bg-[var(--card-hover)] text-xs font-medium text-[var(--text)] transition-all">
-          <svg class="w-3.5 h-3.5 fill-current text-[#0a66c2]" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9h2.8v8.37h-2.8V10.9M7.86 6.5a1.63 1.63 0 0 0-1.63 1.62c0 .9.73 1.63 1.63 1.63.9 0 1.63-.73 1.63-1.63 0-.9-.73-1.62-1.63-1.62Z"/></svg>
-          <span>LinkedIn</span>
-        </a>
-
         <button onclick="copyContact('email')" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-[var(--border)] bg-[var(--card)] hover:bg-[var(--card-hover)] text-xs font-mono text-[var(--subtle)] hover:text-[var(--text)] transition-all" title="Copy email">
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
           <span>copy email</span>
@@ -252,144 +249,19 @@
 
     </section>
 
-    <!-- UI/UX CRAFT & INTERACTION SHOWCASE (NEW DEDICATED SECTION) -->
-    <section id="uiux" class="space-y-6">
-      <div class="flex items-center justify-between border-b border-[var(--border)] pb-3">
-        <div class="flex items-center gap-2">
-          <span class="w-2 h-2 rounded-full bg-[var(--accent)]"></span>
-          <h2 class="text-sm font-semibold uppercase tracking-wider text-[var(--muted)] font-mono">UI/UX Systems &amp; Frontend Craft</h2>
-        </div>
-        <span class="text-xs font-mono text-[var(--subtle)]">Interaction Design &middot; Design Systems</span>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-
-        <!-- UI/UX Demo 1: Interactive Live Browser Preview for Krihaa News -->
-        <div class="spotlight-card rounded-xl p-5 flex flex-col justify-between" onmousemove="handleSpotlight(event, this)">
-          <div>
-            <!-- Simulated Browser Chrome -->
-            <div class="flex items-center justify-between pb-3 mb-4 border-b border-[var(--border)]">
-              <div class="flex items-center gap-1.5">
-                <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80"></span>
-                <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80"></span>
-                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></span>
-              </div>
-              <div class="px-2.5 py-0.5 rounded bg-[var(--bg)] border border-[var(--border)] text-[10px] font-mono text-[var(--subtle)] flex items-center gap-1">
-                <svg class="w-2.5 h-2.5 text-emerald-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/></svg>
-                <span>https://krihaa.me</span>
-              </div>
-              <a href="https://krihaa.me" target="_blank" class="text-[10px] font-mono text-[var(--accent)] hover:underline">Open ↗</a>
-            </div>
-
-            <h3 class="text-sm font-semibold text-[var(--text)] mb-1">Bilingual Typography &amp; Dynamic Reader UX</h3>
-            <p class="text-xs text-[var(--muted)] leading-relaxed mb-4">
-              Designed for readability across both English and complex Telugu typography. Includes high-contrast dark surfaces, sub-second content navigation, and semantic breadcrumb hierarchies.
-            </p>
-
-            <!-- Interactive Micro-reader demonstration -->
-            <div class="p-3 rounded-lg bg-[var(--bg)] border border-[var(--border)] space-y-2">
-              <div class="flex items-center justify-between text-[11px] font-mono">
-                <span class="text-emerald-500 dark:text-emerald-400 font-medium">&bull; Live Responsive Layout</span>
-                <span class="text-[var(--subtle)]">SEO LCP &lt; 0.8s</span>
-              </div>
-              <div class="h-1.5 w-3/4 bg-[var(--border)] rounded"></div>
-              <div class="h-1.5 w-full bg-[var(--border)] rounded"></div>
-              <div class="h-1.5 w-5/6 bg-[var(--border)] rounded"></div>
-            </div>
-          </div>
-
-          <div class="flex items-center justify-between pt-4 mt-3 border-t border-[var(--border)] text-[11px] font-mono text-[var(--subtle)]">
-            <span>Dynamic Content Taxonomy</span>
-            <span class="text-[var(--accent)]">Production Live</span>
-          </div>
-        </div>
-
-        <!-- UI/UX Demo 2: Native Android Audio Playback Engine (Kaliki Player) -->
-        <div class="spotlight-card rounded-xl p-5 flex flex-col justify-between" onmousemove="handleSpotlight(event, this)">
-          <div>
-            <!-- Simulated Android Status Bar & Audio Card -->
-            <div class="flex items-center justify-between pb-3 mb-4 border-b border-[var(--border)]">
-              <span class="text-[10px] font-mono text-[var(--subtle)]">Android 14 &middot; MediaCodec</span>
-              <div class="flex items-center gap-1.5">
-                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-                <span class="text-[10px] font-mono text-emerald-400">60 FPS Hardware UI</span>
-              </div>
-            </div>
-
-            <h3 class="text-sm font-semibold text-[var(--text)] mb-1">Kaliki Player: Fluid Android Audio Ergonomics</h3>
-            <p class="text-xs text-[var(--muted)] leading-relaxed mb-4">
-              Native Kotlin player engineered for one-handed thumb reachability, gesture scrubbing, battery-friendly hardware decoding, and persistent playback states on Google Play.
-            </p>
-
-            <!-- Visual Audio Waveform Simulation -->
-            <div class="p-3 rounded-lg bg-[var(--bg)] border border-[var(--border)] flex items-center justify-between gap-3">
-              <div class="flex items-center gap-2">
-                <div class="w-8 h-8 rounded-lg bg-[var(--accent-bg)] border border-[var(--accent)] flex items-center justify-center text-[var(--accent)]">
-                  <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
-                </div>
-                <div>
-                  <div class="text-[11px] font-semibold text-[var(--text)]">Kaliki Player</div>
-                  <div class="text-[9px] font-mono text-[var(--subtle)]">ExoPlayer Pipeline</div>
-                </div>
-              </div>
-
-              <!-- Animated Equalizer Bars -->
-              <div class="flex items-end gap-1 h-6">
-                <span class="w-1 bg-[var(--accent)] rounded-full animate-wave-1"></span>
-                <span class="w-1 bg-[var(--accent)] rounded-full animate-wave-2"></span>
-                <span class="w-1 bg-[var(--accent)] rounded-full animate-wave-3"></span>
-                <span class="w-1 bg-[var(--accent)] rounded-full animate-wave-4"></span>
-                <span class="w-1 bg-[var(--accent)] rounded-full animate-wave-5"></span>
-              </div>
-            </div>
-          </div>
-
-          <div class="flex items-center justify-between pt-4 mt-3 border-t border-[var(--border)] text-[11px] font-mono text-[var(--subtle)]">
-            <a href="https://kalikilabs.tech" target="_blank" class="hover:text-[var(--text)] hover:underline">kalikilabs.tech ↗</a>
-            <span class="text-sky-400">Play Console</span>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Core Design System Principles Cards -->
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
-        <div class="p-3 rounded-lg border border-[var(--border)] bg-[var(--card)]">
-          <span class="font-mono text-[10px] text-[var(--subtle)] block mb-1">01 / TYPOGRAPHY</span>
-          <span class="font-semibold text-[var(--text)] block">Visual Rhythm</span>
-          <p class="text-[11px] text-[var(--muted)] mt-1">Modular type scale with optical tracking.</p>
-        </div>
-        <div class="p-3 rounded-lg border border-[var(--border)] bg-[var(--card)]">
-          <span class="font-mono text-[10px] text-[var(--subtle)] block mb-1">02 / COLOR</span>
-          <span class="font-semibold text-[var(--text)] block">Semantic Tokens</span>
-          <p class="text-[11px] text-[var(--muted)] mt-1">High-contrast accessibility across themes.</p>
-        </div>
-        <div class="p-3 rounded-lg border border-[var(--border)] bg-[var(--card)]">
-          <span class="font-mono text-[10px] text-[var(--subtle)] block mb-1">03 / MOTION</span>
-          <span class="font-semibold text-[var(--text)] block">Spatial Feedback</span>
-          <p class="text-[11px] text-[var(--muted)] mt-1">Non-distracting physics-based micro-interactions.</p>
-        </div>
-        <div class="p-3 rounded-lg border border-[var(--border)] bg-[var(--card)]">
-          <span class="font-mono text-[10px] text-[var(--subtle)] block mb-1">04 / CODE</span>
-          <span class="font-semibold text-[var(--text)] block">Design Systems</span>
-          <p class="text-[11px] text-[var(--muted)] mt-1">Tailwind, React, and Android UI frameworks.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- WORK EXPERIENCE -->
+    <!-- PROFESSIONAL WORK EXPERIENCE -->
     <section id="experience" class="space-y-6">
       <div class="flex items-center justify-between border-b border-[var(--border)] pb-3">
         <div class="flex items-center gap-2">
-          <span class="w-2 h-2 rounded-full bg-[var(--subtle)]"></span>
+          <span class="w-2 h-2 rounded-full bg-[var(--accent)]"></span>
           <h2 class="text-sm font-semibold uppercase tracking-wider text-[var(--muted)] font-mono">Work Experience</h2>
         </div>
-        <span class="text-xs text-[var(--subtle)] font-mono">2023 — Present</span>
+        <span class="text-xs text-[var(--subtle)] font-mono">Enterprise &middot; Startups &middot; Internships</span>
       </div>
 
       <div class="space-y-5">
 
-        <!-- Experience 1: Amazon -->
+        <!-- Experience 1: Amazon Development Center -->
         <div class="spotlight-card rounded-xl p-5" onmousemove="handleSpotlight(event, this)">
           <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-2">
             <div>
@@ -399,25 +271,25 @@
               </h3>
               <p class="text-xs text-[var(--muted)] font-mono mt-0.5">AI Agent Development &middot; ML &amp; Process Automation</p>
             </div>
-            <span class="text-xs text-[var(--subtle)] font-mono shrink-0">Mar 2025 &mdash; Jun 2026 &middot; Hyderabad</span>
+            <span class="text-xs text-[var(--subtle)] font-mono shrink-0">Mar 2025 &mdash; Jun 2026 &middot; Hyderabad, India</span>
           </div>
 
           <ul class="space-y-2 text-xs text-[var(--muted)] leading-relaxed mt-3.5">
             <li class="flex items-start gap-2">
-              <span class="text-[var(--subtle)] mt-1 select-none">&bull;</span>
-              <span>Contributed to the design and implementation of an <strong class="text-[var(--text)] font-medium">autonomous AI agent</strong> for transaction investigation workflows, enabling <strong class="text-[var(--accent)] font-medium">70% of operational queries to be resolved independently</strong>.</span>
+              <span class="text-[var(--accent)] mt-1 select-none">&bull;</span>
+              <span>Contributed to the design and development of an <strong class="text-[var(--text)] font-medium">autonomous AI agent</strong> that streamlined investigation workflows on a high-volume transaction platform, enabling <strong class="text-[var(--accent)] font-medium">70% of queries to be resolved independently</strong> and improving operational efficiency at scale.</span>
             </li>
             <li class="flex items-start gap-2">
-              <span class="text-[var(--subtle)] mt-1 select-none">&bull;</span>
-              <span>Engineered custom <strong class="text-[var(--text)] font-medium">Tampermonkey process automation scripts</strong> integrated with internal operational consoles, eliminating repetitive manual steps and cutting ticket turnaround time.</span>
+              <span class="text-[var(--accent)] mt-1 select-none">&bull;</span>
+              <span>Built <strong class="text-[var(--text)] font-medium">process automation scripts (Tampermonkey / JavaScript)</strong> to integrate with internal operational tools, eliminating repetitive manual workflows and cutting turnaround time.</span>
             </li>
             <li class="flex items-start gap-2">
-              <span class="text-[var(--subtle)] mt-1 select-none">&bull;</span>
-              <span>Maintained <strong class="text-[var(--text)] font-medium">99%+ investigation accuracy</strong> across high-volume queues, utilizing root-cause analysis (RCA) and data-driven debugging to resolve system vulnerabilities.</span>
+              <span class="text-[var(--accent)] mt-1 select-none">&bull;</span>
+              <span>Investigated and resolved high-volume transaction cases with <strong class="text-emerald-500 dark:text-emerald-400 font-medium">99%+ accuracy</strong>, applying root-cause analysis (RCA) and data-driven debugging to close process vulnerabilities and improve system reliability.</span>
             </li>
             <li class="flex items-start gap-2">
-              <span class="text-[var(--subtle)] mt-1 select-none">&bull;</span>
-              <span>Served as operational <strong class="text-[var(--text)] font-medium">Point of Contact (POC) for two core workflows</strong>, bridging technical tooling improvements with cross-functional stakeholders.</span>
+              <span class="text-[var(--accent)] mt-1 select-none">&bull;</span>
+              <span>Served as <strong class="text-[var(--text)] font-medium">Point of Contact (POC) for two critical operational workflows</strong>, translating business requirements into tangible tooling improvements while coordinating with cross-functional stakeholders.</span>
             </li>
           </ul>
 
@@ -426,7 +298,8 @@
             <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">Tool Calling</span>
             <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">Tampermonkey</span>
             <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">Root Cause Analysis</span>
-            <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">Internal Tools UX</span>
+            <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">SOP Compliance</span>
+            <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">Process Automation</span>
           </div>
         </div>
 
@@ -441,27 +314,27 @@
                   <span class="text-[var(--accent)] font-mono text-[10px]">↗</span>
                 </a>
               </h3>
-              <p class="text-xs text-[var(--muted)] font-mono mt-0.5">Application &amp; Platform Development &middot; <a href="https://kalikilabs.tech" target="_blank" class="text-[var(--subtle)] hover:text-[var(--text)] underline underline-offset-2">kalikilabs.tech</a></p>
+              <p class="text-xs text-[var(--muted)] font-mono mt-0.5">Software Engineering &middot; Application &amp; Platform Development</p>
             </div>
             <span class="text-xs text-[var(--subtle)] font-mono shrink-0">Jan 2025 &mdash; Present &middot; Remote</span>
           </div>
 
           <ul class="space-y-2 text-xs text-[var(--muted)] leading-relaxed mt-3.5">
             <li class="flex items-start gap-2">
-              <span class="text-[var(--subtle)] mt-1 select-none">&bull;</span>
-              <span>Architected and deployed full-lifecycle software across <strong class="text-[var(--text)] font-medium">native Android and web platforms</strong>, focusing on rapid interface response and release stability.</span>
+              <span class="text-[var(--accent)] mt-1 select-none">&bull;</span>
+              <span>Built and maintained production software end-to-end across <strong class="text-[var(--text)] font-medium">Android and web platforms</strong>: lifecycle development, debugging, performance tuning, testing, and release management.</span>
             </li>
             <li class="flex items-start gap-2">
-              <span class="text-[var(--subtle)] mt-1 select-none">&bull;</span>
-              <span>Engineered <a href="https://krihaa.me" target="_blank" rel="noopener noreferrer" class="text-[var(--text)] hover:underline font-medium">Krihaa News (krihaa.me) ↗</a>, an optimized bilingual English/Telugu digital platform with programmatic SEO, backend content structuring, and search indexing.</span>
+              <span class="text-[var(--accent)] mt-1 select-none">&bull;</span>
+              <span>Built and maintained <a href="https://krihaa.me" target="_blank" rel="noopener noreferrer" class="text-[var(--text)] hover:underline font-medium">Krihaa News (krihaa.me) ↗</a>, an optimized bilingual English/Telugu platform, covering backend content structure, indexing, SEO, and technical maintenance.</span>
             </li>
             <li class="flex items-start gap-2">
-              <span class="text-[var(--subtle)] mt-1 select-none">&bull;</span>
-              <span>Shipped and maintained native Android applications using <strong class="text-[var(--text)] font-medium">Kotlin</strong>, owning Google Play Console deployment, build signing, and version rollouts.</span>
+              <span class="text-[var(--accent)] mt-1 select-none">&bull;</span>
+              <span>Shipped and maintained native Android applications using <strong class="text-[var(--text)] font-medium">Kotlin</strong>, owning testing, release preparation, updates, and Google Play Console deployment.</span>
             </li>
             <li class="flex items-start gap-2">
-              <span class="text-[var(--subtle)] mt-1 select-none">&bull;</span>
-              <span>Engineered performance improvements for media streaming applications including <strong class="text-[var(--text)] font-medium">Kaliki Player</strong>, optimizing hardware decoding pipelines.</span>
+              <span class="text-[var(--accent)] mt-1 select-none">&bull;</span>
+              <span>Delivered user-centric features and performance/usability improvements for applications including <strong class="text-[var(--text)] font-medium">Kaliki Player</strong>, optimizing decoding pipelines and media persistence.</span>
             </li>
           </ul>
 
@@ -470,6 +343,7 @@
             <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">Android SDK</span>
             <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">Google Play Console</span>
             <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">React</span>
+            <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">Firebase</span>
             <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">SEO</span>
           </div>
         </div>
@@ -479,22 +353,26 @@
           <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-2">
             <div>
               <h3 class="text-base font-semibold text-[var(--text)] flex items-center gap-2">
-                <span>Machine Learning Intern</span>
+                <span>AI Sign Language Recognition Intern</span>
                 <span class="text-xs px-2 py-0.5 rounded border border-[var(--border)] bg-[var(--bg)] text-[var(--text)] font-normal">IBM AICTE</span>
               </h3>
-              <p class="text-xs text-[var(--muted)] font-mono mt-0.5">Computer Vision &middot; Deep Learning</p>
+              <p class="text-xs text-[var(--muted)] font-mono mt-0.5">Machine Learning &middot; Deep Learning</p>
             </div>
             <span class="text-xs text-[var(--subtle)] font-mono shrink-0">Sep 2023 &mdash; Nov 2023 &middot; Remote</span>
           </div>
 
           <ul class="space-y-2 text-xs text-[var(--muted)] leading-relaxed mt-3.5">
             <li class="flex items-start gap-2">
-              <span class="text-[var(--subtle)] mt-1 select-none">&bull;</span>
-              <span>Trained a real-time computer vision gesture-recognition system achieving <strong class="text-[var(--text)] font-medium">85% classification accuracy</strong> on alphanumeric Sign Language.</span>
+              <span class="text-[var(--accent)] mt-1 select-none">&bull;</span>
+              <span>Built a real-time gesture-recognition system achieving <strong class="text-[var(--text)] font-medium">85% accuracy</strong> on alphanumeric Sign Language classification using ML/DL techniques.</span>
             </li>
             <li class="flex items-start gap-2">
-              <span class="text-[var(--subtle)] mt-1 select-none">&bull;</span>
-              <span>Built data collection, image augmentation, preprocessing, and test validation pipelines for hand landmark features.</span>
+              <span class="text-[var(--accent)] mt-1 select-none">&bull;</span>
+              <span>Designed and trained deep neural models for classifying alphanumeric hand gestures from image-based camera input.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-[var(--accent)] mt-1 select-none">&bull;</span>
+              <span>Owned data collection, preprocessing, training, validation, and evaluation to systematically improve recognition accuracy.</span>
             </li>
           </ul>
 
@@ -502,18 +380,19 @@
             <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">Python</span>
             <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">OpenCV</span>
             <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">CNN</span>
+            <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">Deep Learning</span>
           </div>
         </div>
 
       </div>
     </section>
 
-    <!-- SELECTED PROJECTS -->
+    <!-- SELECTED IT PROJECTS -->
     <section id="projects" class="space-y-6">
       <div class="flex items-center justify-between border-b border-[var(--border)] pb-3">
         <div class="flex items-center gap-2">
-          <span class="w-2 h-2 rounded-full bg-[var(--subtle)]"></span>
-          <h2 class="text-sm font-semibold uppercase tracking-wider text-[var(--muted)] font-mono">Featured Projects</h2>
+          <span class="w-2 h-2 rounded-full bg-[var(--accent)]"></span>
+          <h2 class="text-sm font-semibold uppercase tracking-wider text-[var(--muted)] font-mono">Featured Projects &amp; Systems</h2>
         </div>
         <a href="https://github.com/jayakrishnaa18" target="_blank" class="text-xs text-[var(--subtle)] hover:text-[var(--text)] font-mono flex items-center gap-1 transition-colors">
           <span>github.com/jayakrishnaa18</span>
@@ -523,7 +402,7 @@
 
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
 
-        <!-- Project 1: ReviewGuard (BERT) -->
+        <!-- Project 1: ReviewGuard (BERT NLP) -->
         <div class="spotlight-card rounded-xl p-5 flex flex-col justify-between" onmousemove="handleSpotlight(event, this)">
           <div>
             <div class="flex items-center justify-between mb-3">
@@ -534,7 +413,7 @@
             </div>
             <h3 class="text-sm font-semibold text-[var(--text)] mb-1.5">ReviewGuard: BERT-Based Integrity Assurance</h3>
             <p class="text-xs text-[var(--muted)] leading-relaxed mb-4">
-              NLP-based deceptive review classification system fine-tuned on BERT representations. Distinguishes authentic user feedback from synthetic manipulations with high confidence thresholds.
+              Led development of an NLP fake-review detection system utilizing fine-tuned BERT transformer representations. Built an end-to-end classification pipeline reaching 92% overall accuracy and 94% precision for deceptive review screening.
             </p>
           </div>
           <div class="flex flex-wrap gap-1.5 pt-2 border-t border-[var(--border)]">
@@ -554,12 +433,13 @@
             </div>
             <h3 class="text-sm font-semibold text-[var(--text)] mb-1.5">Autonomous Investigation Agent</h3>
             <p class="text-xs text-[var(--muted)] leading-relaxed mb-4">
-              Multi-step reasoning and tool-calling agent deployed on internal transactional platforms to evaluate compliance, cross-reference SOP conditions, and resolve queues autonomously.
+              Designed multi-step reasoning and custom tool-calling hooks on high-volume transactional platforms to evaluate compliance, cross-reference SOP conditions, and resolve operational queues with 99%+ accuracy.
             </p>
           </div>
           <div class="flex flex-wrap gap-1.5 pt-2 border-t border-[var(--border)]">
             <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">LangChain</span>
             <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">Tool Calling</span>
+            <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">Tampermonkey</span>
             <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">Automation</span>
           </div>
         </div>
@@ -568,7 +448,7 @@
         <div class="spotlight-card rounded-xl p-5 flex flex-col justify-between" onmousemove="handleSpotlight(event, this)">
           <div>
             <div class="flex items-center justify-between mb-3">
-              <span class="text-[11px] font-mono text-[var(--text)] bg-[var(--bg)] px-2 py-0.5 rounded border border-[var(--border)] font-medium">Live Platform</span>
+              <span class="text-[11px] font-mono text-[var(--text)] bg-[var(--bg)] px-2 py-0.5 rounded border border-[var(--border)] font-medium">Production Web</span>
               <div class="flex items-center gap-2">
                 <a href="https://krihaa.me" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-[11px] font-mono text-emerald-500 dark:text-emerald-400 hover:opacity-80 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20 transition-all">
                   <span>krihaa.me</span>
@@ -577,21 +457,21 @@
               </div>
             </div>
             <h3 class="text-sm font-semibold text-[var(--text)] mb-1.5 flex items-center gap-1.5">
-              <a href="https://krihaa.me" target="_blank" rel="noopener noreferrer" class="hover:underline hover:text-[var(--text)]">Krihaa News: Bilingual Publishing Engine</a>
+              <a href="https://krihaa.me" target="_blank" rel="noopener noreferrer" class="hover:underline hover:text-[var(--text)]">Krihaa News: Bilingual Publishing Platform</a>
             </h3>
             <p class="text-xs text-[var(--muted)] leading-relaxed mb-4">
-              Bilingual English/Telugu digital publication system engineered for rapid schema indexing, high-performance SEO visibility, and dynamic content taxonomy at <a href="https://krihaa.me" target="_blank" class="text-[var(--text)] underline underline-offset-2">krihaa.me</a>.
+              Engineered a bilingual English/Telugu publication platform covering backend content taxonomy, search indexing, schema metadata, and high-performance SEO visibility at <a href="https://krihaa.me" target="_blank" class="text-[var(--text)] underline underline-offset-2">krihaa.me</a>.
             </p>
           </div>
           <div class="flex flex-wrap gap-1.5 pt-2 border-t border-[var(--border)]">
             <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">React</span>
+            <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">JavaScript</span>
             <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">SEO</span>
             <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">Firebase</span>
-            <span class="px-2 py-0.5 text-[10px] font-mono text-emerald-500 dark:text-emerald-400 bg-emerald-500/10 rounded">Production</span>
           </div>
         </div>
 
-        <!-- Project 4: Kaliki Player & Apps (Kaliki Labs) -->
+        <!-- Project 4: Kaliki Player & Mobile Apps -->
         <div class="spotlight-card rounded-xl p-5 flex flex-col justify-between" onmousemove="handleSpotlight(event, this)">
           <div>
             <div class="flex items-center justify-between mb-3">
@@ -604,233 +484,191 @@
               </div>
             </div>
             <h3 class="text-sm font-semibold text-[var(--text)] mb-1.5 flex items-center gap-1.5">
-              <a href="https://kalikilabs.tech" target="_blank" rel="noopener noreferrer" class="hover:underline hover:text-[var(--text)]">Kaliki Player: Native Media Engine</a>
+              <a href="https://kalikilabs.tech" target="_blank" rel="noopener noreferrer" class="hover:underline hover:text-[var(--text)]">Kaliki Player: Android Media Engine</a>
             </h3>
             <p class="text-xs text-[var(--muted)] leading-relaxed mb-4">
-              Android media player built with Kotlin, focusing on efficient hardware codec pipelines, smooth asynchronous rendering, and clean playback state persistence shipped under <a href="https://kalikilabs.tech" target="_blank" class="text-[var(--text)] underline underline-offset-2">Kaliki Labs</a>.
+              Native Android media playback application built with Kotlin, focusing on efficient hardware codec pipelines, smooth asynchronous UI rendering, and release management on Google Play Console under <a href="https://kalikilabs.tech" target="_blank" class="text-[var(--text)] underline underline-offset-2">Kaliki Labs</a>.
             </p>
           </div>
           <div class="flex flex-wrap gap-1.5 pt-2 border-t border-[var(--border)]">
             <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">Kotlin</span>
             <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">Android SDK</span>
-            <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">Google Play</span>
-            <span class="px-2 py-0.5 text-[10px] font-mono text-sky-400 bg-sky-500/10 rounded">Live</span>
+            <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">Google Play Console</span>
+            <span class="px-2 py-0.5 text-[10px] font-mono text-[var(--subtle)] bg-[var(--bg)] rounded border border-[var(--border)]">Testing</span>
           </div>
         </div>
 
       </div>
     </section>
 
-    <!-- TECHNICAL ARSENAL -->
+    <!-- TECHNICAL ARSENAL: CORE IT SKILLS MATRIX -->
     <section id="skills" class="space-y-6">
       <div class="flex items-center justify-between border-b border-[var(--border)] pb-3">
         <div class="flex items-center gap-2">
-          <span class="w-2 h-2 rounded-full bg-[var(--subtle)]"></span>
-          <h2 class="text-sm font-semibold uppercase tracking-wider text-[var(--muted)] font-mono">Skills &amp; Technologies</h2>
+          <span class="w-2 h-2 rounded-full bg-[var(--accent)]"></span>
+          <h2 class="text-sm font-semibold uppercase tracking-wider text-[var(--muted)] font-mono">Technical Skills &amp; IT Competencies</h2>
+        </div>
+        <span class="text-xs text-[var(--subtle)] font-mono">Industry Toolchain</span>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+        
+        <!-- Programming & Core Software -->
+        <div class="spotlight-card rounded-xl p-4 space-y-2.5" onmousemove="handleSpotlight(event, this)">
+          <div class="flex items-center gap-2 font-mono text-xs font-semibold text-[var(--text)]">
+            <span class="text-[var(--accent)]">01.</span>
+            <span>PROGRAMMING &amp; LANGUAGES</span>
+          </div>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="px-2 py-1 rounded border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">Python</span>
+            <span class="px-2 py-1 rounded border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">JavaScript / TypeScript</span>
+            <span class="px-2 py-1 rounded border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">SQL (Relational DBs)</span>
+            <span class="px-2 py-1 rounded border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">Kotlin (Android)</span>
+            <span class="px-2 py-1 rounded border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">HTML5 / Modern CSS</span>
+          </div>
+        </div>
+
+        <!-- AI, ML & Agentic Systems -->
+        <div class="spotlight-card rounded-xl p-4 space-y-2.5" onmousemove="handleSpotlight(event, this)">
+          <div class="flex items-center gap-2 font-mono text-xs font-semibold text-[var(--text)]">
+            <span class="text-[var(--accent)]">02.</span>
+            <span>AI / ML &amp; AGENTIC SYSTEMS</span>
+          </div>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="px-2 py-1 rounded border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">AI Agents &amp; Reasoning</span>
+            <span class="px-2 py-1 rounded border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">Tool Calling</span>
+            <span class="px-2 py-1 rounded border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">BERT / Transformers</span>
+            <span class="px-2 py-1 rounded border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">LangChain &amp; LangGraph</span>
+            <span class="px-2 py-1 rounded border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">RAG &amp; Vector Embeddings</span>
+            <span class="px-2 py-1 rounded border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">Computer Vision / CNN</span>
+          </div>
+        </div>
+
+        <!-- Development, Cloud & Tools -->
+        <div class="spotlight-card rounded-xl p-4 space-y-2.5" onmousemove="handleSpotlight(event, this)">
+          <div class="flex items-center gap-2 font-mono text-xs font-semibold text-[var(--text)]">
+            <span class="text-[var(--accent)]">03.</span>
+            <span>PLATFORMS, CLOUD &amp; TOOLS</span>
+          </div>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="px-2 py-1 rounded border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">Git &amp; GitHub</span>
+            <span class="px-2 py-1 rounded border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">React</span>
+            <span class="px-2 py-1 rounded border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">Android Studio</span>
+            <span class="px-2 py-1 rounded border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">Google Play Console</span>
+            <span class="px-2 py-1 rounded border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">Firebase</span>
+            <span class="px-2 py-1 rounded border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">Claude Code</span>
+          </div>
+        </div>
+
+        <!-- Operations, RCA & Quality -->
+        <div class="spotlight-card rounded-xl p-4 space-y-2.5" onmousemove="handleSpotlight(event, this)">
+          <div class="flex items-center gap-2 font-mono text-xs font-semibold text-[var(--text)]">
+            <span class="text-[var(--accent)]">04.</span>
+            <span>ENTERPRISE OPS &amp; QUALITY</span>
+          </div>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="px-2 py-1 rounded border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">Process Automation</span>
+            <span class="px-2 py-1 rounded border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">Root Cause Analysis (RCA)</span>
+            <span class="px-2 py-1 rounded border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">SOP Compliance</span>
+            <span class="px-2 py-1 rounded border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">Cross-Team Coordination</span>
+            <span class="px-2 py-1 rounded border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">Tampermonkey Scripting</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Certifications Badge Row -->
+      <div class="p-4 rounded-xl border border-[var(--border)] bg-[var(--card)] flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+        <span class="font-mono text-[var(--subtle)] uppercase">Verified Certifications:</span>
+        <div class="flex flex-wrap items-center gap-2">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">
+            <span class="font-medium">AWS Academy Machine Learning</span>
+            <span class="text-[var(--subtle)] font-mono">&middot; Amazon (Aug 2025)</span>
+          </span>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md border border-[var(--border)] bg-[var(--bg)] text-[var(--text)]">
+            <span class="font-medium">Machine Learning With Python</span>
+            <span class="text-[var(--subtle)] font-mono">&middot; Coursera (Jun 2024)</span>
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION & HONORS -->
+    <section id="education" class="space-y-6">
+      <div class="flex items-center justify-between border-b border-[var(--border)] pb-3">
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-[var(--accent)]"></span>
+          <h2 class="text-sm font-semibold uppercase tracking-wider text-[var(--muted)] font-mono">Education &amp; Academic Honors</h2>
         </div>
       </div>
 
       <div class="space-y-4 text-xs">
-        <div>
-          <span class="text-[var(--subtle)] font-mono block mb-2 text-[11px]">AGENTIC AI &amp; LLMS</span>
-          <div class="flex flex-wrap gap-1.5">
-            <span class="px-2.5 py-1 rounded border border-[var(--border)] bg-[var(--card)] text-[var(--text)]">Autonomous Agents</span>
-            <span class="px-2.5 py-1 rounded border border-[var(--border)] bg-[var(--card)] text-[var(--text)]">Tool Calling</span>
-            <span class="px-2.5 py-1 rounded border border-[var(--border)] bg-[var(--card)] text-[var(--text)]">Multi-step Reasoning</span>
-            <span class="px-2.5 py-1 rounded border border-[var(--border)] bg-[var(--card)] text-[var(--text)]">LangChain &amp; LangGraph</span>
-            <span class="px-2.5 py-1 rounded border border-[var(--border)] bg-[var(--card)] text-[var(--text)]">RAG Architectures</span>
-            <span class="px-2.5 py-1 rounded border border-[var(--border)] bg-[var(--card)] text-[var(--text)]">Prompt Engineering</span>
-          </div>
-        </div>
-
-        <div>
-          <span class="text-[var(--subtle)] font-mono block mb-2 text-[11px]">MACHINE LEARNING &amp; DATA</span>
-          <div class="flex flex-wrap gap-1.5">
-            <span class="px-2.5 py-1 rounded border border-[var(--border)] bg-[var(--card)] text-[var(--text)]">BERT / Transformers</span>
-            <span class="px-2.5 py-1 rounded border border-[var(--border)] bg-[var(--card)] text-[var(--text)]">NLP &amp; Text Classification</span>
-            <span class="px-2.5 py-1 rounded border border-[var(--border)] bg-[var(--card)] text-[var(--text)]">Computer Vision / CNN</span>
-            <span class="px-2.5 py-1 rounded border border-[var(--border)] bg-[var(--card)] text-[var(--text)]">PyTorch</span>
-            <span class="px-2.5 py-1 rounded border border-[var(--border)] bg-[var(--card)] text-[var(--text)]">Scikit-learn</span>
-            <span class="px-2.5 py-1 rounded border border-[var(--border)] bg-[var(--card)] text-[var(--text)]">OpenCV</span>
-            <span class="px-2.5 py-1 rounded border border-[var(--border)] bg-[var(--card)] text-[var(--text)]">NumPy &amp; Pandas</span>
-          </div>
-        </div>
-
-        <div>
-          <span class="text-[var(--subtle)] font-mono block mb-2 text-[11px]">LANGUAGES &amp; FRONTEND/MOBILE</span>
-          <div class="flex flex-wrap gap-1.5">
-            <span class="px-2.5 py-1 rounded border border-[var(--border)] bg-[var(--card)] text-[var(--text)]">Python</span>
-            <span class="px-2.5 py-1 rounded border border-[var(--border)] bg-[var(--card)] text-[var(--text)]">Kotlin (Android)</span>
-            <span class="px-2.5 py-1 rounded border border-[var(--border)] bg-[var(--card)] text-[var(--text)]">TypeScript / JavaScript</span>
-            <span class="px-2.5 py-1 rounded border border-[var(--border)] bg-[var(--card)] text-[var(--text)]">Tailwind CSS / Design Tokens</span>
-            <span class="px-2.5 py-1 rounded border border-[var(--border)] bg-[var(--card)] text-[var(--text)]">SQL</span>
-            <span class="px-2.5 py-1 rounded border border-[var(--border)] bg-[var(--card)] text-[var(--text)]">React</span>
-            <span class="px-2.5 py-1 rounded border border-[var(--border)] bg-[var(--card)] text-[var(--text)]">Android Studio</span>
-            <span class="px-2.5 py-1 rounded border border-[var(--border)] bg-[var(--card)] text-[var(--text)]">Google Play Console</span>
-            <span class="px-2.5 py-1 rounded border border-[var(--border)] bg-[var(--card)] text-[var(--text)]">Git &amp; GitHub</span>
-          </div>
-        </div>
-
-        <div>
-          <span class="text-[var(--subtle)] font-mono block mb-2 text-[11px]">CERTIFICATIONS</span>
-          <div class="flex flex-wrap gap-2 text-[var(--text)]">
-            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded border border-[var(--border)] bg-[var(--card)]">
-              <span class="font-medium">AWS Academy Machine Learning</span>
-              <span class="text-[var(--subtle)] font-mono">&middot; Aug 2025</span>
-            </span>
-            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded border border-[var(--border)] bg-[var(--card)]">
-              <span class="font-medium">Machine Learning With Python (Coursera)</span>
-              <span class="text-[var(--subtle)] font-mono">&middot; Jun 2024</span>
-            </span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- EDUCATION -->
-    <section id="education" class="space-y-6">
-      <div class="flex items-center justify-between border-b border-[var(--border)] pb-3">
-        <div class="flex items-center gap-2">
-          <span class="w-2 h-2 rounded-full bg-[var(--subtle)]"></span>
-          <h2 class="text-sm font-semibold uppercase tracking-wider text-[var(--muted)] font-mono">Education &amp; Honors</h2>
-        </div>
-      </div>
-
-      <div class="space-y-5 text-xs">
 
         <!-- Andhra University -->
-        <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+        <div class="spotlight-card rounded-xl p-4 flex flex-col sm:flex-row sm:items-baseline justify-between gap-2" onmousemove="handleSpotlight(event, this)">
           <div>
             <h3 class="text-sm font-semibold text-[var(--text)]">Andhra University</h3>
             <p class="text-[var(--muted)]">MBA in Data Science and Analytics</p>
+            <p class="text-[var(--subtle)] font-mono mt-1">Focusing on predictive decision systems, enterprise analytics, and data infrastructure.</p>
           </div>
           <span class="font-mono text-[var(--subtle)] shrink-0">Jul 2026 &mdash; Present</span>
         </div>
 
-        <!-- GITAM -->
-        <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+        <!-- GITAM (100% Scholarship) -->
+        <div class="spotlight-card rounded-xl p-4 border-amber-500/20 bg-amber-500/5 flex flex-col sm:flex-row sm:items-baseline justify-between gap-2" onmousemove="handleSpotlight(event, this)">
           <div>
             <div class="flex items-center gap-2">
               <h3 class="text-sm font-semibold text-[var(--text)]">GITAM (Deemed to be University), Visakhapatnam</h3>
-              <span class="px-1.5 py-0.5 rounded text-[10px] font-mono bg-amber-500/10 text-amber-500 dark:text-amber-400 border border-amber-500/20 font-medium">100% Scholarship Awardee</span>
+              <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-amber-500/10 text-amber-500 dark:text-amber-400 border border-amber-500/25 font-semibold">100% Merit Scholarship</span>
             </div>
-            <p class="text-[var(--muted)]">B.Tech in Computer Science and Engineering &mdash; AIML</p>
-            <p class="text-[var(--subtle)] font-mono mt-0.5">CGPA: 8.18 / 10.0</p>
+            <p class="text-[var(--muted)] mt-0.5">B.Tech in Computer Science and Engineering &mdash; AIML</p>
+            <p class="text-[var(--subtle)] font-mono mt-1">Cumulative Grade Point Average: <strong class="text-emerald-500 dark:text-emerald-400 font-mono">CGPA 8.18 / 10.0</strong></p>
           </div>
           <span class="font-mono text-[var(--subtle)] shrink-0">2020 &mdash; 2024</span>
         </div>
 
-        <!-- Narayana Senior Secondary -->
-        <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
-          <div>
-            <h3 class="text-sm font-semibold text-[var(--text)]">Narayana Institute &mdash; Senior Secondary</h3>
-            <p class="text-[var(--muted)]">Board of Intermediate Education, Andhra Pradesh</p>
-            <p class="text-[var(--subtle)] font-mono mt-0.5">CGPA: 9.15 / 10.0</p>
+        <!-- Secondary Schools Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div class="spotlight-card rounded-xl p-3.5" onmousemove="handleSpotlight(event, this)">
+            <h4 class="font-semibold text-[var(--text)]">Narayana Institute &mdash; Senior Secondary</h4>
+            <p class="text-[var(--muted)] text-[11px]">Board of Intermediate Education, AP (2018&ndash;2020)</p>
+            <span class="text-[var(--accent)] font-mono font-medium block mt-1">CGPA: 9.15 / 10.0</span>
           </div>
-          <span class="font-mono text-[var(--subtle)] shrink-0">2018 &mdash; 2020</span>
-        </div>
 
-        <!-- Narayana EM School -->
-        <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
-          <div>
-            <h3 class="text-sm font-semibold text-[var(--text)]">Narayana EM School</h3>
-            <p class="text-[var(--muted)]">Board of Secondary Education, Andhra Pradesh</p>
-            <p class="text-[var(--subtle)] font-mono mt-0.5">CGPA: 9.50 / 10.0</p>
+          <div class="spotlight-card rounded-xl p-3.5" onmousemove="handleSpotlight(event, this)">
+            <h4 class="font-semibold text-[var(--text)]">Narayana EM School</h4>
+            <p class="text-[var(--muted)] text-[11px]">Board of Secondary Education, AP (2017&ndash;2018)</p>
+            <span class="text-[var(--accent)] font-mono font-medium block mt-1">CGPA: 9.50 / 10.0</span>
           </div>
-          <span class="font-mono text-[var(--subtle)] shrink-0">2017 &mdash; 2018</span>
         </div>
 
       </div>
     </section>
 
-    <!-- CONTACT -->
+    <!-- CONTACT & RECRUITER ACTIONS -->
     <section id="contact" class="space-y-6 pt-6 border-t border-[var(--border)]">
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h2 class="text-lg font-bold text-[var(--text)]">Let's Connect</h2>
-          <p class="text-xs text-[var(--muted)] mt-1">Open to technical engineering, AI agent roles, and design systems collaboration.</p>
+          <h2 class="text-lg font-bold text-[var(--text)]">Direct Contact &amp; Availability</h2>
+          <p class="text-xs text-[var(--muted)] mt-1">Open to technical roles across Software Engineering, AI/ML, and Enterprise IT.</p>
         </div>
         <div class="flex flex-wrap items-center gap-2">
-          <a href="https://github.com/jayakrishnaa18" target="_blank" rel="noopener noreferrer" class="px-3.5 py-2 rounded-lg border border-[var(--border)] bg-[var(--card)] hover:bg-[var(--card-hover)] text-[var(--text)] text-xs font-mono inline-flex items-center gap-2 transition-all">
-            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-            <span>@jayakrishnaa18</span>
-          </a>
           <a href="mailto:jayakrishnaakaliki@gmail.com" class="px-4 py-2 rounded-lg bg-[var(--text)] text-[var(--bg)] hover:opacity-90 text-xs font-semibold transition-all">
             Email Me
           </a>
           <a href="tel:+918374210497" class="px-4 py-2 rounded-lg border border-[var(--border)] bg-[var(--card)] hover:bg-[var(--card-hover)] text-[var(--text)] text-xs font-semibold transition-all">
-            +91 8374210497
+            Call: +91 8374210497
           </a>
         </div>
       </div>
 
       <div class="flex flex-col sm:flex-row items-center justify-between text-xs text-[var(--subtle)] font-mono pt-8">
-        <p>&copy; 2026 Kaliki Jayakrishnaa</p>
-        <p>Interactive Theme Engine &middot; Hosted on GitHub Pages</p>
+        <p>&copy; 2026 Kaliki Jayakrishnaa &middot; Portfolio</p>
+        <p>Live on GitHub Pages &middot; Built with Tailwind CSS</p>
       </div>
     </section>
 
   </main>
-
-  <!-- Interactive ⌘K Command Palette Dialog Modal (21st.dev Style) -->
-  <div id="commandModal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-start justify-center pt-24 px-4 transition-all">
-    <div class="w-full max-w-lg rounded-xl border border-[var(--border)] bg-[var(--bg)] shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-150">
-      
-      <!-- Search Input Header -->
-      <div class="flex items-center px-4 border-b border-[var(--border)] h-12 gap-2.5">
-        <svg class="w-4 h-4 text-[var(--subtle)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-        <input type="text" id="cmdInput" placeholder="Type a command or jump to section..." oninput="filterCommandItems(this.value)" class="w-full bg-transparent text-sm text-[var(--text)] placeholder-[var(--subtle)] focus:outline-none font-sans">
-        <kbd class="px-1.5 py-0.5 text-[10px] font-mono rounded bg-[var(--card)] border border-[var(--border)] text-[var(--subtle)]">ESC</kbd>
-      </div>
-
-      <!-- Quick Jumps List -->
-      <div id="cmdList" class="p-2 space-y-1 max-h-72 overflow-y-auto text-xs font-medium">
-        <button onclick="cmdNavigate('#uiux')" class="cmd-item w-full flex items-center justify-between px-3 py-2 rounded-lg hover:bg-[var(--card-hover)] text-left text-[var(--text)]">
-          <span class="flex items-center gap-2">
-            <svg class="w-3.5 h-3.5 text-[var(--accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/></svg>
-            <span>UI/UX Systems Showcase</span>
-          </span>
-          <span class="text-[10px] font-mono text-[var(--subtle)]">Jump</span>
-        </button>
-        <button onclick="cmdNavigate('#experience')" class="cmd-item w-full flex items-center justify-between px-3 py-2 rounded-lg hover:bg-[var(--card-hover)] text-left text-[var(--text)]">
-          <span class="flex items-center gap-2">
-            <svg class="w-3.5 h-3.5 text-[var(--subtle)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-            <span>Work Experience (Amazon, Kaliki Labs, IBM)</span>
-          </span>
-          <span class="text-[10px] font-mono text-[var(--subtle)]">Jump</span>
-        </button>
-        <button onclick="cmdNavigate('#projects')" class="cmd-item w-full flex items-center justify-between px-3 py-2 rounded-lg hover:bg-[var(--card-hover)] text-left text-[var(--text)]">
-          <span class="flex items-center gap-2">
-            <svg class="w-3.5 h-3.5 text-[var(--subtle)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
-            <span>Featured Projects (ReviewGuard, Krihaa, Kaliki Player)</span>
-          </span>
-          <span class="text-[10px] font-mono text-[var(--subtle)]">Jump</span>
-        </button>
-        <button onclick="window.open('https://krihaa.me', '_blank'); closeCommandMenu()" class="cmd-item w-full flex items-center justify-between px-3 py-2 rounded-lg hover:bg-[var(--card-hover)] text-left text-[var(--text)]">
-          <span class="flex items-center gap-2">
-            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-            <span>Visit Live Platform: krihaa.me</span>
-          </span>
-          <span class="text-[10px] font-mono text-[var(--subtle)]">External ↗</span>
-        </button>
-        <button onclick="window.open('https://kalikilabs.tech', '_blank'); closeCommandMenu()" class="cmd-item w-full flex items-center justify-between px-3 py-2 rounded-lg hover:bg-[var(--card-hover)] text-left text-[var(--text)]">
-          <span class="flex items-center gap-2">
-            <span class="w-2 h-2 rounded-full bg-sky-400"></span>
-            <span>Visit Kaliki Labs: kalikilabs.tech</span>
-          </span>
-          <span class="text-[10px] font-mono text-[var(--subtle)]">External ↗</span>
-        </button>
-        <button onclick="window.open('https://github.com/jayakrishnaa18', '_blank'); closeCommandMenu()" class="cmd-item w-full flex items-center justify-between px-3 py-2 rounded-lg hover:bg-[var(--card-hover)] text-left text-[var(--text)]">
-          <span class="flex items-center gap-2">
-            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-            <span>GitHub Profile: @jayakrishnaa18</span>
-          </span>
-          <span class="text-[10px] font-mono text-[var(--subtle)]">External ↗</span>
-        </button>
-      </div>
-
-    </div>
-  </div>
 
   <!-- Interactive Monospace Toast -->
   <div id="toast" class="fixed top-6 right-6 z-50 transform -translate-y-12 opacity-0 transition-all duration-300 pointer-events-none">
@@ -841,36 +679,34 @@
   </div>
 
   <script>
-    // Theme Engine: Dark, Light, Cyber Indigo
-    function setTheme(theme) {
+    // Theme Engine: Executive Dark / Crisp Light
+    function toggleTheme() {
       const html = document.documentElement;
-      html.classList.remove('dark', 'light', 'cyber');
-      html.classList.add(theme);
-      localStorage.setItem('preferred-theme', theme);
-      updateThemeButtons(theme);
-      showToast(`Theme switched to ${theme.toUpperCase()}`);
-    }
-
-    function updateThemeButtons(theme) {
-      ['dark', 'light', 'cyber'].forEach(t => {
-        const btn = document.getElementById(`theme-btn-${t}`);
-        if (btn) {
-          if (t === theme) {
-            btn.classList.add('bg-[var(--accent-bg)]', 'text-[var(--accent)]');
-            btn.classList.remove('text-[var(--subtle)]');
-          } else {
-            btn.classList.remove('bg-[var(--accent-bg)]', 'text-[var(--accent)]');
-            btn.classList.add('text-[var(--subtle)]');
-          }
-        }
-      });
+      const isDark = html.classList.contains('dark');
+      if (isDark) {
+        html.classList.remove('dark');
+        html.classList.add('light');
+        localStorage.setItem('theme', 'light');
+        showToast('Switched to Light Theme');
+      } else {
+        html.classList.remove('light');
+        html.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+        showToast('Switched to Dark Theme');
+      }
     }
 
     // Initialize Theme
-    const savedTheme = localStorage.getItem('preferred-theme') || 'dark';
-    setTheme(savedTheme);
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    if (savedTheme === 'light') {
+      document.documentElement.classList.remove('dark');
+      document.documentElement.classList.add('light');
+    } else {
+      document.documentElement.classList.add('dark');
+      document.documentElement.classList.remove('light');
+    }
 
-    // 21st.dev Spotlight cursor tracker
+    // Spotlight cursor tracker
     function handleSpotlight(e, card) {
       const rect = card.getBoundingClientRect();
       const x = e.clientX - rect.left;
@@ -878,51 +714,6 @@
       card.style.setProperty('--mouse-x', `${x}px`);
       card.style.setProperty('--mouse-y', `${y}px`);
     }
-
-    // Command palette modal handler
-    const cmdModal = document.getElementById('commandModal');
-    function openCommandMenu() {
-      cmdModal.classList.remove('hidden');
-      cmdModal.classList.add('flex');
-      document.getElementById('cmdInput').focus();
-    }
-
-    function closeCommandMenu() {
-      cmdModal.classList.add('hidden');
-      cmdModal.classList.remove('flex');
-    }
-
-    function cmdNavigate(hash) {
-      closeCommandMenu();
-      window.location.hash = hash;
-    }
-
-    function filterCommandItems(query) {
-      const items = document.querySelectorAll('.cmd-item');
-      items.forEach(item => {
-        const text = item.innerText.toLowerCase();
-        item.style.display = text.includes(query.toLowerCase()) ? 'flex' : 'none';
-      });
-    }
-
-    // Keyboard shortcuts (⌘K or Ctrl+K & Escape)
-    window.addEventListener('keydown', (e) => {
-      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
-        e.preventDefault();
-        if (cmdModal.classList.contains('hidden')) {
-          openCommandMenu();
-        } else {
-          closeCommandMenu();
-        }
-      }
-      if (e.key === 'Escape' && !cmdModal.classList.contains('hidden')) {
-        closeCommandMenu();
-      }
-    });
-
-    cmdModal.addEventListener('click', (e) => {
-      if (e.target === cmdModal) closeCommandMenu();
-    });
 
     // Copy to clipboard with toast
     function copyContact(type) {
